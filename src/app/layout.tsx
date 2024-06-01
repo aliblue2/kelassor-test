@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="max-w-[1200px] w-full mx-auto bg-background font-vazir">
+      <body className="max-w-[1200px] px-5 w-full mx-auto bg-background font-vazir">
         <DesktopNav />
         {children}
       </body>

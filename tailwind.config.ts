@@ -11,7 +11,7 @@ const config: Config = {
       fontFamily: { vazir: ["Vazir", "sans"] },
       colors: {
         primary: {
-          base: "#145B51",
+          base: "#197265",
           20: "#145B51",
           30: "#115047",
           40: "#0F443D",

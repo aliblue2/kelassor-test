@@ -21,6 +21,9 @@
   .shadow2 {
     box-shadow: -2px 2px 15px 0px rgba(140, 144, 149, 0.25);
   }
+  .shadow3 {
+    box-shadow: 0px 0px 15px 5px rgba(140, 144, 149, 0.55);
+  }
 
   /*todo default font size */
   h1 {
