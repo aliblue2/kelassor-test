@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 
 //HeroItem component
@@ -10,7 +10,7 @@ const HeroItem = () => {
         alt="hero image"
         width={400}
         height={400}
-        className="size-2/3"
+        className="w-2/3"
       />
       <span className="absolute py-2 px-4 font-bold bg-white rounded-[10px] text-primary-base top-[84%] right-[5%] shadow3">
         سرنخو بگیر
