@@ -2,25 +2,30 @@
 import Nav from "./Nav/Nav";
 import CustomButton from "@/components/Ui/CustomButton";
 import { bootcamp } from "@/types/bootcamp";
+import { MenuIcon } from "lucide-react";
+import Image from "next/image";
 
 //NavBar component
 type NavBarProps = { bootcamps: bootcamp[] };
 const NavBar = ({ bootcamps }: NavBarProps) => {
   return (
-    <div className="h-[60px] border-b grid grid-cols-[1fr_8fr_1fr] ">
-      <div className="flex items-center justify-center">
+    <div className="flex md:grid border-b h-[60px] grid-cols-[1fr_4fr_1fr]">
+      <div className="flex justify-center items-center">
         <CustomButton //todo
         >
           todo
         </CustomButton>
       </div>
-      <div className="md:block hidden">
+      <div className="hidden md:block">
         <Nav bootcamps={bootcamps} />
       </div>
       <div //todo get svg logo
-        className="p-2 h-full"
+        className="flex ms-auto justify-end items-center p-2 h-full"
       >
-        LOGO
+        <Image src="/logo.png" alt="logo" width={100} height={100} />
+      </div>
+      <div className="flex justify-center items-center md:hidden text-primary-base">
+        <MenuIcon size={36} />
       </div>
     </div>
   );
