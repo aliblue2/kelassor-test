@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 //MazeContainer component
@@ -7,7 +8,9 @@ type MazeContainerProps = {
 };
 const MazeContainer = ({ children, side }: MazeContainerProps) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
       className={`${
         side === "right" ? "rounded-l-[50px]" : "rounded-l-[50px]"
       } relative maze`}
@@ -19,7 +22,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
         } `}
       />
       <div className="p-5 md:p-10">{children}</div>
-    </div>
+    </motion.div>
   );
 };
 
