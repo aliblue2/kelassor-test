@@ -29,9 +29,7 @@ const InfiniteScroll = () => {
       animate={{ opacity: 1 }}
       className="flex overflow-hidden relative justify-center items-center w-full flex-col bg-background"
     >
-      <motion.div
-        animate={{ height: (itemSize + 8) * isDesktop, }}
-        initial={{ height: 0 }}
+      <div
         style={{
           height: (itemSize + 8) * isDesktop,
           maxWidth: itemSize * isDesktop * (images.length + 1),
@@ -68,7 +66,7 @@ const InfiniteScroll = () => {
           </motion.div>
         ))}
         <div className="absolute bg-gradient-to-r from-background via-transparent to-background size-full via-[percentage:20%_80%]"></div>
-      </motion.div>
+      </div>
       <span className="mt-4 font-bold text-center text-sm md:text-base text-light-1">
         افتخار همکاری با سازمان‌های فوق
       </span>
