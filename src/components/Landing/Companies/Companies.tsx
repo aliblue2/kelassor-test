@@ -19,9 +19,9 @@ const images = [
 const itemSize = 80;
 const duration = 10;
 const InfiniteScroll = () => {
-  const [isDesktop, setisDesktop] = useState(1); //1: no, 2: yes
+  const [isDesktop, setisDesktop] = useState(2); //1: no, 2: yes
   useEffect(() => {
-    if (window && window.innerWidth > 768) setisDesktop(2);
+    if (window && window.innerWidth < 768) setisDesktop(1);
   }, []);
   return (
     <div className="flex overflow-hidden relative justify-center items-center w-full flex-col bg-background">

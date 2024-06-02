@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -38,7 +39,11 @@ const HeroCarousel = () => {
   }, []);
 
   return (
-    <div className="flex relative justify-center w-full h-[190px] md:h-[450px]">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      className="flex relative justify-center w-full h-[190px] md:h-[450px]"
+    >
       {/* carousel content ********************************************************************************/}
       <div className="flex overflow-hidden size-full rounded-[20px] md:rounded-[50px]">
         {data.map((item) => (
@@ -101,7 +106,7 @@ const HeroCarousel = () => {
           <ChevronRightIcon className="relative duration-200 left-[1px] size-3 text-gray-2 md:size-8" />
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

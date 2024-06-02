@@ -22,7 +22,7 @@ const NavBar = ({ bootcamps }: NavBarProps) => {
       <div //todo get svg logo
         className="flex ms-auto justify-end items-center p-2 h-full"
       >
-        <Image src="/logo.png" alt="logo" width={100} height={100} />
+        <img src="/logo.png" alt="logo" width={100} height={60} />
       </div>
       <div className="flex justify-center items-center md:hidden text-primary-base">
         <MenuIcon size={36} />
