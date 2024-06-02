@@ -7,12 +7,13 @@ type AnimatedPathProps = {
   height: number; //height
   viewBox: string; //viewBox of svg
   duration: number; //duration
+  className?: string; //className
 };
 export type AnimatedPathHandles = {
   animate: () => void; //call ref.current.animate() to animate
 };
 const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
-  ({ id, path, width, height, viewBox, duration }, ref) => {
+  ({ id, path, width, height, viewBox, duration, className }, ref) => {
     const svgRef = useRef<null | SVGUseElement>(null);
     const pathsStyles = {
       strokeDasharray: "12 6",
@@ -41,10 +42,10 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
       animate,
     }));
     return (
-      <svg width={width} height={height} viewBox={viewBox}>
+      <svg width={width} height={height} viewBox={viewBox} className={className}>
         <defs>
           <path 
-          className="stroke-secondary-base shadow3"
+          className="stroke-current shadow3"
           id={`${id}-path`} d={path} />
           <mask id={`${id}-mask`}>
             <use
