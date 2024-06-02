@@ -25,7 +25,7 @@ const Landing = () => {
         />
       </div>
       <Hero />
-      <div className="flex mt-32 relative z-30">
+      <div className="flex mt-16 md:mt-32 relative z-30">
         <Companies />
       </div>
     </div>

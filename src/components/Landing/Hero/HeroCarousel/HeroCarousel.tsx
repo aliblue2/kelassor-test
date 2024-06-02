@@ -63,7 +63,7 @@ const HeroCarousel = () => {
               alt="coding"
             />
             {/* text ********************************************************************************/}
-            <div className="flex absolute flex-col gap-5 justify-center items-center text-xl font-extrabold text-white size-full">
+            <div className="flex absolute flex-col gap-2 md:gap-5 justify-center items-center text-xl font-extrabold text-white size-full">
               <h1>بوت‌کمپ</h1>
               <h2>{item.title}</h2>
               <h2>{item.title2}</h2>
