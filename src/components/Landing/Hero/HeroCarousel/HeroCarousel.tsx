@@ -72,12 +72,19 @@ const HeroCarousel = () => {
         ))}
       </div>
 
-      {/* buttons ********************************************************************************/}
-      <div className="flex absolute bottom-0 gap-4 px-2 pt-2 md:gap-6 md:px-5 md:pt-2 bg-background rounded-t-[15px] h-[30px] md:h-[60px] md:rounded-t-[30px]">
-        {/* left and right fancy corners ********************************************************************************/}
-        <div className="absolute bottom-0 rounded-br-full w-full h-1/2 right-full md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]" />
-        <div className="absolute bottom-0 rounded-bl-full w-full h-1/2 left-full md:shadow-[-50px_0_0_0_theme(colors.background)] shadow-[-30px_0_0_0_theme(colors.background)]" />
+      {/* controls  ********************************************************************************/}
+      {/* container to prevent wierd overflow ********************************************************************************/}
+      <div className="flex overflow-hidden absolute bottom-0 justify-center w-full h-[30px] md:h-[60px]">
+        {/* control's background ********************************************************************************/}
+        <div className="flex relative h-full w-[136px] md:w-[260px] bg-background rounded-t-[15px] md:rounded-t-[30px]">
+          {/* fancy outer border radius ********************************************************************************/}
+          <div className="absolute bottom-0 rounded-br-full w-full h-1/2 right-full md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]" />
+          <div className="absolute bottom-0 rounded-bl-full w-full h-1/2 left-full md:shadow-[-50px_0_0_0_theme(colors.background)] shadow-[-30px_0_0_0_theme(colors.background)]" />
+        </div>
+      </div>
 
+      {/* control buttons ********************************************************************************/}
+      <div className="flex absolute bottom-0 gap-4 px-2 pt-2 md:gap-6 md:px-5 md:pt-2 h-[30px] md:h-[60px]">
         {/* prev button ********************************************************************************/}
         <button
           className="flex justify-center items-center bg-white relative rounded-full size-6 shadow2 md:size-[60px] hover:[&>*]:scale-125"
@@ -87,7 +94,7 @@ const HeroCarousel = () => {
         </button>
 
         {/* indicator ********************************************************************************/}
-        <div className="flex gap-2 justify-center items-center">
+        <div className="flex relative md:top-1 top-[2px] gap-2 justify-center items-center">
           {data.map((item, i) => (
             <span
               key={item.title}
