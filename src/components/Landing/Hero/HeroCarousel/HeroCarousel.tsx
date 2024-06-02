@@ -63,7 +63,7 @@ const HeroCarousel = () => {
               alt="coding"
             />
             {/* text ********************************************************************************/}
-            <div className="flex absolute flex-col gap-2 md:gap-5 justify-center items-center text-xl font-extrabold text-white size-full">
+            <div className="flex absolute flex-col gap-2 justify-center items-center text-xl font-extrabold text-white md:gap-5 size-full">
               <h1>بوت‌کمپ</h1>
               <h2>{item.title}</h2>
               <h2>{item.title2}</h2>
@@ -76,9 +76,11 @@ const HeroCarousel = () => {
       {/* container to prevent wierd overflow ********************************************************************************/}
       <div className="flex overflow-hidden absolute bottom-0 justify-center w-full h-[30px] md:h-[60px]">
         {/* control's background ********************************************************************************/}
-        <div className="flex relative h-full w-[136px] md:w-[260px] bg-background rounded-t-[15px] md:rounded-t-[30px]">
+        <div className="flex relative h-full w-[136px] bg-background rounded-t-[15px] md:w-[260px] md:rounded-t-[30px]">
           {/* fancy outer border radius ********************************************************************************/}
-          <div className="absolute bottom-0 rounded-br-full w-full h-1/2 right-full md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]" />
+          <div
+            className=" absolute bottom-0 right-full rounded-br-full w-full h-1/2 md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]"
+          />
           <div className="absolute bottom-0 rounded-bl-full w-full h-1/2 left-full md:shadow-[-50px_0_0_0_theme(colors.background)] shadow-[-30px_0_0_0_theme(colors.background)]" />
         </div>
       </div>
@@ -94,7 +96,7 @@ const HeroCarousel = () => {
         </button>
 
         {/* indicator ********************************************************************************/}
-        <div className="flex relative md:top-1 top-[2px] gap-2 justify-center items-center">
+        <div className="flex relative gap-2 justify-center items-center md:top-1 top-[2px]">
           {data.map((item, i) => (
             <span
               key={item.title}
