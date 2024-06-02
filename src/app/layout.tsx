@@ -29,7 +29,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   ];
   return (
     <html lang="en">
-      <body className="px-5 mx-auto w-full max-w-[1200px] bg-background font-vazir">
+      <body className="px-5 mx-auto w-screen overflow-x-hidden max-w-[1200px] bg-background font-vazir">
         <NavBar bootcamps={bootcamps} />
         {children}
       </body>
