@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/Layout/NavBar/NavBar";
+import { bootcamp } from "@/types/bootcamp";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,21 +10,27 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = { children: React.ReactNode };
 const RootLayout = async ({ children }: RootLayoutProps) => {
-  const { bootcamps, courses } = await fetch(
-    `${process.env.BASE_URL}/header/header_sections.php`,
-    {
-      method: "POST",
-      body: JSON.stringify({
-        API_KEY: process.env.API_KEY,
-        Content_Type: process.env.Content_Type,
-      }),
-      cache: "no-store",
-    }
-  ).then((res) => res.json());
+  // const { bootcamps, courses } = await fetch(
+  //   `${process.env.BASE_URL}/header/header_sections.php`,
+  //   {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       API_KEY: process.env.API_KEY,
+  //       Content_Type: process.env.Content_Type,
+  //     }),
+  //     cache: "no-store",
+  //   }
+  // ).then((res) => res.json());
+  const bootcamps: bootcamp[] = [
+    { url: "", logo: "", status: "", header_title: "bc1" },
+    { url: "", logo: "", status: "", header_title: "bc2" },
+    { url: "", logo: "", status: "", header_title: "bc3" },
+    { url: "", logo: "", status: "", header_title: "bc4" },
+  ];
   return (
     <html lang="en">
       <body className="max-w-[1200px] px-5 w-full mx-auto bg-background font-vazir">
-        <NavBar bootcamps={bootcamps}/>
+        <NavBar bootcamps={bootcamps} />
         {children}
       </body>
     </html>
