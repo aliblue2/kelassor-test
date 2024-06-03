@@ -8,7 +8,6 @@ type NavDropdownItemProps = {
 const NavDropdownItem = ({ to, title }: NavDropdownItemProps) => {
   return (
     <Link
-      dir="rtl"
       className="py-2 leading-8 text-ellipsis line-clamp-1 hover:text-primary-base"
       href={{
         pathname: to,

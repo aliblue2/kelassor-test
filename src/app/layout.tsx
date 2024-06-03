@@ -29,12 +29,10 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
     { url: "", logo: "", status: "", header_title: "bc4" },
   ];
   return (
-    <html lang="en">
-      <body className="flex overflow-x-hidden flex-col w-screen min-h-dvh bg-background font-vazir">
-        <div className="px-5 mx-auto w-full max-w-[1200px]">
-          <NavBar bootcamps={bootcamps} />
-          {children}
-        </div>
+    <html dir="rtl" lang="en">
+      <body className="flex overflow-x-hidden overflow-y-auto flex-col w-screen min-h-dvh bg-background font-vazir">
+        <NavBar bootcamps={bootcamps} />
+        {children}
         <Footer />
       </body>
     </html>

@@ -28,7 +28,7 @@ const Nav = ({ bootcamps }: NavProps) => {
   return (
     <div className="flex flex-col items-center h-full font-bold">
       {/*Nav links********************************************************************************/}
-      <div dir="rtl" className="flex relative h-full top-1 gap-2 px-2 [&>*]:w-28">
+      <div className="flex relative h-full top-1 gap-2 px-2 [&>*]:w-28">
 
         <NavButton to="/">خانه</NavButton>
 
