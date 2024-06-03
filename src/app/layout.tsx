@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/Layout/NavBar/NavBar";
 import { bootcamp } from "@/types/bootcamp";
+import Footer from "@/components/Layout/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,9 +30,12 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   ];
   return (
     <html lang="en">
-      <body className="px-5 mx-auto w-screen overflow-x-hidden max-w-[1200px] bg-background font-vazir">
-        <NavBar bootcamps={bootcamps} />
-        {children}
+      <body className="flex overflow-x-hidden flex-col w-screen min-h-dvh bg-background font-vazir">
+        <div className="px-5 mx-auto w-full max-w-[1200px]">
+          <NavBar bootcamps={bootcamps} />
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );
