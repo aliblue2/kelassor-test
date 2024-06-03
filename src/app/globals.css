@@ -23,7 +23,6 @@
 
   .maze {
     background-image: url("../../public/Landing/maze.png");
-    background-blend-mode: screen;
     background-color: theme(colors.secondary.75);
   }
 
@@ -40,34 +39,28 @@
 
   /*todo default font size */
   h1 {
-    font-size: 2.25rem /* 48px */;
-    line-height: 2.5rem;
+    font-size: 48px;
     font-weight: 700;
   }
   h2 {
-    font-size: 1.875rem /* 36 */;
-    line-height: 2.25rem /* 40 */;
+    font-size: 40px;
     font-weight: 700;
   }
   h3 {
-    font-size: 1.5rem /* 30 */;
-    line-height: 2rem /* 36 */;
+    font-size: 32px;
     font-weight: 700;
   }
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     h1 {
-      font-size: 3rem /* 48px */;
-      line-height: 1;
+      font-size: 24px;
       font-weight: 700;
     }
     h2 {
-      font-size: 2.25rem /* 36 */;
-      line-height: 2.5rem /* 40 */;
+      font-size: 20px;
       font-weight: 700;
     }
     h3 {
-      font-size: 1.875rem /* 30 */;
-      line-height: 2.25rem /* 36 */;
+      font-size: 16px;
       font-weight: 700;
     }
   }

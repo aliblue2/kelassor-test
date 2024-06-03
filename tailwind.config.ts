@@ -22,7 +22,7 @@ const config: Config = {
           20: "#389990",
           30: "#5E9C93",
           50: "#8CB8B2",
-          75: "#C5DCD9",
+          75: "#D4ECEA",
         },
         black: "#0C0C0C",
         background: "#FBFBFB",
