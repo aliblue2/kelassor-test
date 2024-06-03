@@ -10,7 +10,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
   const variants = {
     initial: {
       opacity: 0,
-      x: 100,
+      x: side === "right" ? 100 : -100,
     },
     whileInView: {
       opacity: 1,
@@ -28,13 +28,13 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
         initial="initial"
         whileInView="whileInView"
         className={`${
-          side === "right" ? "rounded-r-[50px]" : "rounded-l-[50px]"
+          side === "left" ? "rounded-r-[50px]" : "rounded-l-[50px]"
         } relative maze container bg-opacity-30 !p-0`}
       >
         {/* fill outside container ********************************************************************************/}
         <div
           className={`absolute w-screen h-full maze ${
-            side === "left" ? "right-[-100vw]" : "left-[-100vw]"
+            side === "right" ? "right-[-100vw]" : "left-[-100vw]"
           } `}
         />
         <div className="p-5 md:p-10">{children}</div>
