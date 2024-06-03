@@ -15,22 +15,26 @@ const NavBar = ({ bootcamps }: NavBarProps) => {
       animate={{ y: 0, opacity: 1 }}
       className="flex md:grid border-b h-[60px] grid-cols-[1fr_4fr_1fr]"
     >
-      <div className="flex justify-center items-center">
-        <CustomButton //todo
-        >
-          todo
-        </CustomButton>
+      {/* menu for phone ********************************************************************************/}
+      <div className="flex justify-center items-center md:hidden text-primary-base">
+        <MenuIcon size={36} />
       </div>
-      <div className="hidden md:block">
-        <Nav bootcamps={bootcamps} />
-      </div>
+      {/* logo ********************************************************************************/}
       <div //todo get svg logo
         className="flex ms-auto justify-end items-center p-2 h-full"
       >
         <img src="/logo.png" alt="logo" width={100} height={60} />
       </div>
-      <div className="flex justify-center items-center md:hidden text-primary-base">
-        <MenuIcon size={36} />
+      {/* navigation for desktop ********************************************************************************/}
+      <div className="hidden md:block">
+        <Nav bootcamps={bootcamps} />
+      </div>
+      {/* account ********************************************************************************/}
+      <div className="flex justify-center items-center">
+        <CustomButton //todo
+        >
+          todo
+        </CustomButton>
       </div>
     </motion.div>
   );

@@ -6,9 +6,9 @@ import HeroItem from "./HeroItem";
 type HeroProps = { className?: string };
 const Hero = ({ className }: HeroProps) => {
   return (
-    <div className={`flex md:h-[450px] flex-col-reverse items-center md:flex-row mb-10 mt-1 gap-5 ${className}`}>
-      <HeroItem />
+    <div className={`flex md:h-[450px] flex-col items-center md:flex-row mb-10 mt-1 gap-5 ${className}`}>
       <HeroCarousel />
+      <HeroItem />
     </div>
   );
 };

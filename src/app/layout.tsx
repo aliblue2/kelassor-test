@@ -30,7 +30,7 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   ];
   return (
     <html dir="rtl" lang="en">
-      <body className="flex overflow-x-hidden overflow-y-auto flex-col w-screen min-h-dvh bg-background font-vazir">
+      <body className="flex overflow-x-hidden overflow-y-auto flex-col w-screen min-h-dvh bg-background font-vazir text-black">
         <NavBar bootcamps={bootcamps} />
         {children}
         <Footer />

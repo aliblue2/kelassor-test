@@ -8,21 +8,23 @@ type MazeContainerProps = {
 };
 const MazeContainer = ({ children, side }: MazeContainerProps) => {
   return (
-    <motion.div
-      // initial={{ opacity: 0, x: 100 }}
-      // whileInView={{ opacity: 1, x: 0 }}
-      className={`${
-        side === "right" ? "rounded-r-[50px]" : "rounded-l-[50px]"
-      } relative maze`}
-    >
-      {/* fill outside container ********************************************************************************/}
-      <div
-        className={`absolute w-screen h-full maze ${
-          side === "left" ? "right-[-100vw]" : "left-[-100vw]"
-        } `}
-      />
-      <div className="p-5 md:p-10">{children}</div>
-    </motion.div>
+    <div className="w-screen overflow-hidden p-5">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        className={`${
+          side === "right" ? "rounded-r-[50px]" : "rounded-l-[50px]"
+        } relative maze container !p-0`}
+      >
+        {/* fill outside container ********************************************************************************/}
+        <div
+          className={`absolute w-screen h-full maze ${
+            side === "left" ? "right-[-100vw]" : "left-[-100vw]"
+          } `}
+        />
+        <div className="p-10">{children}</div>
+      </motion.div>
+    </div>
   );
 };
 

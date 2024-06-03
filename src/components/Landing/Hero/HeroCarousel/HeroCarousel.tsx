@@ -43,6 +43,7 @@ const HeroCarousel = () => {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       className="flex relative justify-center w-full h-[190px] md:h-[450px]"
+      dir="ltr"
     >
       {/* carousel content ********************************************************************************/}
       <div className="flex overflow-hidden size-full rounded-[20px] md:rounded-[50px]">
@@ -78,9 +79,7 @@ const HeroCarousel = () => {
         {/* control's background ********************************************************************************/}
         <div className="flex relative h-full w-[136px] bg-background rounded-t-[15px] md:w-[260px] md:rounded-t-[30px]">
           {/* fancy outer border radius ********************************************************************************/}
-          <div
-            className=" absolute bottom-0 right-full rounded-br-full w-full h-1/2 md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]"
-          />
+          <div className=" absolute bottom-0 right-full rounded-br-full w-full h-1/2 md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]" />
           <div className="absolute bottom-0 rounded-bl-full w-full h-1/2 left-full md:shadow-[-50px_0_0_0_theme(colors.background)] shadow-[-30px_0_0_0_theme(colors.background)]" />
         </div>
       </div>
