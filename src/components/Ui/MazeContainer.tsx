@@ -9,10 +9,10 @@ type MazeContainerProps = {
 const MazeContainer = ({ children, side }: MazeContainerProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 100 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      // initial={{ opacity: 0, x: 100 }}
+      // whileInView={{ opacity: 1, x: 0 }}
       className={`${
-        side === "right" ? "rounded-l-[50px]" : "rounded-l-[50px]"
+        side === "right" ? "rounded-r-[50px]" : "rounded-l-[50px]"
       } relative maze`}
     >
       {/* fill outside container ********************************************************************************/}
