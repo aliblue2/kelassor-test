@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 //InfiniteScroll component
 //data below can be props
@@ -18,7 +18,8 @@ const images = [
 ];
 const itemSize = 80;
 const duration = 10;
-const InfiniteScroll = () => {
+type InfiniteScrollProps = { className?: string };
+const InfiniteScroll = ({ className }: InfiniteScrollProps) => {
   const [isDesktop, setisDesktop] = useState(2); //1: no, 2: yes
   useEffect(() => {
     if (window && window.innerWidth < 768) setisDesktop(1);
@@ -27,7 +28,7 @@ const InfiniteScroll = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex overflow-hidden relative justify-center items-center w-full bg flex-col "
+      className={`flex overflow-hidden relative justify-center items-center w-full bg flex-col ${className}`}
     >
       <div className="flex border-y border-y-light-2 size-full">
         <div

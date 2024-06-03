@@ -15,6 +15,7 @@ const Landing = () => {
 
   return (
     <div className="flex relative flex-col gap-16 md:gap-32">
+      {/* first path animation ********************************************************************************/}
       <div className="w-full bg-black z-20 top-12 absolute">
         <div className="relative container">
           <AnimatedPath
@@ -29,13 +30,18 @@ const Landing = () => {
           />
         </div>
       </div>
+
+      {/* hero section ********************************************************************************/}
       <Hero className="container " />
-      <div className="flex relative z-30 ">
-        <Companies />
-      </div>
+
+      {/* companies section ********************************************************************************/}
+      <Companies className="z-30" />
+
+      {/* what we do section ********************************************************************************/}
       <MazeContainer side="left">
         <WhatWeDo />
       </MazeContainer>
+      
     </div>
   );
 };
