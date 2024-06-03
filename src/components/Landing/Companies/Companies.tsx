@@ -27,45 +27,47 @@ const InfiniteScroll = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="flex overflow-hidden relative justify-center items-center w-full flex-col bg-background"
+      className="flex overflow-hidden relative justify-center items-center w-full bg flex-col "
     >
-      <div
-        style={{
-          height: (itemSize + 8) * isDesktop,
-          maxWidth: itemSize * isDesktop * (images.length + 1),
-        }}
-        className="flex border-y border-y-light-2 overflow-hidden relative w-full h-full py-1 md:py-2"
-      >
-        {images.map((item, index) => (
-          <motion.div
-            key={item + index}
-            className="object-contain rounded-full overflow-hidden bg-black absolute left-[-100%]"
-            style={{
-              height: itemSize * isDesktop,
-              width: itemSize * isDesktop,
-            }}
-            animate={{
-              left: [
-                -itemSize * isDesktop,
-                itemSize * isDesktop * (images.length + 1),
-              ],
-            }}
-            transition={{
-              duration: duration,
-              delay: (index * duration) / images.length,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            <Image
-              height={itemSize * isDesktop}
-              width={itemSize * isDesktop}
-              src={item}
-              alt={`company ${index}`}
-            />
-          </motion.div>
-        ))}
-        <div className="absolute bg-gradient-to-r from-background via-transparent to-background size-full via-[percentage:20%_80%]"></div>
+      <div className="flex border-y border-y-light-2 size-full">
+        <div
+          style={{
+            height: (itemSize + 8) * isDesktop,
+            maxWidth: itemSize * isDesktop * (images.length + 1),
+          }}
+          className="flex overflow-hidden relative size-full mx-auto py-1 md:py-2"
+        >
+          {images.map((item, index) => (
+            <motion.div
+              key={item + index}
+              className="object-contain rounded-full overflow-hidden absolute left-[-100%]"
+              style={{
+                height: itemSize * isDesktop,
+                width: itemSize * isDesktop,
+              }}
+              animate={{
+                left: [
+                  -itemSize * isDesktop,
+                  itemSize * isDesktop * (images.length + 1),
+                ],
+              }}
+              transition={{
+                duration: duration,
+                delay: (index * duration) / images.length,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              <Image
+                height={itemSize * isDesktop}
+                width={itemSize * isDesktop}
+                src={item}
+                alt={`company ${index}`}
+              />
+            </motion.div>
+          ))}
+          <div className="absolute bg-gradient-to-r from-background via-transparent to-background size-full via-[percentage:20%_80%]"></div>
+        </div>
       </div>
       <span className="mt-4 font-bold text-center text-sm md:text-base text-light-1">
         افتخار همکاری با سازمان‌های فوق
