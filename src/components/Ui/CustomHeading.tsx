@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useInView } from "framer-motion";
+import { ReactNode, useRef } from "react";
 
 //CustomHeading component
 type CustomHeadingProps = {
@@ -14,6 +14,8 @@ const CustomHeading = ({
   side = "right",
   circle = false,
 }: CustomHeadingProps) => {
+  const triggerRef = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(triggerRef);
   return (
     <div
       className={`flex relative flex-col w-fit ${
@@ -23,18 +25,23 @@ const CustomHeading = ({
       {circle && (
         <motion.div
           initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ margin: "-100px 0px 0px 0px" }}
-          transition={{ delay: 0.3 }}
+          animate={isInView ? { scale: 1 } : { scale: 0 }}
+          transition={{ delay: 0.5 }}
           className="size-16 md:size-32 absolute bg-secondary-75 -top-8 md:-top-16 -right-4 md:-right-8 -z-10 rounded-full"
         />
       )}
-      {children}
       <motion.div
+        initial={{ opacity: 0 }}
+        transition={{ delay: 0.5 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      >
+        {children}
+      </motion.div>
+      <motion.div
+        ref={triggerRef}
         initial={{ width: 0 }}
         whileInView={{ width: "50%" }}
-        transition={{ delay: 0.3 }}
-        viewport={{ margin: "-100px 0px 0px 0px" }}
+        transition={{ delay: 0.5 }}
         className="h-1 mt-2 bg-primary-20 rounded-full"
       />
     </div>
