@@ -7,11 +7,26 @@ type MazeContainerProps = {
   side: "left" | "right";
 };
 const MazeContainer = ({ children, side }: MazeContainerProps) => {
+  const variants = {
+    initial: {
+      opacity: 0,
+      x: 100,
+    },
+    whileInView: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        opacity: { delay: 0.2, ease: "easeInOut", duration: 0.2 },
+        x: { delay: 0.2, ease: "easeInOut", duration: 0.5 },
+      },
+    },
+  };
   return (
     <div className="w-screen overflow-hidden p-5">
       <motion.div
-        initial={{ opacity: 0, x: 100 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        variants={variants}
+        initial="initial"
+        whileInView="whileInView"
         className={`${
           side === "right" ? "rounded-r-[50px]" : "rounded-l-[50px]"
         } relative maze container bg-opacity-30 !p-0`}
