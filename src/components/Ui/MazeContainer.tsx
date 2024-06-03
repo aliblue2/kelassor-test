@@ -22,11 +22,12 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
     },
   };
   return (
-    <div className="w-screen overflow-hidden p-5">
+    <div className="overflow-hidden p-5 w-screen">
       <motion.div
         variants={variants}
         initial="initial"
         whileInView="whileInView"
+        viewport={{ margin: "-100px 0px 0px 0px" }}
         className={`${
           side === "left" ? "rounded-r-[50px]" : "rounded-l-[50px]"
         } relative maze container bg-opacity-30 !p-0`}

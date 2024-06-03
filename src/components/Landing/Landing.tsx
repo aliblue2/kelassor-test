@@ -5,6 +5,7 @@ import Hero from "./Hero/Hero";
 import AnimatedPath, { AnimatedPathHandles } from "./AnimatedPath/AnimatedPath";
 import MazeContainer from "../Ui/MazeContainer";
 import WhatWeDo from "./WhatWeDo/WhatWeDo";
+import WhyUs from "./WhyUs/WhyUs";
 
 //Landing component
 const Landing = () => {
@@ -38,10 +39,15 @@ const Landing = () => {
       <Companies className="z-30" />
 
       {/* what we do section ********************************************************************************/}
-      <MazeContainer side="left">
+      <MazeContainer side="right">
         <WhatWeDo />
       </MazeContainer>
-      
+
+      {/* why us section ********************************************************************************/}
+      <WhyUs />
+      <MazeContainer side="right">
+        <WhatWeDo />
+      </MazeContainer>
     </div>
   );
 };

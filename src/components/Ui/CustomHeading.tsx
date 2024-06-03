@@ -24,7 +24,8 @@ const CustomHeading = ({
         <motion.div
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
-          transition={{ delay: 0.2 }}
+          viewport={{ margin: "-100px 0px 0px 0px" }}
+          transition={{ delay: 0.3 }}
           className="size-16 md:size-32 absolute bg-secondary-75 -top-8 md:-top-16 -right-4 md:-right-8 -z-10 rounded-full"
         />
       )}
@@ -32,7 +33,8 @@ const CustomHeading = ({
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: "50%" }}
-        transition={{ delay: 0.2 }}
+        transition={{ delay: 0.3 }}
+        viewport={{ margin: "-100px 0px 0px 0px" }}
         className="h-1 mt-2 bg-primary-20 rounded-full"
       />
     </div>
