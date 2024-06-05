@@ -6,6 +6,7 @@ import AnimatedPath, { AnimatedPathHandles } from "./AnimatedPath/AnimatedPath";
 import MazeContainer from "../Ui/MazeContainer";
 import WhatWeDo from "./WhatWeDo/WhatWeDo";
 import WhyUs from "./WhyUs/WhyUs";
+import BootCamps from "./BootCamps/BootCamps";
 
 //Landing component
 const Landing = () => {
@@ -46,7 +47,7 @@ const Landing = () => {
       {/* why us section ********************************************************************************/}
       <WhyUs />
       <MazeContainer side="right">
-        <WhatWeDo />
+        <BootCamps />
       </MazeContainer>
     </div>
   );
