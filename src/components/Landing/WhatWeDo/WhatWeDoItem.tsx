@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 //WhatWeDoItem component
@@ -8,8 +9,15 @@ type WhatWeDoItemProps = {
   image: string;
 };
 const WhatWeDoItem = ({ text, image }: WhatWeDoItemProps) => {
+  const variants = {
+    initial: { opacity: 0, x: 100 },
+    animate: { opacity: 1, x: 0 },
+  };
   return (
-    <div className="flex flex-col p-2 w-full bg-white aspect-[3/4] rounded-[20px]">
+    <motion.div
+      variants={variants}
+      className="flex flex-col p-2 w-full bg-white aspect-[3/4] rounded-[20px]"
+    >
       <div className="w-full p-5 md:p-10 h-2/3 bg-light-4 rounded-[12px] overflow-hidden">
         <Image
           src={image}
@@ -22,7 +30,7 @@ const WhatWeDoItem = ({ text, image }: WhatWeDoItemProps) => {
       <span className="flex text-sm md:text-base text-center justify-center items-center font-bold grow text-gray-3">
         {text}
       </span>
-    </div>
+    </motion.div>
   );
 };
 
