@@ -9,7 +9,7 @@ import { useRef } from "react";
 const WhyUs = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(triggerRef, {
-    once: false,
+    once: true,
     margin: "0px 0px 100px 0px",
   });
   const variations = {
@@ -24,7 +24,8 @@ const WhyUs = () => {
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ margin: "-100px 0px 0px 0px" }}
+        viewport={{ once: true }}
+        // viewport={{ margin: "-100px 0px 0px 0px", once:true }}
         transition={{ delay: 0.5 }}
         className=" maze w-full h-[580px] flex flex-row-reverse relative rounded-[50px] mt-32"
       >

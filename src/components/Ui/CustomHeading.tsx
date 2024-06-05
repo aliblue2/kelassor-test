@@ -15,7 +15,7 @@ const CustomHeading = ({
   circle = false,
 }: CustomHeadingProps) => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(triggerRef);
+  const isInView = useInView(triggerRef, { once: true });
   return (
     <div
       className={`flex relative flex-col w-fit ${

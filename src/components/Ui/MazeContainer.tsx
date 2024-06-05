@@ -27,7 +27,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
         variants={variants}
         initial="initial"
         whileInView="whileInView"
-        viewport={{ margin: "-100px 0px 0px 0px" }}
+        viewport={{ once: true, margin: "-100px 0px 0px 0px" }}
         className={`${
           side === "left" ? "rounded-r-[50px]" : "rounded-l-[50px]"
         } relative maze container bg-opacity-30 !p-0`}

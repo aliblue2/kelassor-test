@@ -8,12 +8,12 @@ import { useRef } from "react";
 //WhatWeDo component
 const WhatWeDo = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(triggerRef);
+  const isInView = useInView(triggerRef, { once: true });
   const Pvariant = {
     animate: {
-      opacity:1,
+      opacity: 1,
       transition: {
-        delay: .5,
+        delay: 0.5,
         staggerChildren: 0.1, // Stagger animation by 0.1 seconds between children
         when: "beforeChildren",
       },
@@ -28,7 +28,6 @@ const WhatWeDo = () => {
         variants={Pvariant}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
-        // whileInView={"animate"}
         className="grid grid-cols-2 md:flex flex-col md:flex-row gap-2 md:gap-5 mt-10 md:mb-10 justify-between"
       >
         <WhatWeDoItem
