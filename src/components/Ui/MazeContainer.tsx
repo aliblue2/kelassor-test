@@ -38,7 +38,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
             side === "right" ? "right-[-100vw]" : "left-[-100vw]"
           } `}
         />
-        <div className="p-5 md:p-10">{children}</div>
+        <div className="p-[30px] md:p-10">{children}</div>
       </motion.div>
     </div>
   );
