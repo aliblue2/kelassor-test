@@ -28,7 +28,7 @@ const HeroItem = () => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0 + 0.2 }}
-        className="absolute z-30 py-2 px-4 font-bold bg-white rounded-[10px] text-primary-base top-[84%] right-[5%] shadow3"
+        className="absolute z-30 py-4 px-8 font-bold bg-white rounded-[20px] text-primary-base top-[84%] right-[5%] shadow3"
       >
         سرنخو بگیر
       </motion.span>
@@ -37,7 +37,7 @@ const HeroItem = () => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.4 + 0.2 }}
-        className="absolute z-30 py-2 px-4 font-bold bg-white rounded-[10px] text-primary-base top-[48%] right-[-3%] shadow3"
+        className="absolute z-30 py-4 px-8 font-bold bg-white rounded-[20px] text-primary-base top-[48%] right-[-3%] shadow3"
       >
         بوتکمپ؟
       </motion.span>
@@ -46,7 +46,7 @@ const HeroItem = () => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 + 0.2 }}
-        className="absolute z-30 py-2 px-4 font-bold bg-white rounded-[10px] text-primary-base top-[37px] left-[24px] shadow3"
+        className="absolute z-30 py-4 px-8 font-bold bg-white rounded-[20px] text-primary-base top-[37px] left-[24px] shadow3"
       >
         چه رشته‌هایی؟
       </motion.span>
@@ -55,7 +55,7 @@ const HeroItem = () => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.2 + 0.2 }}
-        className="absolute z-30 py-2 px-4 font-bold bg-white rounded-[10px] text-primary-base top-[62%] left-[-3%] shadow3"
+        className="absolute z-30 py-4 px-8 font-bold bg-white rounded-[20px] text-primary-base top-[62%] left-[-3%] shadow3"
       >
         کلاسور؟
       </motion.span>
