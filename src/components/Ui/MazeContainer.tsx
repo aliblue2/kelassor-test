@@ -29,7 +29,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
         whileInView="whileInView"
         viewport={{ once: true, margin: "-100px 0px 0px 0px" }}
         className={`${
-          side === "left" ? "rounded-r-[50px]" : "rounded-l-[50px]"
+          side === "left" ? "rounded-r-[30px] md:rounded-r-[50px]" : "rounded-l-[30px] md:rounded-l-[50px]"
         } relative maze container bg-opacity-30 !p-0`}
       >
         {/* fill outside container ********************************************************************************/}
@@ -38,7 +38,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
             side === "right" ? "right-[-100vw]" : "left-[-100vw]"
           } `}
         />
-        <div className="p-[30px] md:p-10">{children}</div>
+        <div className="p-[10px] md:p-10">{children}</div>
       </motion.div>
     </div>
   );

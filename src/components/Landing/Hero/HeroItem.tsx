@@ -8,7 +8,7 @@ const HeroItem = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="flex relative justify-center items-end h-full md:text-xl bg-primary-base aspect-square rounded-[20px] shrink-0 md:rounded-[50px]"
+      className="flex relative justify-center items-end h-full md:text-xl bg-primary-base aspect-square rounded-[30px] shrink-0 md:rounded-[50px]"
     >
       <div className="w-2/3 overflow-hidden">
         <motion.div

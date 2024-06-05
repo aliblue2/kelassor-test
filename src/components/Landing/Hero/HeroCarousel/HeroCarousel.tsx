@@ -46,7 +46,7 @@ const HeroCarousel = () => {
       dir="ltr"
     >
       {/* carousel content ********************************************************************************/}
-      <div className="flex overflow-hidden size-full rounded-[20px] md:rounded-[50px]">
+      <div className="flex overflow-hidden size-full rounded-[30px] md:rounded-[50px]">
         {data.map((item) => (
           <div
             style={{
