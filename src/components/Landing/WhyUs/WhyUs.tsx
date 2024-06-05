@@ -10,7 +10,7 @@ const WhyUs = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(triggerRef, {
     once: false,
-    margin: "-50px 0px 50px 0px",
+    margin: "0px 0px 100px 0px",
   });
   const variations = {
     initial: { opacity: 0, scale: 0 },
