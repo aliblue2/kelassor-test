@@ -5,23 +5,24 @@ import { InfoIcon } from "lucide-react";
 const title = "پایتون / جنگو";
 const BootCampCard = () => {
   const variants = {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0 },
+    initial: { opacity: 0, y: -10 },
+    animate: { opacity: 1, y: 0 },
   };
   return (
-    <motion.div
+    <motion.button
       variants={variants}
-      className="flex flex-col bg-white p-2 rounded-[20px] aspect-square"
+      className="flex flex-col [&>*]: [&>*]:w-full bg-white p-2 hover:shadow2 [&>*]:duration-200 hover:p-1 duration-200 rounded-[20px] aspect-square group"
     >
-      <div className="bg-primary-base h-3/5 rounded-[12px]">todo</div>
-      <div className="text-lg font-bold flex grow items-center justify-center">
+      <div className="bg-primary-base h-3/5 group-hover:rounded-[16px] rounded-[12px]">
+      todo</div>
+      <div className="text-lg font-bold group-hover:scale-105 flex grow items-center justify-center">
         {title}
       </div>
-      <button className="text-sm gap-2 grow font-thin text-gray-4 flex items-center justify-center border-t-light-3 border-t">
+      <div className="text-sm gap-2 grow font-thin text-gray-4 flex items-center justify-center border-t-light-3 border-t group-hover:text-primary-base">
         <InfoIcon size={14} />
         اطلاعات بیشتر
-      </button>
-    </motion.div>
+      </div>
+    </motion.button>
   );
 };
 

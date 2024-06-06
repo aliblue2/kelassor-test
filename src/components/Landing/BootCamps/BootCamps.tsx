@@ -4,6 +4,7 @@ import CustomHeading from "@/components/Ui/CustomHeading";
 import BootCampCard from "./BootCampCard";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import CustomButton from "@/components/Ui/CustomButton";
 
 //BootCamps component
 const BootCamps = () => {
@@ -35,7 +36,11 @@ const BootCamps = () => {
         <BootCampCard />
         <BootCampCard />
         <BootCampCard />
+        <BootCampCard />
+        <BootCampCard />
+        <BootCampCard />
       </motion.div>
+      <CustomButton className="mt-5 self-center">مشاهده همه</CustomButton>
     </div>
   );
 };
