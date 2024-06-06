@@ -7,6 +7,7 @@ import MazeContainer from "../Ui/MazeContainer";
 import WhatWeDo from "./WhatWeDo/WhatWeDo";
 import WhyUs from "./WhyUs/WhyUs";
 import BootCamps from "./BootCamps/BootCamps";
+import Feedback from "./Feedback/Feedback";
 
 //Landing component
 const Landing = () => {
@@ -17,7 +18,8 @@ const Landing = () => {
 
   return (
     <div className="flex relative flex-col gap-16 md:gap-32">
-      {/* first path animation ********************************************************************************/}
+      {/******************************************************************************
+        first path animation */}
       <div className="w-full bg-black z-20 top-12 absolute">
         <div className="relative container">
           <AnimatedPath
@@ -33,22 +35,33 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* hero section ********************************************************************************/}
+      {/******************************************************************************
+        hero section */}
       <Hero className="container " />
 
-      {/* companies section ********************************************************************************/}
+      {/******************************************************************************
+        companies section */}
       <Companies className="z-30" />
 
-      {/* what we do section ********************************************************************************/}
+      {/******************************************************************************
+        what we do section */}
       <MazeContainer side="right">
         <WhatWeDo />
       </MazeContainer>
 
-      {/* why us section ********************************************************************************/}
+      {/******************************************************************************
+        why us section */}
       <WhyUs />
+
+      {/******************************************************************************
+        BootCamps section */}
       <MazeContainer side="right">
         <BootCamps />
       </MazeContainer>
+
+      {/******************************************************************************
+        user feedbac section */}
+      <Feedback />
     </div>
   );
 };
