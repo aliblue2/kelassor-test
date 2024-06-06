@@ -7,7 +7,7 @@ interface CustomButtonProps
 const CustomButton = ({ children, className, ...props }: CustomButtonProps) => {
   return (
     <button
-      className={`px-4 py-2 text-white bg-primary-base rounded ${className}`}
+      className={`px-8 py-2 text-white bg-primary-base rounded-[10px] ${className}`}
       {...props}
     >
       {children}

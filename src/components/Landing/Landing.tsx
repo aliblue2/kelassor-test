@@ -8,6 +8,7 @@ import WhatWeDo from "./WhatWeDo/WhatWeDo";
 import WhyUs from "./WhyUs/WhyUs";
 import BootCamps from "./BootCamps/BootCamps";
 import Feedback from "./Feedback/Feedback";
+import Articles from "./Articles/Articles";
 
 //Landing component
 const Landing = () => {
@@ -62,6 +63,12 @@ const Landing = () => {
       {/******************************************************************************
         user feedbac section */}
       <Feedback />
+
+      {/******************************************************************************
+        articles section */}
+      <MazeContainer side="left">
+        <Articles />
+      </MazeContainer>
     </div>
   );
 };
