@@ -27,19 +27,20 @@ const WhyUs = () => {
         viewport={{ once: true }}
         // viewport={{ margin: "-100px 0px 0px 0px", once:true }}
         transition={{ delay: 0.5 }}
-        className=" maze w-full h-[200px] md:h-[580px] flex flex-row-reverse relative rounded-[50px] md:mt-32 mt-36"
+        className="flex relative flex-row-reverse mt-36 w-full md:mt-32 maze h-[200px] rounded-[50px] md:h-[580px]"
       >
         {/* no color on left side ********************************************************************************/}
-        <div className="bg-background w-1/2 h-full hidden md:block" />
+        <div className="hidden w-1/2 h-full md:block bg-background" />
         {/* the circle ********************************************************************************/}
-        <div className="absolute size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 border border-primary-base bg-background rounded-full text-sm  md:text-lg">
+        <div className="absolute z-0 size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 rounded-full text-sm bg-background md:text-lg"></div>
+        <div className="absolute z-30 size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 text-sm md:text-lg">
           <motion.div
             variants={variations}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             viewport={{ margin: "-100px 0px 0px 0px" }}
             transition={{ delay: 0 + 0.5 }}
-            className="absolute z-30 py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[70%] right-[-25%] md:right-[-5%] shadow3"
+            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[70%] right-[-25%] md:right-[-5%] shadow3"
           >
             پروژه محور
           </motion.div>
@@ -48,7 +49,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.2 + 0.5 }}
-            className="absolute z-30 py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[30%] right-[-25%] md:right-[-5%] shadow3"
+            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[30%] right-[-25%] md:right-[-5%] shadow3"
           >
             مدرسین مطرح
           </motion.div>
@@ -57,7 +58,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.4 + 0.5 }}
-            className="absolute z-30 py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[-3%] right-[20%] md:right-[35%] shadow3"
+            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[-3%] right-[20%] md:right-[35%] shadow3"
           >
             منتورینگ حضوری
           </motion.div>
@@ -66,7 +67,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.6 + 0.5 }}
-            className="absolute z-30 py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[20%] left-[-20%] md:left-[-10%] shadow3"
+            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[20%] left-[-20%] md:left-[-10%] shadow3"
           >
             معرفی برای استخدام
           </motion.div>
@@ -75,7 +76,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.8 + 0.5 }}
-            className="absolute z-30 py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[60%] left-[-25%] md:left-[-15%] shadow3"
+            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[60%] left-[-25%] md:left-[-15%] shadow3"
           >
             ارائه مدرک معتبر
           </motion.div>
@@ -85,7 +86,7 @@ const WhyUs = () => {
           alt="why us image"
           width={512}
           height={512}
-          className="md:size-[450px] size-[200px] absolute left-[50%] translate-x-[-50%] md:translate-x-0 md:left-40 bottom-0"
+          className="md:size-[450px] size-[200px] absolute z-30 left-[50%] translate-x-[-50%] md:translate-x-0 md:left-40 bottom-0"
         />
       </motion.div>
       <div ref={triggerRef}></div>

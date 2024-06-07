@@ -20,7 +20,7 @@ const config: Config = {
         secondary: {
           base: "#46BFB4",
           20: "#389990",
-          30: "#5E9C93",
+          30: "#7ECABF",
           50: "#8CB8B2",
           75: "#D4ECEA",
         },

@@ -45,7 +45,6 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
       <svg width={width} height={height} viewBox={viewBox} className={className}>
         <defs>
           <path 
-          className="stroke-current shadow3"
           id={`${id}-path`} d={path} />
           <mask id={`${id}-mask`}>
             <use

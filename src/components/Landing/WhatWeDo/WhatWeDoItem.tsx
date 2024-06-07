@@ -16,7 +16,7 @@ const WhatWeDoItem = ({ text, image }: WhatWeDoItemProps) => {
   return (
     <motion.div
       variants={variants}
-      className="flex flex-col p-2 w-full bg-white aspect-[3/4] rounded-[20px]"
+      className="flex relative z-50 flex-col p-2 w-full bg-white aspect-[3/4] rounded-[20px]"
     >
       <div className="w-full p-5 md:p-10 h-2/3 bg-light-4 rounded-[12px] overflow-hidden">
         <Image

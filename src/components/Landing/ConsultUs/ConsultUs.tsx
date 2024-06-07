@@ -1,20 +1,27 @@
 "use client";
 
 import CustomHeading from "@/components/Ui/CustomHeading";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 //ConsultUs component
-const ConsultUs = () => {
+type ConsultUsProps = { pathAnimate: () => void };
+const ConsultUs = ({ pathAnimate }: ConsultUsProps) => {
   return (
     <div className="container flex flex-col">
       <CustomHeading circle>
         <h2>مشاوره با ما</h2>
       </CustomHeading>
-    
+
       <div className="flex flex-col-reverse gap-5 mt-10 md:flex-row">
         {/******************************************************************************
           consult form */}
-        <div className="relative bg-primary-base h-[400px] rounded-[30px] md:rounded-[50px] grow">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, transition: { delay: 1 } }}
+          viewport={{once:true}}
+          className="relative bg-primary-base h-[400px] rounded-[30px] md:rounded-[50px] grow"
+        >
           {/******************************************************************************
             white cutout */}
           <div
@@ -42,10 +49,16 @@ const ConsultUs = () => {
               "
             />
           </div>
-        </div>
+        </motion.div>
         {/******************************************************************************
           kelaasor logo */}
-        <div className="flex justify-center items-center p-16 bg-white aspect-square h-[240px] rounded-[30px] md:rounded-[50px] shadow2 md:h-[400px]">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1, transition: { delay: 0.8 } }}
+          viewport={{once:true}}
+          onViewportEnter={pathAnimate}
+          className="flex justify-center items-center p-16 bg-white aspect-square h-[240px] rounded-[30px] md:rounded-[50px] shadow2 md:h-[400px]"
+        >
           <Image
             src="/logo2.png"
             alt="logo"
@@ -53,7 +66,7 @@ const ConsultUs = () => {
             width={400}
             className="object-contain size-full"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

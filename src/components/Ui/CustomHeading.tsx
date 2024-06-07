@@ -22,6 +22,8 @@ const CustomHeading = ({
         side === "left" ? "items-end self-end" : null
       }`}
     >
+      {/******************************************************************************
+        circle */}
       {circle && (
         <motion.div
           initial={{ scale: 0 }}
@@ -30,6 +32,8 @@ const CustomHeading = ({
           className="size-16 md:size-32 absolute bg-secondary-75 -top-8 md:-top-16 -right-4 md:-right-8 -z-10 rounded-full"
         />
       )}
+      {/******************************************************************************
+        content */}
       <motion.div
         initial={{ opacity: 0 }}
         transition={{ delay: 0.5 }}
@@ -37,12 +41,14 @@ const CustomHeading = ({
       >
         {children}
       </motion.div>
+      {/******************************************************************************
+        underline */}
       <motion.div
         ref={triggerRef}
         initial={{ width: 0 }}
         whileInView={{ width: "50%" }}
         transition={{ delay: 0.5 }}
-        className="h-1 mt-2 bg-primary-20 rounded-full"
+        className="h-2 mt-2 bg-primary-20 rounded-full"
       />
     </div>
   );

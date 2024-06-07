@@ -32,7 +32,7 @@ const Articles = () => {
         variants={Pvariant}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
-        className="grid gap-2 md:gap-5 w-full mt-10 grid-cols-2 md:grid-cols-4"
+        className="grid relative z-20 gap-2 md:gap-5 w-full mt-10 grid-cols-2 md:grid-cols-4"
       >
         {/*todo todo: map data from backend */}
         <ArticleCard />

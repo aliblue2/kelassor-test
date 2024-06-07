@@ -11,7 +11,7 @@ const BootCampCard = () => {
   return (
     <motion.button
       variants={variants}
-      className="flex flex-col [&>*]: [&>*]:w-full bg-white p-2 hover:shadow2 [&>*]:duration-200 hover:p-1 duration-200 rounded-[20px] aspect-square group"
+      className="relative z-20 flex flex-col [&>*]: [&>*]:w-full bg-white p-2 hover:shadow2 [&>*]:duration-200 hover:p-1 duration-200 rounded-[20px] aspect-square group"
     >
       <div className="bg-primary-base h-3/5 group-hover:rounded-[16px] rounded-[12px]">
       todo</div>
