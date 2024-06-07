@@ -25,7 +25,7 @@ const NavDropdown = ({ children, title }: NavDropdownProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`absolute bg-background font-normal w-[200%] divide-y overflow-hidden flex flex-col justify-start top-full rounded-b-md px-2 border-secondary-base duration-200 ${
+            className={`absolute bg-background font-normal w-[150%] divide-y overflow-hidden flex flex-col justify-start top-full rounded-b-md px-2 border-secondary-base duration-200 ${
               isOpen ? "border" : null
             } border-t-background`}
           >

@@ -14,7 +14,7 @@ const NavBar = ({ bootcamps }: NavBarProps) => {
     <motion.div
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="flex container md:grid border-b h-[60px] grid-cols-[1fr_4fr_1fr]"
+      className="relative z-50 flex container md:grid border-b h-[60px] grid-cols-[1fr_4fr_1fr]"
     >
       {/* menu for phone ********************************************************************************/}
       <div className="flex justify-center items-center md:hidden text-primary-base">
