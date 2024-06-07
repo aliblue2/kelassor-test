@@ -16,7 +16,7 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
   ({ id, path, width, height, viewBox, duration, className }, ref) => {
     const svgRef = useRef<null | SVGUseElement>(null);
     const pathsStyles = {
-      strokeDasharray: "12 6",
+      strokeDasharray: "6 6",
       strokeWidth: "4",
     };
 
@@ -44,7 +44,7 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
     return (
       <svg width={width} height={height} viewBox={viewBox} className={className}>
         <defs>
-          <path 
+          <path
           id={`${id}-path`} d={path} />
           <mask id={`${id}-mask`}>
             <use
@@ -59,6 +59,7 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
         <use
           style={pathsStyles}
           className="stroke-current"
+          strokeLinecap="round"
           xlinkHref={`#${id}-path`}
           mask={`url(#${id}-mask)`}
           fill="none"

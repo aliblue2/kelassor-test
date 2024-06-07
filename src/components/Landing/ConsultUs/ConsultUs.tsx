@@ -18,7 +18,7 @@ const ConsultUs = ({ pathAnimate }: ConsultUsProps) => {
           consult form */}
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1, transition: { delay: 1 } }}
+          whileInView={{ opacity: 1, transition: { delay: 1.2 } }}
           viewport={{once:true}}
           className="relative bg-primary-base h-[400px] rounded-[30px] md:rounded-[50px] grow"
         >
