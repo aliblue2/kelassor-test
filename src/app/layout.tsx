@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = { children: React.ReactNode };
 const RootLayout = async ({ children }: RootLayoutProps) => {
+  ////////////////////////////////////////////////////////////
   // const { bootcamps, courses } = await fetch(
   //   `${process.env.BASE_URL}/header/header_sections.php`,
   //   {
@@ -22,12 +23,16 @@ const RootLayout = async ({ children }: RootLayoutProps) => {
   //     cache: "no-store",
   //   }
   // ).then((res) => res.json());
+  ////////////////////////////////////////////////////////////
+  // delete bellow uncomment above
+  ////////////////////////////////////////////////////////////
   const bootcamps: bootcamp[] = [
     { url: "", logo: "", status: "", header_title: "bc1" },
     { url: "", logo: "", status: "", header_title: "bc2" },
     { url: "", logo: "", status: "", header_title: "bc3" },
     { url: "", logo: "", status: "", header_title: "bc4" },
   ];
+  ////////////////////////////////////////////////////////////
   return (
     <html dir="rtl" lang="en">
       <body className="flex overflow-x-hidden overflow-y-auto flex-col w-screen min-h-dvh bg-background font-vazir text-black">
