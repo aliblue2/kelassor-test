@@ -1,4 +1,5 @@
 "use client";
+import CustomButton from "@/components/Ui/CustomButton";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
@@ -42,7 +43,7 @@ const HeroCarousel = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="flex relative justify-center w-full h-[190px] md:h-[450px]"
+      className="flex relative justify-center w-full h-[240px] md:h-[450px]"
       dir="ltr"
     >
       {/* carousel content ********************************************************************************/}
@@ -68,6 +69,7 @@ const HeroCarousel = () => {
               <h1>بوت‌کمپ</h1>
               <h2>{item.title}</h2>
               <h2>{item.title2}</h2>
+              <CustomButton>اطلاعات بیشتر</CustomButton>
             </div>
           </div>
         ))}
@@ -97,8 +99,9 @@ const HeroCarousel = () => {
         {/* indicator ********************************************************************************/}
         <div className="flex relative gap-2 justify-center items-center md:top-1 top-[2px]">
           {data.map((item, i) => (
-            <span
+            <button
               key={item.title}
+              onClick={()=>setIndex(i)}
               className={`rounded-full size-2 md:size-3 shadow2 duration-500 ${
                 index === i ? "bg-primary-base" : "bg-light-2"
               }`}
