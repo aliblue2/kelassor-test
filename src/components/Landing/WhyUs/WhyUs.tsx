@@ -5,6 +5,8 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
+const className =
+  "absolute py-2 md:py-4 px-4 md:px-8 font-bold bg-primary-base rounded-[20px] text-white shadow3";
 //WhyUs component
 const WhyUs = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
@@ -40,7 +42,7 @@ const WhyUs = () => {
             animate={isInView ? "animate" : "initial"}
             viewport={{ margin: "-100px 0px 0px 0px" }}
             transition={{ delay: 0 + 0.5 }}
-            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[70%] right-[-25%] md:right-[-5%] shadow3"
+            className={`${className} top-[70%] right-[-25%] md:right-[-5%]`}
           >
             پروژه محور
           </motion.div>
@@ -49,7 +51,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.2 + 0.5 }}
-            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[30%] right-[-25%] md:right-[-5%] shadow3"
+            className={`${className} top-[30%] right-[-25%] md:right-[-5%] `}
           >
             مدرسین مطرح
           </motion.div>
@@ -58,7 +60,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.4 + 0.5 }}
-            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[-3%] right-[20%] md:right-[35%] shadow3"
+            className={`${className} top-[-3%] right-[20%] md:right-[35%] `}
           >
             منتورینگ حضوری
           </motion.div>
@@ -67,7 +69,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.6 + 0.5 }}
-            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[20%] left-[-20%] md:left-[-10%] shadow3"
+            className={`${className} top-[20%] left-[-20%] md:left-[-10%] `}
           >
             معرفی برای استخدام
           </motion.div>
@@ -76,7 +78,7 @@ const WhyUs = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ delay: 0.8 + 0.5 }}
-            className="absolute py-4 px-8 font-bold bg-primary-base rounded-[20px] text-white top-[60%] left-[-25%] md:left-[-15%] shadow3"
+            className={`${className} top-[60%] left-[-25%] md:left-[-15%] `}
           >
             ارائه مدرک معتبر
           </motion.div>
