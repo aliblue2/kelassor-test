@@ -44,7 +44,7 @@ const FeedbackCarousel = () => {
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.5 }}
       viewport={{ once: true }}
-      className="flex flex-col"
+      className="flex flex-col w-full"
     >
       <div className="flex overflow-hidden shadow2 bg-white h-[400px] rounded-[30px] md:rounded-[50px]">
         {data.map((item) => (
