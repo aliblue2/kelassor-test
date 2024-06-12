@@ -211,7 +211,6 @@ const Landing = () => {
         consult us */}
       <ConsultUs pathAnimate={() => path9.current?.animate()} />
 
-      <div className="my-24"></div>
     </div>
   );
 };
