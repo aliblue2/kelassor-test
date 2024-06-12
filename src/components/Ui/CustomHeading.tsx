@@ -6,7 +6,7 @@ import { ReactNode, useRef } from "react";
 //CustomHeading component
 type CustomHeadingProps = {
   children: ReactNode;
-  side?: "left" | "right";
+  side?: "left" | "right" | "center";
   circle?: boolean;
 };
 const CustomHeading = ({
@@ -19,7 +19,11 @@ const CustomHeading = ({
   return (
     <div
       className={`flex relative flex-col w-fit ${
-        side === "left" ? "items-end self-end" : null
+        side === "left"
+          ? "items-end self-end"
+          : side === "center"
+            ? "items-center"
+            : null
       }`}
     >
       {/******************************************************************************
