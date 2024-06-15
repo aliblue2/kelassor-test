@@ -1,9 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import { InfoIcon } from "lucide-react";
-//BootCampCard component
+//FieldCard component
 const title = "پایتون / جنگو";
-const BootCampCard = () => {
+const FieldCard = () => {
   const variants = {
     initial: { opacity: 0, y: -10 },
     animate: { opacity: 1, y: 0 },
@@ -14,7 +14,8 @@ const BootCampCard = () => {
       className="relative z-20 flex flex-col [&>*]: [&>*]:w-full bg-white p-2 hover:shadow2 [&>*]:duration-200 hover:p-1 duration-200 rounded-[20px] aspect-square group"
     >
       <div className="bg-primary-base h-3/5 group-hover:rounded-[16px] rounded-[12px]">
-      todo</div>
+        todo
+      </div>
       <div className="text-lg font-bold group-hover:scale-105 flex grow items-center justify-center">
         {title}
       </div>
@@ -26,4 +27,4 @@ const BootCampCard = () => {
   );
 };
 
-export default BootCampCard;
+export default FieldCard;

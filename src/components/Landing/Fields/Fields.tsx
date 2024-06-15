@@ -1,15 +1,18 @@
 "use client";
 
 import CustomHeading from "@/components/Ui/CustomHeading";
-import BootCampCard from "./BootCampCard";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import CustomButton from "@/components/Ui/CustomButton";
+import FieldCard from "./FieldCard";
 
-//BootCamps component
-const BootCamps = () => {
+//Fields component
+const Fields = () => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(triggerRef, { once: true ,margin:"0px 0px -100px 0px" });
+  const isInView = useInView(triggerRef, {
+    once: true,
+    margin: "0px 0px -100px 0px",
+  });
   const Pvariant = {
     animate: {
       opacity: 1,
@@ -25,24 +28,23 @@ const BootCamps = () => {
       <CustomHeading>
         <h2>رشته‌های کلاسور</h2>
       </CustomHeading>
-      <motion.div 
+      <motion.div
         variants={Pvariant}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
-      className="grid gap-2 md:gap-5 w-full mt-10 grid-cols-2 md:grid-cols-4">
+        className="grid gap-2 md:gap-5 w-full mt-10 grid-cols-2 md:grid-cols-4"
+      >
         {/*todo todo: map data from backend */}
-        <BootCampCard />
-        <BootCampCard />
-        <BootCampCard />
-        <BootCampCard />
-        <BootCampCard />
-        <BootCampCard />
-        <BootCampCard />
-        <BootCampCard />
+        <FieldCard />
+        <FieldCard />
+        <FieldCard />
+        <FieldCard />
+        <FieldCard />
+        <FieldCard />
       </motion.div>
       <CustomButton className="mt-5 self-center">مشاهده همه</CustomButton>
     </div>
   );
 };
 
-export default BootCamps;
+export default Fields;

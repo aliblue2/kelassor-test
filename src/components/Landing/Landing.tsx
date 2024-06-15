@@ -6,11 +6,11 @@ import AnimatedPath, { AnimatedPathHandles } from "./AnimatedPath/AnimatedPath";
 import MazeContainer from "../Ui/MazeContainer";
 import WhatWeDo from "./WhatWeDo/WhatWeDo";
 import WhyUs from "./WhyUs/WhyUs";
-import BootCamps from "./BootCamps/BootCamps";
 import Feedback from "./Feedback/Feedback";
 import Articles from "./Articles/Articles";
 import ConsultUs from "./ConsultUs/ConsultUs";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import Fields from "./Fields/Fields";
 
 //Landing component
 const Landing = () => {
@@ -194,7 +194,7 @@ const Landing = () => {
       {/******************************************************************************
         BootCamps section */}
       <MazeContainer side="right">
-        <BootCamps />
+        <Fields />
       </MazeContainer>
 
       {/******************************************************************************
