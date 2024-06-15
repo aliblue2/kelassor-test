@@ -7,22 +7,25 @@ import { useState } from "react";
 
 const data = [
   {
-    name: "م2iحمد کریمی",
+    name: "نادیا بهنیا",
     role: "دانشجو",
     comment:
-      "Lorem ipsum dolor sit ametlorema Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis., officia excepteur ex fugiat reprehenderit enidolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+      "کلاسور شرایطی رو ایجاد میکنه که علاوه بر اهمیت یادگیری مطالب به مهارت افزایی کارجوها هم اهمیت میده که این واقعا قابل تشکر و قدردانی است.",
+    image: "/Landing/Feedback/nadia.png",
   },
   {
-    name: "مi3حمد کریمی",
+    name: "هادی جلیلی",
     role: "دانشجو",
     comment:
-      "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enidolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+      "مسیرشغلی کلاسور پکیج کاملی از یادگیری و کسب تجربه هستش؛ و مدت‌ها بود دنبال این‌چنین فرصتی بودم تا در زمینه موردعلاقه‌ام بتونم به صورت حرفه‌ای شاغل بشم.",
+    image: "/Landing/Feedback/jalili.jpg",
   },
   {
-    name: "مiح4مد کریمی",
+    name: "امیرحسین جعفری",
     role: "دانشجو",
     comment:
-      "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enidolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis.",
+      "بواسطه کلاسور تونستم در زمینه فروش و بازاریابی آموزش تخصصی ببینم و خیلی سریع وارد بازار کار بشم. از کلاسور بابت این فرصت فراهم‌شده نهایت تشکر و دارم.",
+    image: "/Landing/Feedback/jafari.jpg",
   },
 ];
 //FeedbackCarousel component
@@ -59,22 +62,20 @@ const FeedbackCarousel = () => {
               image and name */}
             <div className="flex gap-5 md:gap-10 ">
               <Image
-                src="/Landing/Feedback/1.jpg"
+                src={item.image}
                 alt="user photo"
                 width={160}
                 height={160}
                 className="size-[80px] rounded-[30px] shrink-0 md:rounded-[50px] md:size-[160px]"
               />
               <div className="flex flex-col gap-2 justify-center">
-                <p className=" text-2xl md:text-3xl font-semibold">
-                  {item.name}
-                </p>
-                <p className=" text-xl md:text-2xl font-medium">{item.role}</p>
+                <h3 className="font-semibold">{item.name}</h3>
+                <p className=" font-medium">{item.role}</p>
               </div>
             </div>
             {/******************************************************************************
               comment content */}
-            <p className="flex overflow-auto text-ellipsis md:text-xl md:font-medium grow">
+            <p className="flex overflow-auto text-ellipsis grow">
               {item.comment}
             </p>
           </div>
