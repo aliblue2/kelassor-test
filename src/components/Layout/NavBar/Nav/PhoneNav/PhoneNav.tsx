@@ -1,13 +1,13 @@
 "use client";
 
-import { bootcamp } from "@/types/bootcamp";
+import { bootcamp, bootcampSimple } from "@/types/bootcamp";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import PhoneNavGroup from "./PhoneNavGroup";
 
 //PhoneNav component
 type PhoneNavProps = {
-  bootcamps: bootcamp[];
+  bootcamps: bootcampSimple[];
   close: () => void;
 };
 const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {

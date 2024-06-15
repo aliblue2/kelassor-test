@@ -1,7 +1,7 @@
 "use client";
 import Nav from "./Nav/Nav";
 import CustomButton from "@/components/Ui/CustomButton";
-import { bootcamp } from "@/types/bootcamp";
+import { bootcamp, bootcampSimple } from "@/types/bootcamp";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import PhoneNav from "./Nav/PhoneNav/PhoneNav";
 //import Image from "next/image";
 
 //NavBar component
-type NavBarProps = { bootcamps: bootcamp[] };
+type NavBarProps = { bootcamps: bootcampSimple[] };
 const NavBar = ({ bootcamps }: NavBarProps) => {
   const [phoneNav, setphoneNav] = useState(false);
   return (

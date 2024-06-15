@@ -3,12 +3,12 @@ import NavButton from "./NavButton";
 import { useEffect, useRef } from "react";
 import NavDropdown from "./NavDropdown";
 import { usePathname } from "next/navigation";
-import { bootcamp } from "@/types/bootcamp";
+import { bootcampSimple } from "@/types/bootcamp";
 import NavDropdownItem from "./NavDropdownItem";
 import { AboutusIcon, CallusIcon, RulesIcon } from "@/components/Ui/Icons";
 
 //Nav component
-type NavProps = { bootcamps: bootcamp[] };
+type NavProps = { bootcamps: bootcampSimple[] };
 const Nav = ({ bootcamps }: NavProps) => {
   //pathname
   const location = usePathname();
@@ -37,7 +37,7 @@ const Nav = ({ bootcamps }: NavProps) => {
 
         <NavDropdown title="بوتکمپ‌ها">
           <NavDropdownItem to={`/bootcamp`}>همه‌ی بوتکمپ‌ها</NavDropdownItem>
-          {bootcamps.map((bc: bootcamp, index: number) =>
+          {bootcamps.map((bc: bootcampSimple, index: number) =>
             bc.status !== "notactive" ? (
               <NavDropdownItem key={index} to={`/bootcamp/${bc.url}`}>
                 {bc.header_title}
