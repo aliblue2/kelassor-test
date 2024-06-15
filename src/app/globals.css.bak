@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.25rem 0 1.25rem;
+}
+.heroCarouselBig {
+  clip-path: path(
+    "M745 50C745 22.3858 722.614 0 695 0H50C22.3858 0 0 22.3858 0 50V400C0 427.614 22.3858 450 50 450H212.499C229.722 450 243.684 436.038 243.684 418.815C243.684 401.593 257.645 387.631 274.868 387.631H471.063C488.286 387.631 502.248 401.593 502.248 418.815C502.248 436.038 516.21 450 533.432 450H695C722.614 450 745 427.614 745 400V50Z"
+  );
+}
+.heroCarouselSmall {
+  clip-path: path(
+    "M343 20C343 8.95431 334.046 0 323 0H20C8.9543 0 0 8.95431 0 20V172.375C0 183.421 8.95429 192.375 20 192.375H100.358C106.894 192.375 112.193 187.076 112.193 180.54C112.193 174.003 117.492 168.705 124.028 168.705H219.401C225.938 168.705 231.236 174.003 231.236 180.54C231.236 187.076 236.535 192.375 243.072 192.375H323C334.046 192.375 343 183.421 343 172.375V20Z"
+  );
+}
+
+.maze {
+  background-image: url("../../public/Landing/maze.png");
+  background-color: theme(colors.secondary.75);
+}
+
+/*shadows */
+.shadow1 {
+  box-shadow: -2px 2px 10px 0px rgba(140, 144, 149, 0.12);
+}
+.shadow2 {
+  box-shadow: -2px 2px 15px 0px rgba(140, 144, 149, 0.25);
+}
+.shadow3 {
+  box-shadow: 0px 0px 15px 5px rgba(140, 144, 149, 0.55);
+}
+
+/*default font size */
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+/*import font */
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 300;
+  src:
+    url("../assets/fonts/Vazir-Thin.woff2") format("woff2"),
+    /* WOFF2 */ url("../assets/fonts/Vazir-Thin.woff") format("woff"); /* WOFF */
+}
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url("../assets/fonts/Vazir-Light.woff2") format("woff2"),
+    /* WOFF2 */ url("../assets/fonts/Vazir-Light.woff") format("woff"); /* WOFF */
+}
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 500;
+  src:
+    url("../assets/fonts/Vazir.woff2") format("woff2"),
+    /* WOFF2 */ url("../assets/fonts/Vazir.woff") format("woff"); /* WOFF */
+}
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url("../assets/fonts/Vazir-Medium.woff2") format("woff2"),
+    /* WOFF2 */ url("../assets/fonts/Vazir-Medium.woff") format("woff"); /* WOFF */
+}
+@font-face {
+  font-family: "Vazir";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url("../assets/fonts/Vazir-Bold.woff2") format("woff2"),
+    /* WOFF2 */ url("../assets/fonts/Vazir-Bold.woff") format("woff"); /* WOFF */
+}
+
+/*custom scroll bar*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: theme(colors.secondary.base);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
