@@ -12,7 +12,7 @@ const NavDropdown = ({ children, title }: NavDropdownProps) => {
     <button
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      className="flex relative z-20 justify-center items-center"
+      className="flex flex-col relative z-20 justify-center items-center"
       onClick={() => setIsOpen((prev) => !prev)}
     >
       <span className="pb-1 flex">
@@ -25,7 +25,7 @@ const NavDropdown = ({ children, title }: NavDropdownProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={`absolute bg-background font-normal w-[150%] divide-y overflow-hidden flex flex-col justify-start top-full rounded-b-md px-2 border-secondary-base duration-200 ${
+            className={`absolute bg-background self-start font-normal min-w-[200%] divide-y overflow-hidden flex flex-col justify-start top-full rounded-b-md px-2 border-secondary-base duration-200 ${
               isOpen ? "border" : null
             } border-t-background`}
           >

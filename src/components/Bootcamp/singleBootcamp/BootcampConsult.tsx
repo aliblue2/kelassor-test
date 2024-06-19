@@ -1,24 +1,18 @@
 "use client";
 
+import ConsultForm from "@/components/Landing/ConsultUs/ConsultForm";
 import CustomHeading from "@/components/Ui/CustomHeading";
 import { HeadPhoneIcon, MessageIcon, PhoneIcon } from "@/components/Ui/Icons";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import ConsultForm from "./ConsultForm";
 
-//ConsultUs component
-type ConsultUsProps = { pathAnimate?: () => void };
-const ConsultUs = ({ pathAnimate }: ConsultUsProps) => {
+//BootcampConsult component
+const BootcampConsult = () => {
   return (
-    <div className="container flex flex-col">
-      <div className="mb-2">
-        <CustomHeading circle>
-          <h2>مشاوره با ما</h2>
-        </CustomHeading>
-      </div>
-      <div className="flex flex-col-reverse gap-5 md:flex-row">
-        {/******************************************************************************
-          consult form */}
+    <div className="flex flex-col gap-10">
+      <CustomHeading>
+        <h2>اطلاعات بیشتر می‌خوای؟</h2>
+      </CustomHeading>
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, transition: { delay: 1.2 } }}
@@ -68,26 +62,8 @@ const ConsultUs = ({ pathAnimate }: ConsultUsProps) => {
             </div>
           </div>
         </motion.div>
-        {/******************************************************************************
-          kelaasor logo */}
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1, transition: { delay: 0.8 } }}
-          viewport={{ once: true }}
-          onViewportEnter={pathAnimate ? pathAnimate : undefined}
-          className="flex justify-center items-center p-16 bg-white aspect-square h-[240px] rounded-[30px] shadow2 md:rounded-[50px] md:h-[400px]"
-        >
-          <Image
-            src="/logo2.png"
-            alt="logo"
-            height={400}
-            width={400}
-            className="object-contain size-full"
-          />
-        </motion.div>
-      </div>
     </div>
   );
 };
 
-export default ConsultUs;
+export default BootcampConsult;

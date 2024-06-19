@@ -19,7 +19,7 @@ const WhyUs = () => {
     animate: { opacity: 1, scale: 1 },
   };
   return (
-    <div className="flex flex-col container overflow-x-hidden !pt-16">
+    <div className="flex flex-col container overflow-x-hidden ">
       <CustomHeading circle={true} side="left">
         <h2>چرا کارجویان مارو انتخاب میکنن؟</h2>
       </CustomHeading>

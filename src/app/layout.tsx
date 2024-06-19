@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/Layout/NavBar/NavBar";
-import { bootcamp } from "@/types/bootcamp";
 import Footer from "@/components/Layout/Footer/Footer";
+import { getBootcamps } from "@/requests/getBootcamps";
+import Clg from "@/utils/Clg";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,26 +13,16 @@ export const metadata: Metadata = {
 type RootLayoutProps = { children: React.ReactNode };
 const RootLayout = async ({ children }: RootLayoutProps) => {
   ////////////////////////////////////////////////////////////
-  // const { bootcamps, courses } = await fetch(
-  //   `${process.env.BASE_URL}/header/header_sections.php`,
-  //   {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       API_KEY: process.env.API_KEY,
-  //       Content_Type: process.env.Content_Type,
-  //     }),
-  //     cache: "no-store",
-  //   }
-  // ).then((res) => res.json());
+  const { bootcamps } = await getBootcamps();
   ////////////////////////////////////////////////////////////
   // delete bellow uncomment above
   ////////////////////////////////////////////////////////////
-  const bootcamps: bootcamp[] = [
-    { url: "", logo: "", status: "", header_title: "bc1" },
-    { url: "", logo: "", status: "", header_title: "bc2" },
-    { url: "", logo: "", status: "", header_title: "bc3" },
-    { url: "", logo: "", status: "", header_title: "bc4" },
-  ];
+  // const bootcamps: bootcamp[] = [
+  //   { url: "", logo: "", status: "", header_title: "bc1" },
+  //   { url: "", logo: "", status: "", header_title: "bc2" },
+  //   { url: "", logo: "", status: "", header_title: "bc3" },
+  //   { url: "", logo: "", status: "", header_title: "bc4" },
+  // ];
   ////////////////////////////////////////////////////////////
   return (
     <html dir="rtl" lang="en">

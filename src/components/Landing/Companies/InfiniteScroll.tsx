@@ -7,10 +7,14 @@ import { useEffect, useState } from "react";
 //InfiniteScroll component
 type InfiniteScrollProps = {
   images: string[];
-  itemSize: number;
-  duration:number;
+  itemSize?: number;
+  duration?: number;
 };
-const InfiniteScroll = ({ images, itemSize, duration }: InfiniteScrollProps) => {
+const InfiniteScroll = ({
+  images,
+  itemSize = 80,
+  duration = 10,
+}: InfiniteScrollProps) => {
   const [isDesktop, setisDesktop] = useState(2); //1: no, 2: yes
   useEffect(() => {
     if (window && window.innerWidth < 768) setisDesktop(1);
@@ -28,7 +32,7 @@ const InfiniteScroll = ({ images, itemSize, duration }: InfiniteScrollProps) => 
           {images.map((item, index) => (
             <motion.div
               key={item + index}
-              className="object-contain rounded-full overflow-hidden absolute left-[-100%]"
+              className="absolute left-[-100%]"
               style={{
                 height: itemSize * isDesktop,
                 width: itemSize * isDesktop,
@@ -51,6 +55,7 @@ const InfiniteScroll = ({ images, itemSize, duration }: InfiniteScrollProps) => 
                 width={itemSize * isDesktop}
                 src={item}
                 alt={`company ${index}`}
+                className="object-contain size-full"
               />
             </motion.div>
           ))}

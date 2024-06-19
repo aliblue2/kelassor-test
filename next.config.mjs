@@ -26,8 +26,8 @@ const nextConfig = {
     MYSQL_PASSWORD: "Kela@$orBl0g1402",
     MYSQL_DB: "admin_kelaasor",
     RAYCHAT_TOKEN: "d3d3b279-20f2-45a0-93ca-7f0a5c48281e",
-    // NEXT_API_URL: "https://kelaasor.com",
-    NEXT_API_URL: "http://localhost:3000",
+    NEXT_API_URL: "https://kelaasor.com",
+    // NEXT_API_URL: "http://localhost:3000",
   },
   async redirects() {
     return [

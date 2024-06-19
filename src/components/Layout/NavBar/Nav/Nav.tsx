@@ -1,4 +1,4 @@
-">puse client";
+"use client";
 import NavButton from "./NavButton";
 import { useEffect, useRef } from "react";
 import NavDropdown from "./NavDropdown";
@@ -48,6 +48,7 @@ const Nav = ({ bootcamps }: NavProps) => {
 
         <NavButton to="/blog">بلاگ</NavButton>
 
+        {/*todo make it a link */}
         <NavDropdown title="ارتباط با ما">
           <NavDropdownItem to="">
             <span>درباره ما</span>

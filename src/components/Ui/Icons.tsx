@@ -165,7 +165,7 @@ export const RulesIcon = ({ className }: IconsProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_2001_5369)">
+      <g clipPath="url(#clip0_2001_5369)">
         <path
           d="M19.8183 11.8469V12.4917H4.33398V11.8469H19.8183Z"
           fill="#0C0C0C"
