@@ -6,6 +6,7 @@ import peopleGreen from "/public/Bootcamp/people-green.svg";
 
 import CustomHeading from "@/components/Ui/CustomHeading";
 import Image from "next/image";
+import { forwardRef } from "react";
 
 const features = [
   {
@@ -34,13 +35,13 @@ const features = [
   },
 ];
 //BootcampFeatures component
-const BootcampFeatures = () => {
+const BootcampFeatures = forwardRef<HTMLDivElement>((_,ref) => {
   return (
-    <div className="flex flex-col p-5 md:p-10 maze rounded-[30px]">
+    <div ref={ref} className="flex flex-col p-5 md:p-10 scroll-mt-40 maze rounded-[30px]">
       <CustomHeading>
         <h2>ویژگی‌های بوتکمپ کلاسور</h2>
       </CustomHeading>
-      <div className="grid grid-cols-2 grid-rows-2 md:grid-rows-1 md:grid-cols-4 gap-5 mt-5 md:mb-20 ">
+      <div className="grid grid-cols-2 grid-rows-2 gap-5 mt-5 md:grid-cols-4 md:grid-rows-1 md:mb-20">
         {features.map((item) => (
           <div
             key={item.id}
@@ -53,13 +54,13 @@ const BootcampFeatures = () => {
               alt="logo"
               width={100}
               height={100}
-              className="mt-auto scale-75 md:scale-100 "
+              className="mt-auto scale-75 md:scale-100"
             />
           </div>
         ))}
       </div>
     </div>
   );
-};
-
+})
+BootcampFeatures.displayName = "BootcampFeatures"
 export default BootcampFeatures;

@@ -1,44 +1,41 @@
 "use client";
 import CustomButton from "@/components/Ui/CustomButton";
+import { bootcampSimple } from "@/types/bootcamp";
 import { motion } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const data = [
-  {
-    image: "/Landing/Hero/img1.jpg",
-    title: "جاوا‌اسکریپت / ری‌اکت",
-    title2: "React / JavaScript",
-  },
-  {
-    image: "/Landing/Hero/img2.jpg",
-    title: "پایتون / جنگو",
-    title2: "Python / Django",
-  },
-  { image: "/Landing/Hero/img3.webp", title: "سئو", title2: "SEO" },
-]; //todo should be props and connected to backend
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 
 //HeroCarousel component
-const HeroCarousel = () => {
+type HeroCarouselProps = {
+  bootcamps: bootcampSimple[];
+};
+const HeroCarousel = ({ bootcamps }: HeroCarouselProps) => {
   //index of shown element
   const [index, setIndex] = useState(0);
 
   const prevIndex = () => {
     setIndex((e) => {
-      return e > 0 ? e - 1 : data.length - 1;
+      return e > 0 ? e - 1 : bootcamps.length - 1;
     });
   };
-  const nextIndex = () => {
+  const nextIndex = useCallback(() => {
     setIndex((e) => {
-      return e < data.length - 1 ? e + 1 : 0;
+      return e < bootcamps.length - 1 ? e + 1 : 0;
     });
-  };
+  }, [bootcamps]);
 
   useEffect(() => {
-    setInterval(nextIndex, 5000);
-  }, []);
-
+    const interval = setInterval(() => {
+      nextIndex();
+    }, 5000);
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [nextIndex]);
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -48,28 +45,29 @@ const HeroCarousel = () => {
     >
       {/* carousel content ********************************************************************************/}
       <div className="flex overflow-hidden size-full rounded-[30px] md:rounded-[50px]">
-        {data.map((item) => (
+        {bootcamps.map((item) => (
           <div
             style={{
               translate: `${-100 * index}%`,
             }}
             className="relative duration-500 size-full shrink-0"
-            key={item.title}
+            key={item.header_title}
           >
             {/* image ********************************************************************************/}
             <Image
               className="object-cover absolute size-full brightness-50"
               width={800}
               height={500}
-              src={item.image}
+              src={item.logo_banner}
               alt="coding"
             />
             {/* text ********************************************************************************/}
             <div className="flex absolute flex-col gap-2 justify-center items-center text-xl font-extrabold text-white md:gap-5 size-full">
               <h1>بوت‌کمپ</h1>
-              <h2>{item.title}</h2>
-              <h2>{item.title2}</h2>
-              <CustomButton>اطلاعات بیشتر</CustomButton>
+              <h2>{item.header_title}</h2>
+              <CustomButton>
+                <Link href={"/bootcamp/" + item.url}>اطلاعات بیشتر</Link>
+              </CustomButton>
             </div>
           </div>
         ))}
@@ -87,7 +85,7 @@ const HeroCarousel = () => {
       </div>
 
       {/* control buttons ********************************************************************************/}
-      <div className="flex absolute bottom-0 gap-4 px-2 pt-2 md:gap-6 md:px-5 md:pt-2 h-[30px] md:h-[60px]">
+      <div className="flex absolute bottom-0 gap-2 px-2 pt-2 md:px-5 md:pt-2 h-[30px] md:h-[60px]">
         {/* prev button ********************************************************************************/}
         <button
           className="flex justify-center items-center bg-white relative rounded-full size-6 shadow2 md:size-[60px] hover:[&>*]:scale-125"
@@ -97,11 +95,11 @@ const HeroCarousel = () => {
         </button>
 
         {/* indicator ********************************************************************************/}
-        <div className="flex relative gap-2 justify-center items-center md:top-1 top-[2px]">
-          {data.map((item, i) => (
+        <div className="flex relative gap-1 justify-center items-center md:top-1 top-[2px]">
+          {bootcamps.map((item, i) => (
             <button
-              key={item.title}
-              onClick={()=>setIndex(i)}
+              key={item.header_title}
+              onClick={() => setIndex(i)}
               className={`rounded-full size-2 md:size-3 shadow2 duration-500 ${
                 index === i ? "bg-primary-base" : "bg-light-2"
               }`}

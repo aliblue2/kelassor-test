@@ -1,4 +1,4 @@
-">puse client";
+"use client";
 
 import CustomHeading from "@/components/Ui/CustomHeading";
 import Image from "next/image";
@@ -11,15 +11,15 @@ const BootcampPaymentMethod = () => {
       <CustomHeading circle side="left">
         <h2>نحوه‌ی پرداخت</h2>
       </CustomHeading>
-      <div className="flex flex-col gap-5 text-4xl font-bold md:flex-row text-gray-3">
-        <div className="flex justify-between items-center py-10 px-20 shrink-0 bg-secondary-75 grow rounded-[30px]">
+      <div className="flex flex-col gap-5 text-2xl md:text-4xl font-bold md:flex-row text-gray-3">
+        <div className="flex justify-between items-center py-5 md:py-10 px-5 md:px-20 shrink-0 bg-secondary-75 grow rounded-[30px]">
           پرداخت نقدی
           <div className="bg-error flex flex-col items-center justify-center text-xl text-white size-24 rounded-[20px]">
             <div>20%</div>
             <div>تخفیف</div>
           </div>
         </div>
-        <div className="flex justify-between items-center py-10 px-20 shrink-0 bg-secondary-75 grow rounded-[30px]">
+        <div className="flex justify-between items-center py-5 md:py-10 px-5 md:px-20 shrink-0 bg-secondary-75 grow rounded-[30px]">
           <div>
             پرداخت اقساطی
             <div className="mt-2 text-sm font-normal">

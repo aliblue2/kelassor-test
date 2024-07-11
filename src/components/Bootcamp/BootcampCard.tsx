@@ -1,14 +1,21 @@
 "use client";
 import { bootcampSimple } from "@/types/bootcamp";
-import { motion } from "framer-motion";
 import { InfoIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 //BootCampCard component
 type BootcampCardProps = { data: bootcampSimple };
 const BootCampCard = ({ data }: BootcampCardProps) => {
   return (
-    <motion.button className="shadow2 flex flex-col [&>*]:w-full bg-white p-2 hover:shadow3 [&>*]:duration-200 hover:p-1 duration-200 rounded-[20px] h-[350px] w-full md:w-auto aspect-[3/4] md:aspect-[4/3] group">
-      <div className="h-3/5 bg-primary-base rounded-[12px] group-hover:rounded-[16px]">
-        todo
+    <Link href={"/bootcamp/"+data.url} className="shadow2 flex flex-col [&>*]:w-full bg-white p-2 hover:shadow3 [&>*]:duration-200 hover:p-1 duration-200 rounded-[20px] h-[350px] w-full md:w-auto aspect-[3/4] md:aspect-[4/3] group">
+      <div className="h-3/5 bg-primary-base overflow-hidden rounded-[12px] group-hover:rounded-[16px]">
+        <Image
+        className="size-full object-cover"
+          src={data.logo_banner}
+          alt={data.header_title + "banner"}
+          width={400}
+          height={300}
+        />
       </div>
       <p className="flex justify-center items-center text-xl md:text-2xl font-bold group-hover:scale-105 grow">
         {data.header_title}
@@ -17,7 +24,7 @@ const BootCampCard = ({ data }: BootcampCardProps) => {
         <InfoIcon size={14} />
         اطلاعات بیشتر
       </div>
-    </motion.button>
+    </Link>
   );
 };
 

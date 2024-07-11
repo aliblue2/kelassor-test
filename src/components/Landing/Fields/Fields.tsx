@@ -5,9 +5,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import CustomButton from "@/components/Ui/CustomButton";
 import FieldCard from "./FieldCard";
+import { bootcampSimple } from "@/types/bootcamp";
+import Link from "next/link";
 
 //Fields component
-const Fields = () => {
+type FieldsProps = { bootcamps: bootcampSimple[] };
+const Fields = ({ bootcamps }: FieldsProps) => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(triggerRef, {
     once: true,
@@ -34,15 +37,14 @@ const Fields = () => {
         animate={isInView ? "animate" : "initial"}
         className="grid gap-2 md:gap-5 w-full mt-10 grid-cols-2 md:grid-cols-4"
       >
-        {/*todo todo: map data from backend */}
-        <FieldCard />
-        <FieldCard />
-        <FieldCard />
-        <FieldCard />
-        <FieldCard />
-        <FieldCard />
+        {bootcamps.map((item) => (
+          <FieldCard key={item.header_title} data={item} />
+        ))}
       </motion.div>
-      <CustomButton className="mt-5 self-center">مشاهده همه</CustomButton>
+
+      <CustomButton className="mt-5 self-center">
+        <Link href={"/bootcamp/"}>مشاهده همه</Link>
+      </CustomButton>
     </div>
   );
 };

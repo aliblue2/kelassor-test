@@ -8,14 +8,17 @@ import Image from "next/image";
 import { useState } from "react";
 import PhoneNav from "./Nav/PhoneNav/PhoneNav";
 import { useAuth } from "@/components/Auth/useAuth";
-//import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import PhoneSideBar from "@/components/user-panel/SideBar/PhoneSideBar";
 
 //NavBarUi component
 type NavBarProps = { bootcamps: bootcampSimple[] };
 const NavBarUi = ({ bootcamps }: NavBarProps) => {
   const [phoneNav, setphoneNav] = useState(false);
   const { setModal } = useAuth();
-
+  const pathname = usePathname();
+  const { user } = useAuth();
+  const router = useRouter();
   return (
     <>
       <div className="z-[101] sticky top-0 h-[60px] bg-background border-b ">
@@ -43,10 +46,16 @@ const NavBarUi = ({ bootcamps }: NavBarProps) => {
           </div>
           {/* account ********************************************************************************/}
           <div className="flex justify-end items-center">
-            <CustomButton //todo
-              onClick={() => setModal(true)}
+            <CustomButton
+              onClick={
+                user ? () => router.push("/user-panel") : () => setModal(true)
+              }
             >
-              ورود | ثبت‌نام
+              {!!user
+                ? user.name
+                  ? user.name
+                  : "حساب کاربری"
+                : " ورود | ثبت‌نام "}
             </CustomButton>
           </div>
         </motion.div>
@@ -55,9 +64,12 @@ const NavBarUi = ({ bootcamps }: NavBarProps) => {
       {/******************************************************************************
         navigation for phone */}
       <AnimatePresence>
-        {phoneNav && (
-          <PhoneNav close={() => setphoneNav(false)} bootcamps={bootcamps} />
-        )}
+        {phoneNav &&
+          (pathname.includes("user-panel") ? (
+            <PhoneSideBar close={() => setphoneNav(false)} />
+          ) : (
+            <PhoneNav close={() => setphoneNav(false)} bootcamps={bootcamps} />
+          ))}
       </AnimatePresence>
     </>
   );

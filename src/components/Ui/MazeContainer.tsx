@@ -22,7 +22,7 @@ const MazeContainer = ({ children, side }: MazeContainerProps) => {
     },
   };
   return (
-    <div className="overflow-hidden p-5 w-screen">
+    <div className="relative overflow-hidden p-5 w-screen">
       <motion.div
         variants={variants}
         initial="initial"

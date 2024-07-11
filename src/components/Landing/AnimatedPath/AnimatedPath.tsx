@@ -3,17 +3,30 @@ import { forwardRef, useImperativeHandle, useRef } from "react";
 type AnimatedPathProps = {
   id: string; //unique id
   path: string; //path d of svg
-  width: number; //width
-  height: number; //height
+  width?: number | string; //width
+  height?: number | string; //height
   viewBox: string; //viewBox of svg
-  duration: number; //duration
+  duration?: number; //duration
   className?: string; //className
+  testing?: boolean;
 };
 export type AnimatedPathHandles = {
   animate: () => void; //call ref.current.animate() to animate
 };
 const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
-  ({ id, path, width, height, viewBox, duration, className }, ref) => {
+  (
+    {
+      id,
+      path,
+      width = "100%",
+      height = "100%",
+      viewBox,
+      duration = 20,
+      className,
+      testing = false,
+    },
+    ref
+  ) => {
     const svgRef = useRef<null | SVGUseElement>(null);
     const pathsStyles = {
       strokeDasharray: "6 6",
@@ -23,7 +36,7 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
     const maskStyles = {
       strokeWidth: "4",
       strokeDasharray: "20000",
-      strokeDashoffset: "20000",
+      strokeDashoffset: testing ? "0" : "20000",
     };
 
     const animate = () => {
@@ -42,10 +55,14 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
       animate,
     }));
     return (
-      <svg width={width} height={height} viewBox={viewBox} className={className}>
+      <svg
+        width={width}
+        height={height}
+        viewBox={viewBox}
+        className={className}
+      >
         <defs>
-          <path
-          id={`${id}-path`} d={path} />
+          <path id={`${id}-path`} d={path} />
           <mask id={`${id}-mask`}>
             <use
               style={maskStyles}
@@ -69,5 +86,5 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
   }
 );
 
-AnimatedPath.displayName = "AnimatedPath"
+AnimatedPath.displayName = "AnimatedPath";
 export default AnimatedPath;

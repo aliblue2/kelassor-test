@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 //BootcampConsult component
 const BootcampConsult = () => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="mb-[100px] flex flex-col gap-10">
       <CustomHeading>
         <h2>اطلاعات بیشتر می‌خوای؟</h2>
       </CustomHeading>

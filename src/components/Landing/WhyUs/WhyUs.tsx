@@ -4,6 +4,7 @@ import CustomHeading from "@/components/Ui/CustomHeading";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import AnimatedPath from "../AnimatedPath/AnimatedPath";
 
 const className =
   "absolute py-2 md:py-4 px-4 md:px-8 font-bold bg-primary-base rounded-[20px] text-white shadow3";
@@ -34,7 +35,15 @@ const WhyUs = () => {
         {/* no color on left side ********************************************************************************/}
         <div className="hidden w-1/2 h-full md:block bg-background" />
         {/* the circle ********************************************************************************/}
-        <div className="absolute z-0 size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 rounded-full text-sm bg-background md:text-lg"></div>
+        <div className="absolute text-primary-base z-0 size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 rounded-full text-sm bg-background md:text-lg">
+            <AnimatedPath
+              testing
+              id="path5test"
+              duration={20}
+              viewBox="0 0 630 616"
+              path="M489.5 570C565.5 514.5 626.999 440.5 626.999 298.5C626.999 131.5 496.5 2.50012 307.499 2.50012C138.5 2.50012 3 139 3 298.5C3 546 206 613 322.5 613"
+            />
+        </div>
         <div className="absolute z-30 size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 text-sm md:text-lg">
           <motion.div
             variants={variations}

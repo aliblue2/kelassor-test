@@ -22,7 +22,7 @@ const WhatWeDo = () => {
   return (
     <div className="flex flex-col " ref={triggerRef}>
       <CustomHeading>
-        <h2>ما در کلاسور چه‌کار می‌کنیم؟</h2>
+        <h2 >ما در کلاسور چه‌کار می‌کنیم؟</h2>
       </CustomHeading>
       <motion.div
         variants={Pvariant}

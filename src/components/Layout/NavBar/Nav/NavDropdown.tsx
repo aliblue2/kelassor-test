@@ -12,12 +12,12 @@ const NavDropdown = ({ children, title }: NavDropdownProps) => {
     <button
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
-      className="flex flex-col relative z-20 justify-center items-center"
+      className="flex flex-col border-b-4 border-b-background relative z-20 justify-center items-center"
       onClick={() => setIsOpen((prev) => !prev)}
     >
-      <span className="pb-1 flex">
-        <ChevronDownIcon />
+      <span className="flex gap-2 justify-center items-center">
         {title}
+        <ChevronDownIcon size={16}/>
       </span>
       <AnimatePresence>
         {isOpen && (

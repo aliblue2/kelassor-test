@@ -1,6 +1,7 @@
 "use client";
 
 import CustomHeading from "@/components/Ui/CustomHeading";
+import { forwardRef } from "react";
 
 const content = [
   {
@@ -24,9 +25,9 @@ const content = [
   },
 ];
 //BootcampYouShouldKnow component
-const BootcampYouShouldKnow = () => {
+const BootcampYouShouldKnow = forwardRef<HTMLDivElement>((_, ref) => {
   return (
-    <div className="flex flex-col gap-10">
+    <div ref={ref} className="flex flex-col gap-10 scroll-mt-40">
       <CustomHeading circle>
         <h2>باید بدانیم</h2>
       </CustomHeading>
@@ -34,10 +35,10 @@ const BootcampYouShouldKnow = () => {
       {content.map((item) => (
         <div
           key={item.title}
-          className="flex flex-col gap-5 p-10 text-center bg-white rounded-[30px] shadow1"
+          className="flex flex-col gap-5 p-10 md:text-center bg-white rounded-[30px] shadow1"
         >
           <h3 className="font-semibold text-primary-base">{item.title}</h3>
-          <ul className="font-semibold leading-8">
+          <ul className="font-semibold leading-8 list-disc flex flex-col md:items-center">
             {item.points.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -46,6 +47,7 @@ const BootcampYouShouldKnow = () => {
       ))}
     </div>
   );
-};
+});
+BootcampYouShouldKnow.displayName = "BootcampYouShouldKnow";
 
 export default BootcampYouShouldKnow;

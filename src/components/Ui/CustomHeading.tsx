@@ -18,10 +18,14 @@ const CustomHeading = ({
   const isInView = useInView(triggerRef, { once: true });
   return (
     <div
-      className={`flex relative flex-col w-fit ${circle? "mt-8 md:mt-16" : null} ${
-        side === "left" ? "items-end self-end" :
-        side === "center" ? "items-center" :
-        null
+      className={`flex relative flex-col w-fit mb-[20px] ${
+        circle ? "mt-8 md:mt-16" : null
+      } ${
+        side === "left"
+          ? "items-end self-end"
+          : side === "center"
+            ? "items-center"
+            : null
       }`}
     >
       {/******************************************************************************

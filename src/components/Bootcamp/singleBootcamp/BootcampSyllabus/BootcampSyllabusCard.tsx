@@ -12,7 +12,7 @@ const BootcampSyllabusCard = ({ data }: BootcampSyllabusCardProps) => {
       <div className="bg-secondary-30 text-center font-bold rounded-[22px] p-3 h-20 flex items-center justify-center">
         {data.course}
       </div>
-      <div className="p-3 flex flex-col items-center text-gray-3 font-medium">
+      <div className="p-3 flex flex-col items-center text-center text-gray-3 font-medium">
         {data.subCourse.map((item) => (
           <div key={item}>{item}</div>
         ))}

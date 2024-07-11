@@ -25,7 +25,7 @@ export type bootcamp = {
   part2: string;
   part3: string;
   pictures: string[];
-  price: string;
+  price: string[];
   prices: string;
   second_title: string;
   start: string;

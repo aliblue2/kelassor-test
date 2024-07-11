@@ -1,5 +1,6 @@
 "use client"; // Error components must be Client Components
 
+import Image from "next/image";
 import { useEffect } from "react";
 
 export default function Error({
@@ -10,20 +11,20 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
+    // console.error(error);
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
+    <div className="flex h-dvh items-center justify-center gap-5 flex-col">
+      <Image src="/logo.png" alt="logo" width={100} height={60} />
+      <h1>مشکلی پیش آمد</h1>
       <button
+        className="hover:text-primary-base"
         onClick={
-          // Attempt to recover by trying to re-render the segment
           () => reset()
         }
       >
-        Try again
+        تلاش مجدد
       </button>
     </div>
   );

@@ -10,7 +10,7 @@ type NavButtonProps = {
 const NavButton = ({ to, children }: NavButtonProps) => {
   return (
     <Link
-      className="flex justify-center items-center py-2 border-b-4 duration-200 border-b-background hover:border-b-secondary-base"
+      className="flex flex-col justify-center items-center border-b-4 duration-200 border-b-background hover:border-b-secondary-base"
       href={to}
     >
       {children}

@@ -20,13 +20,14 @@ const Nav = ({ bootcamps }: NavProps) => {
     //get first
     const path = location.split("/");
     if (!indicatorRef.current) return;
+    indicatorRef.current.style.opacity = "100%";
     if (path[1] === "") indicatorRef.current.style.right = `${0 * (112 + 8)}px`;
-    if (path[1] === "bootcamp")
+    else if (path[1] === "bootcamp")
       indicatorRef.current.style.right = `${1 * (112 + 8)}px`;
-    if (path[1] === "blog")
+    // else if (path[1] === "blog") indicatorRef.current.style.right = `${2 * (112 + 8)}px`;
+    else if (path[1] === "about-us")
       indicatorRef.current.style.right = `${2 * (112 + 8)}px`;
-    if (path[1] === "contact-us")
-      indicatorRef.current.style.right = `${3 * (112 + 8)}px`;
+    else indicatorRef.current.style.opacity = "0";
   }, [location]);
 
   return (
@@ -46,21 +47,22 @@ const Nav = ({ bootcamps }: NavProps) => {
           )}
         </NavDropdown>
 
+        {/*todo:
         <NavButton to="/blog">بلاگ</NavButton>
+        */}
 
-        {/*todo make it a link */}
         <NavDropdown title="ارتباط با ما">
-          <NavDropdownItem to="">
+          <NavDropdownItem to="/about-us">
             <span>درباره ما</span>
             <AboutusIcon />
           </NavDropdownItem>
 
-          <NavDropdownItem to="">
+          <NavDropdownItem to="/about-us/contact-us">
             <span>تماس با ما</span>
             <CallusIcon />
           </NavDropdownItem>
 
-          <NavDropdownItem to="">
+          <NavDropdownItem to="/about-us/user-agreements">
             <span>قوانین و مقررات</span>
             <RulesIcon />
           </NavDropdownItem>
@@ -70,7 +72,7 @@ const Nav = ({ bootcamps }: NavProps) => {
       {/*Sliding indicator*****************************************************************************
        *                      nav item count                                                          *
        *                      ^                                                                       */}
-      <div className="w-[calc(4*(8px+112px)+8px)] h-1 relative z-10 ">
+      <div className="w-[calc(3*(8px+112px)+8px)] h-1 relative z-30 ">
         <span
           ref={indicatorRef}
           className="absolute right-0 mx-2 w-28 h-full duration-200 bg-primary-base"

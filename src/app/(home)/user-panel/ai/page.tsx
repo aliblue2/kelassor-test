@@ -1,7 +1,7 @@
 //page component
 const page = () => {
     return (
-        <div>page</div>
+        <div>ai</div>
     )
 };
 

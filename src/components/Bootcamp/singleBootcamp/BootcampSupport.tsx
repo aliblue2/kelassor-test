@@ -24,9 +24,15 @@ const BootcampSupport = () => {
         {content.map((item) => (
           <div
             key={item.text}
-            className="text-xl flex flex-col items-center gap-5 font-semibold"
+            className=" text-base md:text-xl  flex flex-col items-center gap-5 font-semibold"
           >
-            <Image src={item.image} alt={item.text} height={200} width={200} />
+            <Image
+              src={item.image}
+              className="size-[100px] md:size-[200px]"
+              alt={item.text}
+              height={200}
+              width={200}
+            />
             {item.text}
           </div>
         ))}

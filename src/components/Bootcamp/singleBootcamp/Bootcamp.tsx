@@ -14,13 +14,20 @@ import BootcampYouShouldKnow from "./BootcampYouShouldKnow";
 import BootcampCertificate from "./BootcampCertificate";
 import BootcampSupport from "./BootcampSupport";
 import BootcampConsult from "./BootcampConsult";
+import { useRef } from "react";
+import BootcampJumplist from "./BootcampJumplist";
 
 //Bootcamp component
 type BootcampProps = {
   data: bootcamp;
 };
 const Bootcamp = ({ data }: BootcampProps) => {
-  console.log(222, data);
+  const section = useRef<(HTMLDivElement | null)[]>([]);
+  const addToRefs = (el: HTMLDivElement | null) => {
+    if (el && !section.current.includes(el)) {
+      section.current.push(el);
+    }
+  };
   return (
     <div className="container flex flex-col gap-10">
       <BootcampHero
@@ -29,16 +36,23 @@ const Bootcamp = ({ data }: BootcampProps) => {
         title2={data.second_title}
         capacity={data.capacity}
         full_capacity={data.full_capacity}
+        active={data.status === "active"}
       />
-      <BootcampIntroduction pictures={data.pictures} content={data.intro} title={data.header_title} />
-      <BootcampTeachers teachers={data.teachers} />
-      <BootcampFeatures />
+      <BootcampJumplist sections={section} />
+      <BootcampIntroduction
+        ref={addToRefs}
+        pictures={data.pictures}
+        content={data.intro}
+        title={data.header_title}
+      />
+      <BootcampTeachers ref={addToRefs} teachers={data.teachers} />
+      <BootcampFeatures ref={addToRefs} />
       <BootcampTechnologies logos={data.tech_logo} />
-      <BootcampSyllabus data={data.contents} />
-      <BootcampSignupSteps />
-      <BootcampSignupPlan />
+      <BootcampSyllabus data={data.contents} ref={addToRefs} />
+      <BootcampSignupSteps ref={addToRefs} />
+      <BootcampSignupPlan prices={data.price} />
       <BootcampPaymentMethod />
-      <BootcampYouShouldKnow />
+      <BootcampYouShouldKnow ref={addToRefs} />
       <BootcampCertificate />
       <BootcampSupport />
       <BootcampConsult />

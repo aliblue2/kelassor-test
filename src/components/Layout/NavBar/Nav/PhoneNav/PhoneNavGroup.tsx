@@ -17,12 +17,12 @@ const PhoneNavGroup = ({ children, title }: PhoneNavGroupProps) => {
           e.stopPropagation();
           setexpanded((prev) => !prev);
         }}
-        className="flex justify-between items-center p-5 border-b border-b-secondary-50"
+        className="flex cursor-pointer justify-between items-center p-5 border-b border-b-secondary-50"
       >
         {title}
         {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </div>
-      <div className="flex flex-col pr-5 text-base font-medium text-gray-3 [&>*]:p-2">
+      <div className="flex divide-y divide-light-3 flex-col px-5 text-base font-medium text-gray-3 [&>*]:p-2">
         {expanded && children}
       </div>
     </>
