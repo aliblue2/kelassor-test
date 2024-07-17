@@ -1,8 +1,10 @@
 "use client";
 
+import { useAuth } from "@/components/Auth/useAuth";
 import CustomButton from "@/components/Ui/CustomButton";
 import { bootcampFormSubmit } from "@/requests/bootcampFormSubmit";
 import { Loader2Icon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -23,6 +25,8 @@ const BootcampHeroForm = ({
   const [name, setname] = useState("");
   const [phone, setphone] = useState("");
   const [coupon, setcoupon] = useState("");
+  const { user, setModal } = useAuth();
+  const router = useRouter();
   const submit = async () => {
     if (!name) {
       toast.error("نام و نام‌خانوادگی نمی‌تواند خالی باشد");
@@ -43,11 +47,24 @@ const BootcampHeroForm = ({
       phone,
       discount: coupon,
       title: title,
+    }).then(() => {
+      return { statusCode: 200 };
     });
-    setformState("ready");
+
+    console.log(res);
     if (res.statusCode === 200) {
+      if (user) {
+        router.push("/user-panel");
+      } else {
+        setModal(true, phone);
+      }
       toast.success("با موفقیت ثبت شد");
-    }else{toast.error("مشکلی پیش آمد")}
+    } else if (res.statusCode === 400) {
+      toast.error("قبلا ثبت‌نام کرده اید");
+    } else {
+      toast.error("مشکلی پیش آمد");
+    }
+    setformState("ready");
   };
 
   return (

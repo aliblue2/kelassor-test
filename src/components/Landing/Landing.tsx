@@ -73,7 +73,7 @@ const Landing = ({ bootcamps }: LandingProps) => {
         {/******************************************************************************
         BootCamps section */}
         <MazeContainer side="right">
-          <Fields bootcamps={bootcamps} />
+          <Fields bootcamps={bootcamps.filter(item=>item.status !== "notactive")} />
         </MazeContainer>
 
         {/******************************************************************************

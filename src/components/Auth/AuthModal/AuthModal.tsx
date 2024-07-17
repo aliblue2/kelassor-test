@@ -10,16 +10,15 @@ import AuthModalSignin from "./signin/AuthModalSignin";
 
 //AuthModal component
 const AuthModal = () => {
-  const { modal, setModal } = useAuth();
-  const [number, setnumber] = useState("");
+  const { modal, setModal, number: initialNumber } = useAuth();
+  const [number, setnumber] = useState(initialNumber ? initialNumber : "");
   const [state, setState] = useState<"initial" | "signup" | "signin">(
     "initial"
   );
   useEffect(() => {
-    setState("initial")
+    setState("initial");
+  }, [modal]);
 
-  }, [modal])
-  
   return (
     <>
       {modal && (
@@ -40,6 +39,7 @@ const AuthModal = () => {
             />
             {state === "initial" ? (
               <AuthModalInitial
+                initialNumber={initialNumber ? initialNumber : undefined}
                 setNumber={(input) => setnumber(input)}
                 setGlobalState={(input) => setState(input)}
               />

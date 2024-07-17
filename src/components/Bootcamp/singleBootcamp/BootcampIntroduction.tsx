@@ -16,7 +16,7 @@ const BootcampIntroduction = forwardRef<
   BootcampIntroductionProps
 >(({ content, pictures, title }, ref) => {
   return (
-    <div ref={ref} className="flex flex-col scroll-mt-40">
+    <div ref={ref} className="flex overflow-hidden flex-col scroll-mt-40">
       <CustomHeading circle>
         <h2>معرفی بوتکمپ {title}</h2>
       </CustomHeading>

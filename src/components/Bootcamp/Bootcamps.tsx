@@ -43,11 +43,10 @@ const Bootcamps = ({ data }: BootcampsProps) => {
             <h3>گامی به سوی آینده‌ی روشن</h3>
           </div>
           <div className="grow">
-            <HeroCarousel bootcamps={data} />
+            <HeroCarousel bootcamps={data.filter(item=>item.status === "active")} />
           </div>
         </div>
       </div>
-      
 
       <InfiniteScroll images={images} itemSize={80} duration={10} />
       {/******************************************************************************
@@ -57,9 +56,11 @@ const Bootcamps = ({ data }: BootcampsProps) => {
           <h2>بوتکمپ‌های فعال</h2>
         </CustomHeading>
         <div className="flex flex-row flex-wrap gap-5 justify-center items-center p-10 w-full">
-          {data.map((item) => (
-            <BootCampCard data={item} key={item.header_title} />
-          ))}
+          {data
+            .filter((item) => item.status === "active")
+            .map((item) => (
+              <BootCampCard data={item} key={item.header_title} />
+            ))}
         </div>
       </div>
 
@@ -70,7 +71,7 @@ const Bootcamps = ({ data }: BootcampsProps) => {
           </CustomHeading>
           <div className="flex flex-col flex-wrap gap-5 justify-center items-center p-10 w-full md:flex-row">
             {data
-              .filter((item) => item.status === "active")
+              .filter((item) => item.status === "expired")
               .map((item) => (
                 <BootCampCard data={item} key={item.header_title} />
               ))}
@@ -86,9 +87,9 @@ const Bootcamps = ({ data }: BootcampsProps) => {
         </CustomHeading>
         <div className="flex flex-col flex-wrap gap-5 justify-center items-center p-10 w-full md:flex-row">
           {data
-            .filter((item) => item.status === "expired")
+            .filter((item) => item.status === "notactive")
             .map((item) => (
-              <BootCampCard data={item} key={item.header_title} />
+              <BootCampCard noLink data={item} key={item.header_title} />
             ))}
         </div>
       </div>

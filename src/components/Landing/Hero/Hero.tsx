@@ -10,7 +10,9 @@ const Hero = ({ className, bootcamps }: HeroProps) => {
     <div
       className={`flex md:h-[450px] flex-col items-center md:flex-row mb-10 mt-1 gap-5 ${className}`}
     >
-      <HeroCarousel bootcamps={bootcamps} />
+      <HeroCarousel
+        bootcamps={bootcamps.filter((item) => item.status === "active")}
+      />
       <HeroItem />
     </div>
   );

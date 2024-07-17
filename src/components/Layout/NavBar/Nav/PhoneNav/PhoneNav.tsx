@@ -31,7 +31,7 @@ const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {
         onClick={close}
         className="
         bg-background md:hidden
-        fixed pt-[60px] w-full left-0 z-[100]
+        fixed top-0 pt-[60px] w-full left-0 z-[100]
         flex flex-col
         font-bold text-xl
         pb-10 rounded-b-[40px]

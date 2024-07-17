@@ -45,32 +45,34 @@ const HeroCarousel = ({ bootcamps }: HeroCarouselProps) => {
     >
       {/* carousel content ********************************************************************************/}
       <div className="flex overflow-hidden size-full rounded-[30px] md:rounded-[50px]">
-        {bootcamps.map((item) => (
-          <div
-            style={{
-              translate: `${-100 * index}%`,
-            }}
-            className="relative duration-500 size-full shrink-0"
-            key={item.header_title}
-          >
-            {/* image ********************************************************************************/}
-            <Image
-              className="object-cover absolute size-full brightness-50"
-              width={800}
-              height={500}
-              src={item.logo_banner}
-              alt="coding"
-            />
-            {/* text ********************************************************************************/}
-            <div className="flex absolute flex-col gap-2 justify-center items-center text-xl font-extrabold text-white md:gap-5 size-full">
-              <h1>بوت‌کمپ</h1>
-              <h2>{item.header_title}</h2>
-              <CustomButton>
-                <Link href={"/bootcamp/" + item.url}>اطلاعات بیشتر</Link>
-              </CustomButton>
+        {bootcamps
+          .filter((item) => item.status === "active")
+          .map((item) => (
+            <div
+              style={{
+                translate: `${-100 * index}%`,
+              }}
+              className="relative bg-black  duration-500 size-full shrink-0"
+              key={item.header_title}
+            >
+              {/* image ********************************************************************************/}
+              <Image
+                className="object-cover absolute size-full brightness-50"
+                width={800}
+                height={500}
+                src={item.logo_banner}
+                alt="coding"
+              />
+              {/* text ********************************************************************************/}
+              <div className="flex absolute flex-col gap-2 justify-center items-center text-xl font-extrabold text-white md:gap-5 size-full">
+                <h1>بوت‌کمپ</h1>
+                <h2>{item.header_title}</h2>
+                <CustomButton>
+                  <Link href={"/bootcamp/" + item.url}>اطلاعات بیشتر</Link>
+                </CustomButton>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
 
       {/* controls  ********************************************************************************/}

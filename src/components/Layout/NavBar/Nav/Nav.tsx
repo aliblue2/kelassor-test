@@ -15,6 +15,7 @@ const Nav = ({ bootcamps }: NavProps) => {
   //ref to indicator that moves under nav
   const indicatorRef = useRef<HTMLSpanElement | null>(null);
 
+  
   //move indicator
   useEffect(() => {
     //get first
@@ -39,7 +40,7 @@ const Nav = ({ bootcamps }: NavProps) => {
         <NavDropdown title="بوتکمپ‌ها">
           <NavDropdownItem to={`/bootcamp`}>همه‌ی بوتکمپ‌ها</NavDropdownItem>
           {bootcamps.map((bc: bootcampSimple, index: number) =>
-            bc.status !== "notactive" ? (
+            bc.status === "active" ? (
               <NavDropdownItem key={index} to={`/bootcamp/${bc.url}`}>
                 {bc.header_title}
               </NavDropdownItem>

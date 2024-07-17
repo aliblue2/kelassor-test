@@ -13,10 +13,10 @@ export const getBootcamps: () => Promise<getBootcampsOutput> = async () => {
     }),
   })
     .then((res) => res.json())
-    .then((res) => {
-      res.bootcamps = res.bootcamps.filter(
-        (item: bootcampSimple) => item.status !== "notactive"
-      );
-      return res;
-    });
+    // .then((res) => {
+    //   res.bootcamps = res.bootcamps.filter(
+    //     (item: bootcampSimple) => item.status !== "notactive"
+    //   );
+    //   return res;
+    // });
 };

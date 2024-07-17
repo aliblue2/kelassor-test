@@ -8,9 +8,7 @@ const page = async () => {
   const session_id = cookies().get("session_id")?.value;
   if (session_id) {
     const res = await getUserInfo(session_id);
-    return (
-        <AccountForm data={res.profileInfo} />
-    );
+    return <AccountForm data={res.statusCode===200?res.profileInfo:undefined} />;
   }
 };
 

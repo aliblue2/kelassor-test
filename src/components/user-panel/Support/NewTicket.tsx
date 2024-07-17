@@ -9,6 +9,7 @@ import TicketMessage from "./TicketMessage";
 //NewTicket component
 type NewTicketProps = { chatID: number };
 const NewTicket = ({ chatID }: NewTicketProps) => {
+  const [mode, setmode] = useState(true); //todo remove for production
   const [formState, setformState] = useState<"ready" | "loading">("ready");
   const [text, settext] = useState("");
   const [subject, setsubject] = useState<"technical" | "financial" | null>(
@@ -27,13 +28,15 @@ const NewTicket = ({ chatID }: NewTicketProps) => {
       return;
     }
     setformState("loading");
-    await newTicket({ text: "test", type: subject, chatID: chatID });
-    toast.success("تیکت با موفقیت ارسال شد")
+    await newTicket({ text: text, type: subject, chatID: chatID });
+    toast.success("تیکت با موفقیت ارسال شد");
     setformState("ready");
   };
-  if (false)
+  if (mode)
     return (
       <div className="flex flex-col gap-5">
+        <button //todo remove production
+        onClick={() => setmode((e) => !e)}>change mode</button>
         <div className="flex gap-2 items-center">
           <div className="font-semibold">موضوع تیکت</div>
           <NewTicketSubject subject={subject} set={_setsubject} />
@@ -51,6 +54,8 @@ const NewTicket = ({ chatID }: NewTicketProps) => {
     );
   return (
     <div className="flex flex-col gap-5">
+        <button //todo remove production
+        onClick={() => setmode((e) => !e)}>change mode</button>
       <div className="flex gap-2 items-center">
         <div className="font-semibold">موضوع تیکت</div>
         <NewTicketSubject subject={subject} set={_setsubject} />

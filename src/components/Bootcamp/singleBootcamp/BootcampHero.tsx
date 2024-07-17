@@ -36,7 +36,7 @@ const BootcampHero = ({
           <BootcampHeroForm
             capacity={capacity}
             full_capacity={full_capacity}
-            title={title2}
+            title={title1}
           />
         )}
       </div>

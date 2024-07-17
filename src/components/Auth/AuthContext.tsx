@@ -7,19 +7,26 @@ import { useRouter } from "next/navigation";
 import { createContext, useState, ReactNode, useEffect } from "react";
 export type AuthContextType = {
   user: userType | null;
+  number: string | null;
   login: (token: string) => void;
   logOut: () => void;
   modal: boolean;
-  setModal: (input: boolean) => void;
+  setModal: (input: boolean, phone?: string) => void;
 };
 
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setuser] = useState<userType | null>(null);
+  const [number, setnumber] = useState<string | null>(null);
   const [modal, setmodal] = useState(false);
   const router = useRouter();
-  const setModal = (input: boolean) => {
+  const setModal = (input: boolean, number?: string) => {
+    if (number) {
+      setnumber(number);
+    } else {
+      setnumber(null);
+    }
     setmodal(input);
   };
 
@@ -53,7 +60,9 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   });
   if (data)
     return (
-      <AuthContext.Provider value={{ user, login, logOut, modal, setModal }}>
+      <AuthContext.Provider
+        value={{ number, user, login, logOut, modal, setModal }}
+      >
         {data && children}
       </AuthContext.Provider>
     );
