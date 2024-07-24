@@ -1,11 +1,24 @@
 import Bootcamp from "@/components/Bootcamp/singleBootcamp/Bootcamp";
 import { getBootcamp } from "@/requests/getBootcamp";
+import { getBootcamps } from "@/requests/getBootcamps";
+import { notFound } from "next/navigation";
 
 //page component
+export async function generateStaticParams() {
+  const { bootcamps } = await getBootcamps();
+
+  return bootcamps.map((item) => ({
+    bootcamp: item.url,
+  }));
+}
 const page = async ({ params }: { params: { bootcamp: string } }) => {
   const { bootcamp } = params;
-  const data = await getBootcamp({ bootcamp: bootcamp });
-  return <Bootcamp data={data} />;
+  try {
+    const data = await getBootcamp({ bootcamp: bootcamp });
+    return <Bootcamp data={data} />;
+  } catch (e) {
+    notFound();
+  }
 };
 
 export default page;

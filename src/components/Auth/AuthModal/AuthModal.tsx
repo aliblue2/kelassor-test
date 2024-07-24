@@ -19,6 +19,10 @@ const AuthModal = () => {
     setState("initial");
   }, [modal]);
 
+  useEffect(() => {
+    if (initialNumber) setnumber(initialNumber);
+  }, [initialNumber]);
+
   return (
     <>
       {modal && (

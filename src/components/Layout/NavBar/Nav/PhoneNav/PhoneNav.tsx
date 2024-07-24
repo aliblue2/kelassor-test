@@ -37,9 +37,11 @@ const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {
         pb-10 rounded-b-[40px]
         "
       >
+      {/*todo:
         <Link className="p-5 border-b border-b-secondary-50" href="/">
           خانه
         </Link>
+      */}
         <PhoneNavGroup title="بوتکمپ‌ها">
           <Link className="p-5" href="/bootcamp">
             همه بوتکمپ‌ها

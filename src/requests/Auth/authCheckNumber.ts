@@ -1,4 +1,4 @@
-type checkNumberOutput = { statusCode: 100 | 200 };
+type checkNumberOutput = { active: undefined | number; statusCode: 100 | 200 };
 export const authCheckNumber: (input: {
   number: string;
 }) => Promise<checkNumberOutput> = async (input) => {

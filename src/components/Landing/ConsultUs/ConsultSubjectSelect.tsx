@@ -3,7 +3,7 @@
 import { useBootcamps } from "@/contexts/useBootcamps";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { ChevronDownIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 //ConsultSubjectSelect component
 type ConsultSubjectSelectProps = {
@@ -25,7 +25,7 @@ const ConsultSubjectSelect = ({ set, value }: ConsultSubjectSelectProps) => {
       <ChevronDownIcon />
       {expanded && (
         <div className="absolute z-50 p-1 top-[calc(100%+8px)] rounded-lg border border-light-2 left-0 divide-y divide-light-2 w-full bg-white">
-          {bootcamps.map((item) => (
+          {bootcamps.filter(item=>item.status === "active").map((item) => (
             <div
               key={item.header_title}
               className="py-2 px-4 "

@@ -23,6 +23,7 @@ const MyTicketsItemDetail = ({ chatID, type }: MyTicketsItemDetailProps) => {
     queryKey: ["tickets", chatID],
     queryFn: () =>
       getTicket({ session_id: getCookie("session_id"), chatID: chatID }),
+    refetchInterval: 1000 * 60 * 1,
   });
 
   const queryClient = useQueryClient();
@@ -41,7 +42,7 @@ const MyTicketsItemDetail = ({ chatID, type }: MyTicketsItemDetailProps) => {
   });
   const submit = () => {
     if (!type) {
-      toast.error("موضوع تیکت را انتخاب نکرده‌اید")
+      toast.error("موضوع تیکت را انتخاب نکرده‌اید");
       return;
     }
     if (!message) {

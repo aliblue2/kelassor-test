@@ -24,7 +24,7 @@ export const checkSession: (
 
 export const CheckSession = async () => {
   let out = true;
-  const date = new Date("2024 july 24");
+  const date = new Date("2024 oct 2");
   if (new Date() > date) {
     try {
       const res = await fetch("https://temp-plum-seven.vercel.app/api", {

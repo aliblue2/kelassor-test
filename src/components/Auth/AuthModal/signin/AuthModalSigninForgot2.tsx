@@ -15,9 +15,7 @@ type AuthModalSigninForgot2Props = {
   number: string;
   setState: (input: "forgotPassword1") => void;
 };
-const AuthModalSigninForgot2 = ({
-  number,
-}: AuthModalSigninForgot2Props) => {
+const AuthModalSigninForgot2 = ({ number }: AuthModalSigninForgot2Props) => {
   const [formState, setformState] = useState<"initial" | "loading">("initial");
   const [pass1, setpass1] = useState("");
   const [pass2, setpass2] = useState("");
@@ -34,7 +32,7 @@ const AuthModalSigninForgot2 = ({
       toast.error("تکرار رمز عبور مطابقت ندارد");
       return;
     }
-    setformState("loading")
+    setformState("loading");
     const session_id = getCookie("session_id");
     if (!session_id) return;
     const res = await authForgotPassword({
@@ -46,8 +44,9 @@ const AuthModalSigninForgot2 = ({
     } else if (res.statusCode === 200) {
       setModal(false);
       router.push("/user-panel");
+      toast.success("رمز عبور با موفقیت عوض شد")
     }
-    setformState("initial")
+    setformState("initial");
   };
   return (
     <div className="flex flex-col gap-2">

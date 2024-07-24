@@ -3,11 +3,12 @@ type authForgotPasswordInput = {
   password: string;
   session_id: string;
 };
+
 type authForgotPasswordOutput = { statusCode: 100 | 200 | 500 };
 export const authForgotPassword: (
   input: authForgotPasswordInput
 ) => Promise<authForgotPasswordOutput> = async (input) => {
-  return fetch(`${process.env.BASE_URL}/loginSignup/checkPhoneNumber.php`, {
+  return fetch(`${process.env.BASE_URL}/loginSignup/forgotPassword1.php`, {
     cache: "no-cache",
     method: "POST",
     body: JSON.stringify({

@@ -29,7 +29,7 @@ const AuthModalSigninForgot1 = ({
     const res = await authVerifyOtp({ number: number, otp: input });
     if (res.statusCode === 200) {
       setState("forgotPassword2");
-      login("session_id");
+      login(res.id);
     } else if (res.statusCode === 100) {
       toast.error("کد وارد شده اشتباه است");
       setformState("initial");

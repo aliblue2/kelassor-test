@@ -2,7 +2,7 @@ export type syllabus = { course: string; subCourse: string[] };
 export type bootcampSimple = {
   header_title: string;
   logo: string;
-  status: "active" | "notactive" | "expired";
+  status: "active" | "notactive" | "expired" | "reserve";
   url: string;
   logo_banner: string;
 };

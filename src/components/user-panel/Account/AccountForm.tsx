@@ -2,7 +2,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import CustomInput from "./CustomInput";
 import CustomSelect from "./CustomSelect";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import CustomButton from "@/components/Ui/CustomButton";
 import { toast } from "react-toastify";
 import jalaali from "jalaali-js";
@@ -31,7 +31,7 @@ const AccountForm = ({ data }: { data?: userInfo }) => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting },
   } = useForm<formFields>();
   const [sex, setsex] = useState<null | string>(null);
   const [maritalStatus, setmaritalStatus] = useState<null | string>(null);
@@ -42,9 +42,9 @@ const AccountForm = ({ data }: { data?: userInfo }) => {
   }>({ jy: undefined, jm: undefined, jd: undefined });
 
   const onSubmit: SubmitHandler<formFields> = async (initialData) => {
-    const { birthdayDay, birthdayMonth, birthdayYear, ...rest } = initialData;
+    const { email, birthdayDay, birthdayMonth, birthdayYear, ...rest } = initialData;
     if (!birthdayDay || !birthdayMonth || !birthdayYear) {
-      toast.error("همه موارد الزامی هستند");
+      toast.error("تاریخ تولد الزامی است");
       return;
     }
     const jalaaliBday = jalaali.toGregorian(
@@ -54,19 +54,28 @@ const AccountForm = ({ data }: { data?: userInfo }) => {
     );
     const Bday = new Date(jalaaliBday.gy, jalaaliBday.gm - 1, jalaaliBday.gd);
     if (!sex) {
-      toast.error("همه موارد الزامی هستند");
+      toast.error("جنسیت الزامی است");
       return;
     }
     if (!maritalStatus) {
-      toast.error("همه موارد الزامی هستند");
+      toast.error("وضعیت تاهل الزامی است");
       return;
     }
+    if(!email.toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    )){
+      toast.error("ایمیل معتبر نیست");
+      return;
+    }
+
 
     const session_id = getCookie("session_id");
     if (!session_id) return;
 
     const reqData: postUserInfoInput = {
       ...rest,
+      email,
       birthDate: +Bday,
       gender: sex,
       maritalStatus: maritalStatus,

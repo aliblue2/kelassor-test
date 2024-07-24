@@ -48,10 +48,9 @@ const BootcampHeroForm = ({
       discount: coupon,
       title: title,
     }).then(() => {
-      return { statusCode: 200 };
+      return { statusCode: 200 }; //todo delete
     });
 
-    console.log(res);
     if (res.statusCode === 200) {
       if (user) {
         router.push("/user-panel");

@@ -7,13 +7,13 @@ import AuthModalSignup3 from "./AuthModalSignup3";
 
 //AuthModalSignup component
 const AuthModalSignup = ({ number }: { number: string }) => {
-  const [state, setstate] = useState<"otp" | "credential"|"final">("otp");
+  const [state, setstate] = useState<"otp" | "credential" | "final">("otp");
   return state === "otp" ? (
-    <AuthModalSignup1 number={number} proceed={()=>setstate("credential")} />
+    <AuthModalSignup1 number={number} proceed={() => setstate("credential")} />
   ) : state === "credential" ? (
-    <AuthModalSignup2 proceed={()=>setstate("final")}/>
+    <AuthModalSignup2 proceed={() => setstate("final")} />
   ) : state === "final" ? (
-    <AuthModalSignup3/>
+    <AuthModalSignup3 />
   ) : null;
 };
 

@@ -10,6 +10,7 @@ import { useAuth } from "@/components/Auth/useAuth";
 import { usePathname, useRouter } from "next/navigation";
 import PhoneSideBar from "@/components/user-panel/SideBar/PhoneSideBar";
 import { useBootcamps } from "@/contexts/useBootcamps";
+import Link from "next/link";
 
 //NavBar component
 const NavBar = () => {
@@ -36,21 +37,19 @@ const NavBar = () => {
             {phoneNav ? <XIcon size={35} /> : <MenuIcon size={36} />}
           </div>
           {/* logo ********************************************************************************/}
-          <div //todo get svg logo
+          <Link //todo get svg logo
+            href={"/"}
             className="flex items-center p-2 h-full ms-auto grow md:ms-0"
           >
             <Image src="/logo.png" alt="logo" width={100} height={60} />
-          </div>
+          </Link>
           {/* navigation for desktop ********************************************************************************/}
           <div className="hidden md:block">
             <Nav bootcamps={bootcamps} />
           </div>
           {/* account ********************************************************************************/}
-          <button //todo delete
-            className="absolute bottom-5 left-5"
-          ></button>
           <div className="flex justify-end items-center">
-            <CustomButton //todo
+            <CustomButton
               onClick={
                 user ? () => router.push("/user-panel") : () => setModal(true)
               }

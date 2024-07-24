@@ -11,14 +11,9 @@ type ClgProps = {
 };
 
 const Clg = ({ data }: ClgProps) => {
-  const click = async () => {
-    const res = await getPanelBootcamps(getCookie("session_id"));
-    console.log("hello?",res);
-  };
-  console.log("CLG",data);
+  console.log("CLG", data);
   return (
     <div className="fixed top-20 right-20 size-40 bg-red  z-50">
-      <button onClick={click}>click me todo</button>; console log
     </div>
   );
 };

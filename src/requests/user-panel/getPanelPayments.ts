@@ -1,4 +1,13 @@
-export const getPanelPayments = async (session_id: string|null) => {
+type getPanelPaymentsOutput = {
+  amount: number;
+  course: string;
+  date: string;
+  key: string;
+  status: string;
+};
+export const getPanelPayments: ( session_id: string | undefined) => Promise<getPanelPaymentsOutput []>
+= async (session_id) => {
+  if (!session_id) throw new TypeError("cookie");
   return fetch(`${process.env.BASE_URL}/user/paymentHistory.php`, {
     method: "POST",
     body: JSON.stringify({

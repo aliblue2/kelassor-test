@@ -40,7 +40,7 @@ const Nav = ({ bootcamps }: NavProps) => {
         <NavDropdown title="بوتکمپ‌ها">
           <NavDropdownItem to={`/bootcamp`}>همه‌ی بوتکمپ‌ها</NavDropdownItem>
           {bootcamps.map((bc: bootcampSimple, index: number) =>
-            bc.status === "active" ? (
+            bc.status !== "notactive" ? (
               <NavDropdownItem key={index} to={`/bootcamp/${bc.url}`}>
                 {bc.header_title}
               </NavDropdownItem>

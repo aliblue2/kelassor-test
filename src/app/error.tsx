@@ -18,12 +18,7 @@ export default function Error({
     <div className="flex h-dvh items-center justify-center gap-5 flex-col">
       <Image src="/logo.png" alt="logo" width={100} height={60} />
       <h1>مشکلی پیش آمد</h1>
-      <button
-        className="hover:text-primary-base"
-        onClick={
-          () => reset()
-        }
-      >
+      <button className="hover:text-primary-base" onClick={() => reset()}>
         تلاش مجدد
       </button>
     </div>

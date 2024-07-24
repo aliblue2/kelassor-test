@@ -1,32 +1,37 @@
+import { getPanelBootcamps } from "@/requests/user-panel/getPanelBootcamps";
+import { toJalaali } from "jalaali-js";
+import { cookies } from "next/headers";
+
 //page component
-const page = () => {
+const page = async () => {
+  const res = await getPanelBootcamps(cookies().get("session_id")?.value);
+  const convertDate = (input: string) => {
+    const date = new Date(input);
+    const jalaali = toJalaali(date);
+    return jalaali.jy + "/" + jalaali.jm + "/" + jalaali.jd;
+  };
   return (
-    <div className="flex gap-10 flex-col grow items-center py-10">
+    <div className="flex flex-col gap-10 py-10 grow">
       <h3 className="self-start">بوتکمپ‌های من</h3>
-      <table className="text-center w-full bg-light-3 rounded-[20px] overflow-hidden">
-        <thead className="[&>tr>th]:p-5">
-          <tr className="bg-primary-base text-white border-spacing-10  ">
-            <th>نام بوتکمپ</th>
-            <th>تاریخ شروع</th>
-            <th>تاریخ پایان</th>
-            <th>وضعیت پرداخت</th>
-          </tr>
-        </thead>
-        <tbody className="[&>tr>td]:p-5">
-          <tr>
-            <td>مدیریت محصول</td>
-            <td>۲۰ دی ماه ۱۴۰۳</td>
-            <td>۲۰ اسفند ماه ۱۴۰۳</td>
-            <td className="text-success">تسویه</td>
-          </tr>
-          <tr>
-            <td>مدیریت محصول</td>
-            <td>۲۰ دی ماه ۱۴۰۳</td>
-            <td>۲۰ اسفند ماه ۱۴۰۳</td>
-            <td className="text-success">تسویه</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="flex overflow-hidden flex-col text-xs text-center rounded-2xl md:text-base">
+        <div className="grid grid-cols-3 gap-2 justify-items-center items-center p-2 text-white bg-primary-base">
+          <div>نام بوتکمپ</div>
+          <div>تاریخ شروع</div>
+          <div>مدت دوره</div>
+        </div>
+        {/******************************************************************************
+          data */}
+        {res.map((item) => (
+          <div
+            key={item.key}
+            className="grid grid-cols-3 gap-2 justify-items-center items-center p-2 odd:bg-light-2 even:bg-light-3"
+          >
+            <div>{item.course}</div>
+            <div>{convertDate(item.date)}</div>
+            <div>{item.length}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

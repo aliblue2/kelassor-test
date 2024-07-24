@@ -31,7 +31,7 @@ const AuthModalSignup1 = ({ number, proceed }: AuthModalSignupProps) => {
     if (res.statusCode === 100) {
       toast.error("کد وارد شده اشتباه است");
     } else if (res.statusCode === 200) {
-      setCookie("session_id",res.id);
+      setCookie("session_id", res.id);
       proceed();
     }
   };
@@ -43,7 +43,7 @@ const AuthModalSignup1 = ({ number, proceed }: AuthModalSignupProps) => {
         <br />
         جهت ثبت‌نام کد تایید برای شما ارسال گردید.
       </p>
-      <MultiInput onChange={setcodeInput}/>
+      <MultiInput onChange={setcodeInput} />
       <Timer callBack={() => authRequestRegisterOtp({ number: number })} />
       <CustomButton
         disabled={formState !== "initial"}

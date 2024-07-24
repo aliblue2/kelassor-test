@@ -21,7 +21,7 @@ export const getUserInfo: (
     body: JSON.stringify({
       API_KEY: process.env.API_KEY,
       Content_Type: process.env.Content_Type,
-      sessionId: session_id,
+      hashedId: session_id,
     }),
     cache: "no-store",
   }).then((res) => res.json());

@@ -71,7 +71,7 @@ const Bootcamps = ({ data }: BootcampsProps) => {
           </CustomHeading>
           <div className="flex flex-col flex-wrap gap-5 justify-center items-center p-10 w-full md:flex-row">
             {data
-              .filter((item) => item.status === "expired")
+              .filter((item) => item.status === "reserve")
               .map((item) => (
                 <BootCampCard data={item} key={item.header_title} />
               ))}
@@ -87,7 +87,7 @@ const Bootcamps = ({ data }: BootcampsProps) => {
         </CustomHeading>
         <div className="flex flex-col flex-wrap gap-5 justify-center items-center p-10 w-full md:flex-row">
           {data
-            .filter((item) => item.status === "notactive")
+            .filter((item) => item.status === "expired")
             .map((item) => (
               <BootCampCard noLink data={item} key={item.header_title} />
             ))}
