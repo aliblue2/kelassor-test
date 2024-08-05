@@ -48,9 +48,7 @@ const Nav = ({ bootcamps }: NavProps) => {
           )}
         </NavDropdown>
 
-        {/*todo:
         <NavButton to="/blog">بلاگ</NavButton>
-        */}
 
         <NavDropdown title="ارتباط با ما">
           <NavDropdownItem to="/about-us">
@@ -73,7 +71,7 @@ const Nav = ({ bootcamps }: NavProps) => {
       {/*Sliding indicator*****************************************************************************
        *                      nav item count                                                          *
        *                      ^                                                                       */}
-      <div className="w-[calc(3*(8px+112px)+8px)] h-1 relative z-30 ">
+      <div className="w-[calc(4*(8px+112px)+8px)] h-1 relative z-30 ">
         <span
           ref={indicatorRef}
           className="absolute right-0 mx-2 w-28 h-full duration-200 bg-primary-base"

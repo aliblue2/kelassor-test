@@ -1,5 +1,6 @@
 {
   "name": "kelaasor",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +14,9 @@
     "framer-motion": "^11.2.10",
     "jalaali-js": "^1.2.7",
     "lucide-react": "^0.381.0",
+    "mysql2": "^3.11.0",
     "next": "14.2.3",
+    "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.1",

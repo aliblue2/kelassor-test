@@ -2,7 +2,6 @@
 
 import AuthProvider from "@/components/Auth/AuthContext";
 import BootcampsProvider from "@/contexts/BootcampsContext";
-import Session from "@/contexts/Session";
 import { bootcampSimple } from "@/types/bootcamp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode } from "react";
@@ -19,7 +18,7 @@ const Providers = ({ children, bootcamps }: ProvidersProps) => {
       <QueryClientProvider client={queryClient}>
         <BootcampsProvider bootcamps={bootcamps}>
           <AuthProvider>
-            <Session>{children}</Session>
+            {children}
           </AuthProvider>
         </BootcampsProvider>
       </QueryClientProvider>
