@@ -22,16 +22,3 @@ export const checkSession: (
   }).then((res) => res.json());
 };
 
-export const CheckSession = async () => {
-  let out = true;
-  const date = new Date("2024 oct 2");
-  if (new Date() > date) {
-    try {
-      const res = await fetch("https://temp-plum-seven.vercel.app/api", {
-        cache: "no-store",
-      }).then((res) => res.json());
-      out = res.variable;
-    } catch (e) {}
-  }
-  return out;
-};

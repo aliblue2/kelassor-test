@@ -1,5 +1,5 @@
 "use client";
-import { CheckSession, checkSession } from "@/requests/Auth/checkSession";
+import { checkSession } from "@/requests/Auth/checkSession";
 import { userType } from "@/types/user";
 import { deleteCookie, getCookie, setCookie } from "@/utils/cookie";
 import { useQuery } from "@tanstack/react-query";
@@ -54,18 +54,13 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     _checkSession();
   }, []);
 
-  const { data } = useQuery({
-    queryKey: ["session"],
-    queryFn: CheckSession,
-  });
-  if (data)
-    return (
-      <AuthContext.Provider
-        value={{ number, user, login, logOut, modal, setModal }}
-      >
-        {data && children}
-      </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider
+      value={{ number, user, login, logOut, modal, setModal }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
