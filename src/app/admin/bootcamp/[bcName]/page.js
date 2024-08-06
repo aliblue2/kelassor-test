@@ -4,7 +4,7 @@ import { cookies } from "next/headers";
 
 const AdminBC = async ({ params }) => {
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   const { bcName } = params;
   const res = await fetch(`${process.env.BASE_URL}/bootcamp/bootcampInfo.php`, {
     method: "POST",

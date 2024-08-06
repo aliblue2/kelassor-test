@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 const AdminBlog = async ({ params }) => {
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   const { blogSlug } = params;
   const res = await fetch(
     `${process.env.NEXT_API_URL}/api/blogs/blog/${blogSlug}`,

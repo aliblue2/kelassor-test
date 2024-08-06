@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 const Users = async () => {
   // redirect("/admin/blogs");
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   const res = await fetch(`${process.env.BASE_URL}/admin/users.php`, {
     method: "POST",
     body: JSON.stringify({

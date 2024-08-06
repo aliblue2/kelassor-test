@@ -5,7 +5,7 @@ const AdminBootcampUsers = async ({ searchParams }) => {
   const { search, bcName, result, page } = searchParams;
 
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   const res = await fetch(`${process.env.BASE_URL}/admin/bootcamp_users.php`, {
     method: "POST",
     body: JSON.stringify({

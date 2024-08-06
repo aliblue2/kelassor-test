@@ -5,7 +5,7 @@ const TicketChat = async ({ params }) => {
   const { chatRefrence } = params;
   console.log("chatRefrence: ", chatRefrence);
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   console.log("hashed_id ", id.value);
   const res = await fetch(`${process.env.BASE_URL}/admin/chat.php`, {
     method: "POST",

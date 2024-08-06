@@ -22,13 +22,13 @@ const ASideUsers = () => {
         className={styles.menu}
       >
         <li>
-          <Link href={"users/bootcamps"}>بوت‌کمپ</Link>
+          <Link href={"/admin/users/bootcamps"}>بوت‌کمپ</Link>
         </li>
         <li>
-          <Link href={"users/courses"}>دوره آموزشی</Link>
+          <Link href={"/admin/users/courses"}>دوره آموزشی</Link>
         </li>
         <li>
-          <Link href={"users/ai-roadmap"}>مسیر هوش مصنوعی</Link>
+          <Link href={"/admin/users/ai-roadmap"}>مسیر هوش مصنوعی</Link>
         </li>
       </ul>
     </div>

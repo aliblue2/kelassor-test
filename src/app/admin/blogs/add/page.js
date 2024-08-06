@@ -6,7 +6,7 @@ const AddBlog = async () => {
   //   const categories = await res.json();
   //   console.log(categories);
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   return <AddBlogPage data={null} hashed_id={id.value} />;
 };
 

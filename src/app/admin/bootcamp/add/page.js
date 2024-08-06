@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 const AddBootcamp = () => {
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   return <AddBootcampPage data={null} hashed_id={id.value} />;
 };
 

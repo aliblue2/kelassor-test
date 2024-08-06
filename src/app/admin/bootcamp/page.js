@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 const AdminBootcamp = async () => {
   const cookieStore = cookies();
-  const id = cookieStore.get("id");
+  const id = cookieStore.get("session_id");
   const res = await fetch(`${process.env.BASE_URL}/header/bootcamp.php`, {
     method: "POST",
     body: JSON.stringify({
