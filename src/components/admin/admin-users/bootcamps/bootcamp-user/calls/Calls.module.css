@@ -1,0 +1,27 @@
+.calls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 2rem;
+}
+.calls button {
+  width: max-content;
+  padding: 3px 8px;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: none;
+  border-radius: 5px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #c3d5df;
+  padding: 5px 1rem;
+  border-radius: 5px;
+  border: 2px dashed rgb(255, 255, 255);
+}
+.container textarea {
+  margin: 5px 0;
+  border-radius: 8px;
+  resize: vertical;
+  padding: 5px;
+}

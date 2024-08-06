@@ -1,0 +1,36 @@
+.title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+.title h4 {
+  z-index: 20;
+  font-size: 12.5px;
+  font-weight: 400;
+  border-bottom: 2px solid #197265;
+  position: relative;
+  left: 10px;
+}
+.title img {
+  z-index: 10;
+
+  width: 14px;
+}
+@media (min-width: 500px) {
+  .title h4 {
+    font-size: 14px;
+  }
+}
+@media (min-width: 770px) {
+  .title {
+    justify-content: flex-start;
+  }
+  .title h4 {
+    font-size: 25px;
+  }
+  .title img {
+    width: 25px;
+  }
+}

@@ -10,7 +10,6 @@ const page = async () => {
     const jalaali = toJalaali(date);
     return jalaali.jy + "/" + jalaali.jm + "/" + jalaali.jd;
   };
-  console.log(55532,res)
   return (
     <div className="flex flex-col gap-10 py-10 grow">
       <h3 className="self-start">مدیریت حساب / بدهی</h3>

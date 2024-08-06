@@ -1,0 +1,17 @@
+.container {
+  padding: 1rem;
+}
+
+.blogs {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.noBlogs {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

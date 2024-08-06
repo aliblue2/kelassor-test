@@ -1,0 +1,22 @@
+.button {
+  background-color: #3dc0b4;
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  width: 104px;
+  height: 34.5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16.5091px;
+  line-height: 121.5%;
+  font-family: IRANSansX, sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button img {
+  width: 97%;
+  height: 70%;
+}

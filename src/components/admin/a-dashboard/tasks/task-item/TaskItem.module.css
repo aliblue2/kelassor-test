@@ -1,0 +1,29 @@
+.container {
+  width: 95%;
+  margin: 15px auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  column-gap: 5px;
+}
+.container p {
+  font-size: 12px;
+}
+.container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge {
+  background-color: red;
+  border-radius: 5px;
+  color: #fff;
+}
+.lastName {
+  grid-column-start: 4;
+  grid-column-end: 6;
+}
+.admin {
+  background-color: theme(colors.primary.30);
+  color: #fff;
+  border-radius: 5px;
+}

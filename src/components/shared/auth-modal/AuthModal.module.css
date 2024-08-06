@@ -1,0 +1,88 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+}
+.containerShow {
+  display: block;
+}
+.containerHide {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 1px 2px 15px 1px rgb(209, 209, 209),
+    -1px -2px 15px 1px rgb(209, 209, 209);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.modal span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(240, 80, 80);
+  color: #fff;
+  width: 25px;
+  height: 25px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.content p {
+  text-align: center;
+}
+.content > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2px 3px;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+}
+.action {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.action button {
+  border: none;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  background-color: #000;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 10px;
+  width: 80%;
+}
+.action button:hover {
+  background-color: var(--kelaasor-mint);
+}

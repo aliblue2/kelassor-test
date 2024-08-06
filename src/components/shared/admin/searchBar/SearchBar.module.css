@@ -1,0 +1,107 @@
+.container {
+  width: 60%;
+  height: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  background-color: #f7f7f7;
+  position: relative;
+  z-index: 30;
+}
+.container img {
+  width: 26px;
+  height: 26px;
+}
+.search {
+  height: 30px;
+  border: 2px solid var(--adminOrange);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input {
+  width: 90%;
+}
+.input input {
+  width: 100%;
+  margin: 1px;
+  height: 26px;
+  border: none;
+  background-color: #f7f7f7;
+  text-align: right;
+  padding: 5px;
+}
+.input input:focus {
+  outline: none;
+}
+.input input::placeholder {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  color: var(--adminOrange);
+  opacity: 0.4;
+}
+.icon {
+  height: 28px;
+  width: 30px;
+  background-color: var(--adminOrange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filter {
+  height: 100%;
+  border: 1px solid var(--adminOrange);
+  border-radius: 5px;
+}
+.filter > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid var(--adminOrange);
+  border-radius: 3px;
+}
+.dropDown {
+  top: 33px;
+  right: 0;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+.dropDown img {
+  width: 20px;
+  height: 20px;
+}
+.delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dropDown > div:first-child {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+.dropDown select {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: 1px solid var(--adminOrange);
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: var(--adminOrange);
+}
+.buttons {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.buttons button {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  border: none;
+  background-color: var(--adminOrange);
+  color: #fff;
+  padding: 3px;
+  border-radius: 5px;
+}

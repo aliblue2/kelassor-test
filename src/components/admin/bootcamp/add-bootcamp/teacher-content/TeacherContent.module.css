@@ -1,0 +1,56 @@
+.container {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.controlls button {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+.teachers {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.teachers > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid theme(colors.primary.base) 8d;
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+}
+.teachers > div > div {
+  display: flex;
+  gap: 14px;
+}
+.teachers label {
+  margin-left: 5px;
+}
+.teachers input[type="text"] {
+  border: 1px solid rgb(185, 207, 229);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+.teachers span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 7px 0px 3px 0px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.teachers span:hover {
+  background-color: red;
+}

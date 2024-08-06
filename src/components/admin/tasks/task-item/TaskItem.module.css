@@ -1,0 +1,101 @@
+.container {
+  /* width: 95%; */
+  margin: 0px auto;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr 2fr 2fr 2fr 1fr;
+  column-gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.container:hover {
+  background-color: rgb(215, 215, 215);
+}
+.container p {
+  font-size: 12px;
+}
+.container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.badge {
+  border-radius: 5px;
+  color: #fff;
+  padding: 3px 0;
+  margin: 0 5px;
+}
+.badgeNotDone {
+  background-color: red;
+}
+.badgeDone {
+  background-color: rgb(36, 171, 36);
+}
+
+.admin {
+  background-color: theme(colors.primary.20);
+  color: #fff;
+  border-radius: 5px;
+  padding: 3px 0;
+}
+.actions {
+  display: flex;
+  gap: 3px;
+}
+.actions button {
+  padding: 1px;
+}
+.textareaEdit {
+  width: 100%;
+  padding: 1rem;
+  resize: vertical;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border-radius: 0 0 8px 8px;
+}
+.modal {
+  background-color: #00000022;
+  backdrop-filter: blur(1px);
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 20;
+}
+.subModal {
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  filter: blur(0px) !important;
+  width: 60%;
+  margin: 0 auto;
+}
+.close {
+  cursor: pointer;
+  background-color: red;
+  color: #fff;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.subModal h6 {
+  font-size: 1rem;
+}
+.subModal p {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+}

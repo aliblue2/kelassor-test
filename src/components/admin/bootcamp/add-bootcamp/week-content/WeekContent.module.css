@@ -1,0 +1,39 @@
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.conteiner button {
+  border: none;
+  width: max-content;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  padding: 10px 30px;
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  border-radius: 10px;
+}
+.controlls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.eachWeek {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 20px 0;
+}
+.eachWeek div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.eachWeek input,
+.eachWeek textarea {
+  border: 1px solid rgb(185, 207, 229);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+.eachWeek textarea {
+  width: 100%;
+}

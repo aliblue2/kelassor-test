@@ -1,0 +1,17 @@
+.btn {
+  border: none;
+  border-radius: 20px;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  background-color: #46bfb4;
+  color: #fff;
+  font-weight: 400;
+  width: 100px;
+  height: 30px;
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    width: 142px;
+    height: 50px;
+  }
+}

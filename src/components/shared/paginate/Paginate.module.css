@@ -1,0 +1,38 @@
+.paginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.paginate li {
+  cursor: pointer;
+  border: 2px solid var(--adminDarkBlue);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: var(--adminDarkBlue);
+}
+.activePage {
+  background-color: var(--adminDarkBlue);
+  color: #fff !important;
+}
+.pageLoad {
+  animation: pageLoader 1s infinite;
+}
+
+@keyframes pageLoader {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    border: orange;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

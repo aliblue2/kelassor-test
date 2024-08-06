@@ -1,0 +1,74 @@
+.container {
+  margin: 20px 0 0;
+  position: relative;
+  height: calc(100% - 60px);
+}
+.titles {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr 2fr 2fr 2fr 1fr;
+  border-bottom: 1px solid silver;
+  padding: 15px;
+  /* justify-content: space-between;
+  align-items: stretch;
+  align-content: space-between; */
+  /* justify-items: stretch; */
+}
+.titles h4 {
+  /* text-align: center; */
+
+  text-align: center;
+}
+.info {
+  height: 34rem;
+  overflow-y: scroll;
+}
+.buttons {
+  /* position: absolute; */
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 10;
+}
+.buttons a {
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+  margin-bottom: 1rem;
+}
+.filter > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.filter select {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: 2px solid orange;
+  border-radius: 8px;
+  padding: 2px 6px;
+}
+
+.filter > div:first-child a {
+  background-color: rgb(240, 141, 20);
+  padding: 2px 4px;
+  color: #fff;
+  border-radius: 4px;
+}
+.filter > div:last-child a {
+  background-color: var(--adminDarkBlue);
+  color: #fff;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 8px;
+}

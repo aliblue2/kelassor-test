@@ -1,0 +1,36 @@
+.week {
+  box-shadow: 0px 0px 10px 0 #45877226;
+  border: 1px solid #45877244;
+  border-radius: 12px;
+  /* padding: 1rem 0; */
+  flex: 0 0 100%;
+  min-height: 0;
+}
+.header {
+  background-color: var(--kelaasor-greenish);
+  margin: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  min-height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.week h4 {
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: Yekan, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  color: #fff;
+}
+.week ul {
+  margin: 0.2rem 0;
+  padding: 0.3rem 2rem;
+  /* list-style-type: disc; */
+  position: relative;
+}
+.week li {
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-align: center;
+}

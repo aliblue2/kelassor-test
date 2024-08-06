@@ -1,0 +1,13 @@
+.container main {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+.deskSide {
+  width: 16%;
+}
+.content {
+  margin: 10px;
+  width: 84%;
+  height: calc(100% - 20px);
+  overflow-y: scroll;
+}

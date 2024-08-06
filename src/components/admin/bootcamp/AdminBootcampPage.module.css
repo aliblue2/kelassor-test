@@ -1,0 +1,10 @@
+.container {
+  padding: 1rem;
+}
+
+.bootcamps {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}

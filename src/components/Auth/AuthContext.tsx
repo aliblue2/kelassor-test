@@ -2,7 +2,6 @@
 import { checkSession } from "@/requests/Auth/checkSession";
 import { userType } from "@/types/user";
 import { deleteCookie, getCookie, setCookie } from "@/utils/cookie";
-import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { createContext, useState, ReactNode, useEffect } from "react";
 export type AuthContextType = {
@@ -41,6 +40,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     const session_id = getCookie("session_id");
     if (!session_id) return;
     const res = await checkSession(session_id);
+    console.log(3423424,res)
     if (res.statusCode === 200) {
       setuser({ name: res.name, lastname: res.lastname, roll: res.roll });
     }

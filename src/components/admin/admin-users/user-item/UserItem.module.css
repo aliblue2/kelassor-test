@@ -1,0 +1,22 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 2fr 3fr 1fr 1fr;
+  padding: 0.8rem 0;
+}
+.content > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content p {
+  font-size: 12px;
+}
+.controlls {
+  gap: 5px;
+}
+.divider {
+  width: 100%;
+  margin: 0 auto;
+  height: 1px;
+  background: rgba(112, 128, 144, 0.612);
+}

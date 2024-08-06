@@ -1,0 +1,21 @@
+.faq_item {
+  min-height: 40px;
+  font-size: 12px;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.faq_question {
+  border-right: 4px solid #bd1376;
+  height: 40px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.faq_answer {
+  font-size: 10px;
+  padding: 10px;
+  line-height: 16px;
+  font-weight: 100;
+}

@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr 3fr 2fr 2fr 2fr;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  padding: 8px 0;
+  border-radius: 5px;
+  transition: all 0.1s ease-in-out;
+  cursor: default;
+  font-size: 0.9rem;
+}
+.container:hover {
+  background-color: theme(colors.primary.base);
+  color: #fff;
+}
+
+.status {
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 3px;
+  /* font-size: 0.9rem; */
+}
+.statusAnswered {
+  background-color: rgb(58, 166, 58);
+  padding: 2px 15px;
+}
+.statusNotAnswered {
+  background-color: red;
+}
+.action a {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: none;
+  padding: 2px 4px;
+  background-color: rgb(251, 133, 0);
+  color: #fff;
+  border-radius: 3px;
+}

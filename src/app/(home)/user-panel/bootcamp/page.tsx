@@ -10,7 +10,6 @@ const page = async () => {
     const jalaali = toJalaali(date);
     return jalaali.jy + "/" + jalaali.jm + "/" + jalaali.jd;
   };
-  console.log(4543241234,res)
   return (
     <div className="flex flex-col gap-10 py-10 grow">
       <h3 className="self-start">بوتکمپ‌های من</h3>

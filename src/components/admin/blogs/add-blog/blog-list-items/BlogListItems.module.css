@@ -1,0 +1,39 @@
+.items {
+  display: flex;
+  flex-direction: row !important;
+  gap: 8px;
+}
+.items div {
+  display: inline-block;
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 4px;
+  background-color: #3f7e9e;
+  position: relative;
+}
+.items span {
+  color: #fff;
+  background-color: rgb(255, 71, 71);
+  position: absolute;
+  top: -8px;
+  left: -5px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.container button {
+  width: max-content;
+
+  border: none;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  padding: 6px 12px;
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  border-radius: 10px;
+}

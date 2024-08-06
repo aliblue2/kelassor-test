@@ -1,0 +1,101 @@
+.subContainer {
+  width: 80%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  column-gap: 30px;
+}
+.subContainer > div {
+  background-color: #eeeded;
+  border: 1px solid #bebebe;
+  border-radius: 15px;
+  height: max-content;
+}
+.title {
+  border-bottom: 1px solid #bebebe;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+.title img {
+  width: 20px;
+}
+
+.right img {
+  width: 15px;
+  margin-left: 5px;
+}
+.rightContent {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rightContent div {
+  display: flex;
+  align-items: center;
+}
+.rightContent label {
+  font-size: 0.8rem;
+}
+.leftContent {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 50px;
+  column-gap: 20px;
+  align-items: center;
+}
+.leftContent section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+.leftContent section input {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+}
+.txtArea {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-template-columns: 1fr 5fr !important;
+}
+.leftContent label {
+  font-size: 0.8rem;
+}
+
+.container input,
+.container select,
+.container textarea {
+  background-color: #eeeded;
+}
+.input,
+.container textarea {
+  border: 1px solid #bebebe;
+  padding: 0px 3px;
+  border-radius: 5px;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+}
+.txtArea textarea {
+  height: 150px;
+  resize: none;
+  overflow-y: scroll;
+  padding: 10px;
+  font-size: 0.6rem !important;
+}
+
+.buttons {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.buttons button {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  border: none;
+  background-color: theme(colors.primary.base);
+  color: #fff;
+  padding: 10px 40px;
+  border-radius: 14px;
+}

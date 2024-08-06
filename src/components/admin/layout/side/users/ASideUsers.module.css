@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+.container > a {
+  padding: 10px 20px;
+  width: 100%;
+
+  border-radius: 8px;
+}
+.mainButton {
+  display: flex;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+  margin: 10px auto;
+}
+.menu li {
+  background-color: #10618a;
+  border-radius: 8px;
+  width: 100%;
+}
+.menu a {
+  /* margin: 5px 10px !important; */
+  width: 100%;
+  padding: 5px 10px;
+  color: #cee8f5;
+  display: inline-block;
+  border-radius: 8px;
+}
+.container a:hover {
+  background-color: #053f5c;
+}

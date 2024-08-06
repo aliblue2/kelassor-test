@@ -1,0 +1,46 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 5fr;
+  align-items: center;
+  margin-left: 10px;
+  gap: 15px;
+  border: 1px dashed rgb(200, 213, 225);
+  padding: 15px;
+  border-radius: 6px;
+  margin: 2rem 0;
+}
+
+.submitBtn {
+  min-width: max-content;
+  border: none;
+  border-radius: 8px;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  padding: 3px 5px;
+  color: #fff;
+  background-color: theme(colors.primary.base);
+}
+.loadBtn {
+  animation: load 0.4s infinite;
+}
+
+.container span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: red;
+}
+
+@keyframes load {
+  0% {
+    background-color: theme(colors.primary.base);
+    transform: scale(1);
+  }
+  50% {
+    background-color: #3384ad;
+    transform: scale(1.1);
+  }
+  100% {
+    background-color: theme(colors.primary.base);
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+.container textarea {
+  resize: vertical;
+}
+.content {
+  margin-top: 20px;
+  display: flex;
+  gap: 2rem;
+}
+.weekContent {
+  width: 50%;
+}
+.form {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.form h1 {
+  text-align: center;
+}
+.form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.form input,
+.form textarea,
+.form select {
+  border: 1px solid rgb(185, 207, 229);
+  border-radius: 8px;
+  padding: 5px 8px;
+}
+.form select {
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+}
+.form .garantee {
+  flex-direction: row !important;
+}
+div.part {
+  display: flex;
+  flex-direction: row;
+}
+.container > button {
+  width: 80%;
+  margin: 1rem auto;
+  border: none;
+  font-family: IRANSansX, Arial, Helvetica, sans-serif;
+  padding: 10px 0;
+  background-color: var(--adminDarkBlue);
+  color: #fff;
+  border-radius: 10px;
+}

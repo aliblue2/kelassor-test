@@ -1,0 +1,30 @@
+.container {
+  height: 100%;
+}
+.subContainer {
+  background-color: theme(colors.primary.base);
+  height: 97%;
+  margin: 10px;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+.subContainer > a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 10px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.1s ease-in-out;
+}
+.subContainer > a:hover {
+  background-color: #053f5c;
+}
+.subContainer img {
+  width: 25px;
+  height: 25px;
+  margin-left: 15px;
+}
+.subContainer p {
+  color: #fff;
+}
