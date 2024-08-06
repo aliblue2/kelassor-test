@@ -6,9 +6,10 @@ type bootcampFormSubmitInput = {
 };
 type bootcampFormSubmitOutput = { statusCode: number };
 export const bootcampFormSubmit: (
-  input: bootcampFormSubmitInput
+  input: bootcampFormSubmitInput,
 ) => Promise<bootcampFormSubmitOutput> = async (input) => {
   return fetch(`${process.env.BASE_URL}/bootcamp/bootcamp.php`, {
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       API_KEY: process.env.API_KEY,

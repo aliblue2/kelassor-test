@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { bootcampSimple } from "@/types/bootcamp";
 import NavDropdownItem from "./NavDropdownItem";
 import { AboutusIcon, CallusIcon, RulesIcon } from "@/components/Ui/Icons";
+import Image from "next/image";
 
 //Nav component
 type NavProps = { bootcamps: bootcampSimple[] };
@@ -42,7 +43,7 @@ const Nav = ({ bootcamps }: NavProps) => {
           {bootcamps.map((bc: bootcampSimple, index: number) =>
             bc.status !== "notactive" ? (
               <NavDropdownItem key={index} to={`/bootcamp/${bc.url}`}>
-                {bc.header_title}
+                {bc.header_title} <Image src={bc.logo} height={20} width={20} alt={bc.header_title}/>
               </NavDropdownItem>
             ) : null
           )}

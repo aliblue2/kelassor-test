@@ -77,46 +77,50 @@ const HeroCarousel = ({ bootcamps }: HeroCarouselProps) => {
 
       {/* controls  ********************************************************************************/}
       {/* container to prevent wierd overflow ********************************************************************************/}
-      <div className="flex overflow-hidden absolute bottom-0 justify-center w-full h-[30px] md:h-[60px]">
-        {/* control's background ********************************************************************************/}
-        <div className="flex relative h-full w-[136px] bg-background rounded-t-[15px] md:w-[260px] md:rounded-t-[30px]">
-          {/* fancy outer border radius ********************************************************************************/}
-          <div className=" absolute bottom-0 right-full rounded-br-full w-full h-1/2 md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]" />
-          <div className="absolute bottom-0 rounded-bl-full w-full h-1/2 left-full md:shadow-[-50px_0_0_0_theme(colors.background)] shadow-[-30px_0_0_0_theme(colors.background)]" />
-        </div>
-      </div>
+      {bootcamps.length > 1 && (
+        <>
+          <div className="flex overflow-hidden absolute bottom-0 justify-center w-full h-[30px] md:h-[60px]">
+            {/* control's background ********************************************************************************/}
+            <div className="flex relative h-full w-[136px] bg-background rounded-t-[15px] md:w-[260px] md:rounded-t-[30px]">
+              {/* fancy outer border radius ********************************************************************************/}
+              <div className=" absolute bottom-0 right-full rounded-br-full w-full h-1/2 md:shadow-[50px_0_0_0_theme(colors.background)] shadow-[30px_0_0_0_theme(colors.background)]" />
+              <div className="absolute bottom-0 rounded-bl-full w-full h-1/2 left-full md:shadow-[-50px_0_0_0_theme(colors.background)] shadow-[-30px_0_0_0_theme(colors.background)]" />
+            </div>
+          </div>
 
-      {/* control buttons ********************************************************************************/}
-      <div className="flex absolute bottom-0 gap-2 px-2 pt-2 md:px-5 md:pt-2 h-[30px] md:h-[60px]">
-        {/* prev button ********************************************************************************/}
-        <button
-          className="flex justify-center items-center bg-white relative rounded-full size-6 shadow2 md:size-[60px] hover:[&>*]:scale-125"
-          onClick={prevIndex}
-        >
-          <ChevronLeftIcon className="relative duration-200 size-3 right-[1px] text-gray-2 md:size-8" />
-        </button>
-
-        {/* indicator ********************************************************************************/}
-        <div className="flex relative gap-1 justify-center items-center md:top-1 top-[2px]">
-          {bootcamps.map((item, i) => (
+          {/* control buttons ********************************************************************************/}
+          <div className="flex absolute bottom-0 gap-2 px-2 pt-2 md:px-5 md:pt-2 h-[30px] md:h-[60px]">
+            {/* prev button ********************************************************************************/}
             <button
-              key={item.header_title}
-              onClick={() => setIndex(i)}
-              className={`rounded-full size-2 md:size-3 shadow2 duration-500 ${
-                index === i ? "bg-primary-base" : "bg-light-2"
-              }`}
-            />
-          ))}
-        </div>
+              className="flex justify-center items-center bg-white relative rounded-full size-6 shadow2 md:size-[60px] hover:[&>*]:scale-125"
+              onClick={prevIndex}
+            >
+              <ChevronLeftIcon className="relative duration-200 size-3 right-[1px] text-gray-2 md:size-8" />
+            </button>
 
-        {/* next button ********************************************************************************/}
-        <button
-          className="flex justify-center items-center bg-white rounded-full relative size-6 shadow2 md:size-[60px] hover:[&>*]:scale-125"
-          onClick={nextIndex}
-        >
-          <ChevronRightIcon className="relative duration-200 left-[1px] size-3 text-gray-2 md:size-8" />
-        </button>
-      </div>
+            {/* indicator ********************************************************************************/}
+            <div className="flex relative gap-1 justify-center items-center md:top-1 top-[2px]">
+              {bootcamps.map((item, i) => (
+                <button
+                  key={item.header_title}
+                  onClick={() => setIndex(i)}
+                  className={`rounded-full size-2 md:size-3 shadow2 duration-500 ${
+                    index === i ? "bg-primary-base" : "bg-light-2"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* next button ********************************************************************************/}
+            <button
+              className="flex justify-center items-center bg-white rounded-full relative size-6 shadow2 md:size-[60px] hover:[&>*]:scale-125"
+              onClick={nextIndex}
+            >
+              <ChevronRightIcon className="relative duration-200 left-[1px] size-3 text-gray-2 md:size-8" />
+            </button>
+          </div>
+        </>
+      )}
     </motion.div>
   );
 };

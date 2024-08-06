@@ -7,6 +7,7 @@ import CustomHeading from "../Ui/CustomHeading";
 import MazeContainer from "../Ui/MazeContainer";
 import BootCampCard from "./BootcampCard";
 import InfiniteScroll from "../Landing/Companies/InfiniteScroll";
+//for slider
 const images = [
   "/Bootcamp/slider1.png",
   "/Bootcamp/slider2.png",
@@ -83,13 +84,13 @@ const Bootcamps = ({ data }: BootcampsProps) => {
         expired bootcamps */}
       <div className="container flex flex-col items-center">
         <CustomHeading side="center">
-          <h2>بوتکمپ‌های برگذار شده</h2>
+          <h2>بوتکمپ‌های برگزار شده</h2>
         </CustomHeading>
         <div className="flex flex-col flex-wrap gap-5 justify-center items-center p-10 w-full md:flex-row">
           {data
             .filter((item) => item.status === "expired")
             .map((item) => (
-              <BootCampCard noLink data={item} key={item.header_title} />
+              <BootCampCard data={item} key={item.header_title} />
             ))}
         </div>
       </div>

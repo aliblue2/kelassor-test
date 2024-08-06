@@ -6,14 +6,18 @@ import InfiniteScroll from "./InfiniteScroll";
 //data below can be props
 //todo remove background
 const images = [
-  "/Landing/Companies/company1.webp",
-  "/Landing/Companies/company2.webp",
-  "/Landing/Companies/company3.webp",
-  "/Landing/Companies/company4.webp",
-  "/Landing/Companies/company5.webp",
-  "/Landing/Companies/company6.webp",
-  "/Landing/Companies/company7.webp",
-  "/Landing/Companies/company8.webp",
+  "/Landing/Companies/zavie.webp",
+  "/Landing/Companies/hamava.webp",
+  "/Landing/Companies/digify.webp",
+  "/Landing/Companies/asmari.webp",
+  "/Landing/Companies/wishwork.webp",
+  "/Landing/Companies/karkhane.webp",
+  "/Landing/Companies/zavie.webp",
+  "/Landing/Companies/hamava.webp",
+  "/Landing/Companies/digify.webp",
+  "/Landing/Companies/asmari.webp",
+  "/Landing/Companies/wishwork.webp",
+  "/Landing/Companies/karkhane.webp",
 ];
 type CompaniesProps = { className?: string };
 const Companies = ({ className }: CompaniesProps) => {

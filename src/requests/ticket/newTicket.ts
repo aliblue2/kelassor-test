@@ -13,6 +13,7 @@ export const newTicket: (
   if (!type) throw new TypeError("bad input");
   return fetch(`${process.env.BASE_URL}/emp/supportAPI.php`, {
     method: "POST",
+    cache: "no-store",
     body: JSON.stringify({
       API_KEY: process.env.API_KEY,
       Content_Type: process.env.Content_Type,

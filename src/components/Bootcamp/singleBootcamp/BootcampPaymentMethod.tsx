@@ -15,7 +15,7 @@ const BootcampPaymentMethod = () => {
         <div className="flex justify-between items-center py-5 md:py-10 px-5 md:px-20 shrink-0 bg-secondary-75 grow rounded-[30px]">
           پرداخت نقدی
           <div className="bg-error flex flex-col items-center justify-center text-xl text-white size-24 rounded-[20px]">
-            <div>20%</div>
+            <div>10%</div>
             <div>تخفیف</div>
           </div>
         </div>

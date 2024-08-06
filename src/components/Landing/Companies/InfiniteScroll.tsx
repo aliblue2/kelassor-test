@@ -55,7 +55,7 @@ const InfiniteScroll = ({
                 width={itemSize * isDesktop}
                 src={item}
                 alt={`company ${index}`}
-                className="object-contain size-full"
+                className="object-contain rounded-xl size-full"
               />
             </motion.div>
           ))}

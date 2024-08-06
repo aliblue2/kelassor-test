@@ -8,6 +8,7 @@ export const authVerifyOtp: (input: {
   otp: string;
 }) => Promise<authVerifyOtpOutput> = async (input) => {
   return fetch(`${process.env.BASE_URL}/loginSignup/otpVerification.php`, {
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       API_KEY: process.env.API_KEY,

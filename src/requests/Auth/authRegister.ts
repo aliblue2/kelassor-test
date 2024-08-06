@@ -9,7 +9,7 @@ export const authRegister: (
   input: authRegisterInput
 ) => Promise<authRegisterOutput> = async (input) => {
   return fetch(`${process.env.BASE_URL}/loginSignup/userDataRegistration.php`, {
-    cache: "no-cache",
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       API_KEY: process.env.API_KEY,

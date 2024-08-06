@@ -4,6 +4,8 @@ import { bootcamp, bootcampSimple } from "@/types/bootcamp";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import PhoneNavGroup from "./PhoneNavGroup";
+import Image from "next/image";
+import { AboutusIcon, CallusIcon, RulesIcon } from "@/components/Ui/Icons";
 
 //PhoneNav component
 type PhoneNavProps = {
@@ -37,21 +39,29 @@ const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {
         pb-10 rounded-b-[40px]
         "
       >
-      {/*todo:
+        {/*todo:
         <Link className="p-5 border-b border-b-secondary-50" href="/">
           خانه
         </Link>
       */}
         <PhoneNavGroup title="بوتکمپ‌ها">
-          <Link className="p-5" href="/bootcamp">
-            همه بوتکمپ‌ها
-          </Link>
+          <Link href="/bootcamp">همه بوتکمپ‌ها</Link>
           {bootcamps.map((bc: bootcampSimple, index: number) =>
             bc.status !== "notactive" ? (
-              <Link key={index} href={`/bootcamp/${bc.url}`}>
-                {bc.header_title}
+              <Link
+                key={index}
+                className="flex justify-between items-center"
+                href={`/bootcamp/${bc.url}`}
+              >
+                {bc.header_title}{" "}
+                <Image
+                  src={bc.logo}
+                  height={20}
+                  width={20}
+                  alt={bc.header_title}
+                />
               </Link>
-            ) : null
+            ) : null,
           )}
         </PhoneNavGroup>
         {/*todo:
@@ -60,9 +70,23 @@ const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {
         </Link>
         */}
         <PhoneNavGroup title="ارتباط با ما">
-          <Link href="/about-us">درباره ما</Link>
-          <Link href="/about-us/contact-us">تماس با ما</Link>
-          <Link href="/about-us/user-agreements">قوانین و مقررات</Link>
+          <Link className="flex items-center justify-between" href="/about-us">
+            درباره ما <RulesIcon />
+          </Link>
+          <Link
+            className="flex items-center justify-between"
+            href="/about-us/contact-us"
+          >
+            تماس با ما
+            <CallusIcon />
+          </Link>
+          <Link
+            className="flex items-center justify-between"
+            href="/about-us/user-agreements"
+          >
+            قوانین و مقررات
+            <AboutusIcon />
+          </Link>
         </PhoneNavGroup>
       </motion.div>
     </>

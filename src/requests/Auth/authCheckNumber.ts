@@ -3,7 +3,7 @@ export const authCheckNumber: (input: {
   number: string;
 }) => Promise<checkNumberOutput> = async (input) => {
   return fetch(`${process.env.BASE_URL}/loginSignup/checkPhoneNumber.php`, {
-    cache: "no-cache",
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       phone: input.number,

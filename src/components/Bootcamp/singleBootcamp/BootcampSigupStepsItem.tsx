@@ -3,7 +3,7 @@
 type BootcampSigupStepsItemProps = {
   className?: string;
   number: number;
-  children: string;
+  children: React.ReactNode;
   title:string;
   left?: boolean;
 };

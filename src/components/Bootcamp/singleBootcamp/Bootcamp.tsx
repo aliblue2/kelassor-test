@@ -22,6 +22,7 @@ type BootcampProps = {
   data: bootcamp;
 };
 const Bootcamp = ({ data }: BootcampProps) => {
+  console.log(664434,data)
   const section = useRef<(HTMLDivElement | null)[]>([]);
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !section.current.includes(el)) {
@@ -49,7 +50,7 @@ const Bootcamp = ({ data }: BootcampProps) => {
       <BootcampFeatures ref={addToRefs} />
       <BootcampTechnologies logos={data.tech_logo} />
       <BootcampSyllabus data={data.contents} ref={addToRefs} />
-      <BootcampSignupSteps ref={addToRefs} />
+      <BootcampSignupSteps active={data.status === "active"} duration={data.length} date={data.start} ref={addToRefs} />
       <BootcampSignupPlan prices={data.price} />
       <BootcampPaymentMethod />
       <BootcampYouShouldKnow ref={addToRefs} />

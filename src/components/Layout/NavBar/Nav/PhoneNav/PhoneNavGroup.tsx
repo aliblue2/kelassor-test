@@ -22,7 +22,7 @@ const PhoneNavGroup = ({ children, title }: PhoneNavGroupProps) => {
         {title}
         {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </div>
-      <div className="flex divide-y divide-light-3 flex-col px-5 text-base font-medium text-gray-3 [&>*]:p-2">
+      <div className="flex divide-y divide-light-3 flex-col px-5 text-base font-medium text-gray-3 [&>*]:py-4 [&>*]:px-2">
         {expanded && children}
       </div>
     </>
