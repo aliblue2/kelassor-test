@@ -17,7 +17,7 @@ const FieldCard = ({ data }: FieldCardProps) => {
         className="relative z-20 flex flex-col [&>*]:w-full p-2 [&>*]:duration-200 duration-200 aspect-square group"
         href={"/bootcamp/" + data.url}
       >
-        <Image className="object-cover h-3/5 bg-primary-base rounded-[12px] group-hover:rounded-[16px]" src={data.logo_banner} height={300} width={400} alt={data.header_title}/>
+        <Image className="object-cover h-3/5 bg-primary-base rounded-[12px] group-hover:scale-105" src={data.logo_banner} height={300} width={400} alt={data.header_title}/>
         <div className="flex justify-center items-center text-lg font-bold group-hover:scale-105 grow">
           {data.header_title}
         </div>

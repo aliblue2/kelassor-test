@@ -35,7 +35,7 @@ const Fields = ({ bootcamps }: FieldsProps) => {
         variants={Pvariant}
         initial="initial"
         animate={isInView ? "animate" : "initial"}
-        className="grid gap-2 md:gap-5 w-full mt-10 grid-cols-2 md:grid-cols-4"
+        className="grid gap-2 md:gap-5 w-full mt-10 grid-cols-1 md:grid-cols-4"
       >
         {bootcamps.map((item) => (
           <FieldCard key={item.header_title} data={item} />
