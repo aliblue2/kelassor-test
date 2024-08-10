@@ -1,11 +1,10 @@
 import UserPanel from "@/components/user-panel/UserPanel";
-import { getPanelBootcamps } from "@/requests/user-panel/getPanelBootcamps";
+import { getPanelDashboard } from "@/requests/user-panel/getPanelDashboard";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 //page component
 const page = async () => {
-  
 
   const cookieStore = cookies();
   const id = cookieStore.get("session_id");
@@ -25,7 +24,7 @@ const page = async () => {
   if (loggedIn.statusCode !== 200) redirect("/");
   if (loggedIn.roll === "2") redirect("/admin");
 
-  const res = await getPanelBootcamps(cookies().get("session_id")?.value);
+  const res = await getPanelDashboard(cookies().get("session_id")?.value);
   return <UserPanel data={res}/>;
 };
 

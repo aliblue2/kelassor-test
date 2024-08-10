@@ -1,14 +1,14 @@
 "use client";
-import { getPanelBootcampsOutput } from "@/requests/user-panel/getPanelBootcamps";
 import { useAuth } from "../Auth/useAuth";
 import CustomButton from "../Ui/CustomButton";
 import CustomHeading from "../Ui/CustomHeading";
 import { toJalaali } from "jalaali-js";
 import Image from "next/image";
 import Link from "next/link";
+import { getPanelDashboardOutput } from "@/requests/user-panel/getPanelDashboard";
 
 //UserPanel component
-const UserPanel = ({ data }: { data: getPanelBootcampsOutput[] }) => {
+const UserPanel = ({ data }: { data: getPanelDashboardOutput[] }) => {
   const { user } = useAuth();
 
   const convertDate = (input: string) => {

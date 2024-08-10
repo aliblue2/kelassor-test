@@ -68,6 +68,7 @@ const ConsultForm = () => {
         type="text"
         className={inputClass}
       />
+      <p className="invisible">hidden </p>
       <CustomButton
         className="flex items-center justify-center"
         disabled={formState !== "ready"}
