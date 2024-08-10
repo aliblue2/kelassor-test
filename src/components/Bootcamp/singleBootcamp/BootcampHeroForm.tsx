@@ -47,9 +47,7 @@ const BootcampHeroForm = ({
       phone,
       discount: coupon,
       title: title,
-    }).then(() => {
-      return { statusCode: 200 }; //todo delete
-    });
+    })
 
     if (res.statusCode === 200) {
       if (user) {

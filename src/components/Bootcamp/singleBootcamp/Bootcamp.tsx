@@ -22,7 +22,6 @@ type BootcampProps = {
   data: bootcamp;
 };
 const Bootcamp = ({ data }: BootcampProps) => {
-  console.log(664434,data)
   const section = useRef<(HTMLDivElement | null)[]>([]);
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !section.current.includes(el)) {
