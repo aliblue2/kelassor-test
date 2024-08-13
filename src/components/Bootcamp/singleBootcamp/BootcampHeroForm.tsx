@@ -15,8 +15,10 @@ type BootcampHeroFormProps = {
   capacity: number;
   full_capacity: number;
   title: string;
+  className?: string;
 };
 const BootcampHeroForm = ({
+  className = "",
   title,
   capacity,
   full_capacity,
@@ -65,7 +67,7 @@ const BootcampHeroForm = ({
   };
 
   return (
-    <div className="flex bg-light-3 rounded-[30px] mt-auto p-5 text-black flex-col gap-2">
+    <div className={`flex bg-light-3 rounded-[30px] mt-auto p-5 text-black flex-col gap-2 ${className}`}>
       <div className="text-xl">{title}</div>
       <div className="text-light-1">
         ظرفیت باقی مانده: {capacity} از {full_capacity}

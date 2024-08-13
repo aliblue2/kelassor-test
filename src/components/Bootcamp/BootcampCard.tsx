@@ -7,7 +7,7 @@ import Link from "next/link";
 type BootcampCardProps = { data: bootcampSimple; noLink?: boolean };
 const BootCampCard = ({ data, noLink = false }: BootcampCardProps) => {
   return (
-    <div className="shadow2 flex flex-col [&>*]:w-full bg-white p-2 [&>*]:duration-200 duration-200 rounded-[20px] h-[350px] w-full md:w-auto aspect-[3/4] md:aspect-[4/3] ">
+    <div className="hover:shadow2 hover:scale-105 flex flex-col [&>*]:w-full bg-white p-2 [&>*]:duration-200 duration-200 rounded-[20px] h-[350px] w-full md:w-auto aspect-[3/4] md:aspect-[4/3] ">
       <div className="h-3/5 bg-primary-base overflow-hidden rounded-[12px] ">
         <Image
           className="size-full object-cover"

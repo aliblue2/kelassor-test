@@ -37,7 +37,7 @@ const BootcampJumplist = ({ sections }: BootcampJumplistProps) => {
   }, [sections]);
 
   return (
-    <div className="hidden sticky z-50 grid-cols-6 items-center pt-5 px-10 pb-3 font-bold text-center border-b md:grid top-[60px] border-x border-secondary-50 mt-[-40px] rounded-b-[50px] bg-secondary-75 bottom-[50px]">
+    <div className="pt-16 hidden sticky z-50 grid-cols-6 items-center px-10 pb-3 font-bold text-center md:grid top-[20px] shadow3 mt-[-200px] rounded-b-[50px] bg-secondary-75 bottom-[50px]">
       <button
         className={`${
           index === 0 ? "border-b-primary-base" : "border-b-secondary-75"

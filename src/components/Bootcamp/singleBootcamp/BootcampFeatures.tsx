@@ -19,7 +19,7 @@ const features = [
     id: 2,
     title: "مدرسین مطرح",
     desc: "مدرسین کلاسور علاوه بر رویکرد علمی نسبت به موضوعات، در شرکت های مطرح هم تجربه های عمیق و خوبی دارند.",
-    logo: teacherGreen,
+    logo: userGreen,
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const features = [
     id: 4,
     title: "معرفی برای استخدام",
     desc: "در انتها کلاسور شمار رو تنها نمیذاره و به بهترین و معتبرترین شرکت ها برای شروع مسیر کاری معرفیتون میکنه.",
-    logo: userGreen,
+    logo: teacherGreen,
   },
 ];
 //BootcampFeatures component
@@ -45,7 +45,7 @@ const BootcampFeatures = forwardRef<HTMLDivElement>((_,ref) => {
         {features.map((item) => (
           <div
             key={item.id}
-            className={`flex flex-col gap-5 items-center p-5 text-center bg-background rounded-[30px] relative ${item.id%2!==0? "md:top-20":null}`}
+            className={`flex flex-col gap-3 md:gap-5 items-center p-2 md:p-5 text-center bg-background rounded-[30px] relative ${item.id%2!==0? "md:top-20":null}`}
           >
             <div className="font-bold text-primary-base">{item.title}</div>
             <div className="text-xs font-bold text-light-1">{item.desc}</div>

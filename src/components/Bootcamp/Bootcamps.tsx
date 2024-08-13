@@ -21,7 +21,7 @@ const images = [
 type BootcampsProps = { data: bootcampSimple[] };
 const Bootcamps = ({ data }: BootcampsProps) => {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-40">
       {/******************************************************************************
         Hero */}
       <div className="px-10 maze text-primary-base">
