@@ -38,17 +38,17 @@ const SimpleCarousel = ({ children, count }: SimpleCarouselProps) => {
       <div className="flex gap-4 mt-2 px-2 pt-2 md:gap-6 md:px-5 md:pt-2 items-center justify-center">
         {/* prev button ********************************************************************************/}
         <button
-          className="flex justify-center items-center bg-white relative rounded-full shadow2 size-[60px] hover:[&>*]:scale-125"
+          className="flex justify-center items-center bg-white relative rounded-full shadow2 size-[40px] md:size-[60px] hover:[&>*]:scale-125"
           onClick={prevIndex}
         >
-          <ChevronRightIcon className="relative duration-200 right-[1px] text-gray-2 size-8" />
+          <ChevronRightIcon className="relative duration-200 right-[1px] text-gray-2 size-4 md:size-8 " />
         </button>
         {/* next button ********************************************************************************/}
         <button
-          className="flex justify-center items-center bg-white rounded-full relative shadow2 size-[60px] hover:[&>*]:scale-125"
+          className="flex justify-center items-center bg-white rounded-full relative shadow2 size-[40px] md:size-[60px] hover:[&>*]:scale-125"
           onClick={nextIndex}
         >
-          <ChevronLeftIcon className="relative duration-200 left-[1px] text-gray-2 size-8" />
+          <ChevronLeftIcon className="relative duration-200 left-[1px] text-gray-2 size-4 md:size-8 " />
         </button>
       </div>
     </div>

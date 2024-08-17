@@ -12,12 +12,26 @@ const FieldCard = ({ data }: FieldCardProps) => {
     animate: { opacity: 1, y: 0 },
   };
   return (
-    <motion.button variants={variants} className="bg-white md:relative md:z-30 hover:p-1 rounded-[20px] hover:shadow2">
+    <motion.button
+      variants={variants}
+      className="bg-white md:relative md:z-30 hover:p-1 rounded-[20px] hover:shadow2"
+    >
       <Link
         className="relative z-20 flex flex-col [&>*]:w-full p-2 [&>*]:duration-200 duration-200 aspect-square group"
         href={"/bootcamp/" + data.url}
       >
-        <Image className="object-cover h-3/5 bg-primary-base rounded-[12px] group-hover:scale-105" src={data.logo_banner} height={300} width={400} alt={data.header_title}/>
+        <div className="h-3/5 bg-primary-base overflow-hidden relative rounded-[12px] group-hover:scale-105">
+          <Image
+            className="brightness-75 top-0 left-0 object-cover size-full absolute"
+            src={data.logo_banner}
+            height={300}
+            width={400}
+            alt={data.header_title}
+          />
+          <h3 className="absolute z-10 text-white flex items-center justify-center size-full font-bold">
+            {data.url}
+          </h3>
+        </div>
         <div className="flex justify-center items-center text-lg font-bold group-hover:scale-105 grow">
           {data.header_title}
         </div>
