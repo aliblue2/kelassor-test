@@ -14,10 +14,6 @@ const page = async () => {
           <div>نام بوتکمپ</div>
           <div>تاریخ شروع</div>
           <div>مدت دوره</div>
-          <div className="flex items-center justify-between gap-2">
-            پرداخت با 
-            <Image src={img} height={30} width={50} alt="snapp pay" className="brightness-[125%]" />
-          </div>
         </div>
         {/******************************************************************************
           data */}
@@ -36,7 +32,16 @@ const page = async () => {
               className="flex gap-2 items-center justify-between"
               target="_blank"
             >
-              برای پرداخت کلیک کنید
+              <div className="flex items-center justify-between gap-2">
+                پرداخت با
+                <Image
+                  src={img}
+                  height={30}
+                  width={50}
+                  alt="snapp pay"
+                  className="brightness-[10%] "
+                />
+              </div>
             </a>
           </div>
         ))}
