@@ -1,10 +1,10 @@
 import { cookies } from "next/headers";
 import { toJalaali } from "jalaali-js";
-import { getPanelDashboard } from "@/requests/user-panel/getPanelDashboard";
+import { getPanelPayments } from "@/requests/user-panel/getPanelPayments";
 
 //page component
 const page = async () => {
-  const res = await getPanelDashboard(cookies().get("session_id")?.value);
+  const res = await getPanelPayments(cookies().get("session_id")?.value);
   const convertDate = (input: string) => {
     const date = new Date(input);
     const jalaali = toJalaali(date);

@@ -51,7 +51,7 @@ const Bootcamp = ({ data }: BootcampProps) => {
       <BootcampSyllabus data={data.contents} ref={addToRefs} />
       <BootcampSignupSteps active={data.status === "active"} duration={data.length} date={data.start} ref={addToRefs} />
       <BootcampSignupPlan prices={data.price} />
-      <BootcampPaymentMethod />
+      <BootcampPaymentMethod price={data.price[0]}/>
       <BootcampYouShouldKnow ref={addToRefs} />
       <BootcampCertificate />
       <BootcampSupport />
