@@ -1,16 +1,15 @@
 import { cookies } from "next/headers";
 import { toJalaali } from "jalaali-js";
-import { getPanelDashboard } from "@/requests/user-panel/getPanelDashboard";
+import { getPanelPayments } from "@/requests/user-panel/getPanelPayments";
 
 //page component
 const page = async () => {
-  const res = await getPanelDashboard(cookies().get("session_id")?.value);
+  const res = await getPanelPayments(cookies().get("session_id")?.value);
   const convertDate = (input: string) => {
     const date = new Date(input);
     const jalaali = toJalaali(date);
     return jalaali.jy + "/" + jalaali.jm + "/" + jalaali.jd;
   };
-  console.log(55532,res)
   return (
     <div className="flex flex-col gap-10 py-10 grow">
       <h3 className="self-start">مدیریت حساب / بدهی</h3>

@@ -1,7 +1,7 @@
+import PanelBootcampCancel from "@/components/user-panel/bootcamp/PanelBootcampCancel";
+import PanelBootcampPay from "@/components/user-panel/bootcamp/PanelBootcampPay";
 import { getPanelBootcamps } from "@/requests/user-panel/getPanelBootcamps";
-import img from "/public/common/snappPay.svg";
 import { cookies } from "next/headers";
-import Image from "next/image";
 
 //page component
 const page = async () => {
@@ -19,7 +19,7 @@ const page = async () => {
           data */}
         {res.map((item) => (
           <div
-            key={item.transactionId}
+            key={item.id}
             className="grid grid-cols-4 gap-2 justify-items-center items-center p-2 odd:bg-light-2 even:bg-light-3"
           >
             <div>{item.bootcampTitle}</div>
@@ -27,22 +27,11 @@ const page = async () => {
             <div>{item.start}</div>
 
             <div>{item.length}</div>
-            <a
-              href={item.link}
-              className="flex gap-2 items-center justify-between"
-              target="_blank"
-            >
-              <div className="flex items-center justify-between gap-2">
-                پرداخت با
-                <Image
-                  src={img}
-                  height={30}
-                  width={50}
-                  alt="snapp pay"
-                  className="brightness-[10%] "
-                />
-              </div>
-            </a>
+            {item.isPaid === 1 ? (
+              <PanelBootcampCancel data={item} />
+            ) : (
+              <PanelBootcampPay data={item} />
+            )}
           </div>
         ))}
       </div>

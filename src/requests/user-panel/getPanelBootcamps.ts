@@ -1,4 +1,7 @@
 export type getPanelBootcampsOutput = {
+  id: number;
+  isPaid: 0 | 1 | 2;
+  eligible: boolean;
   name: string;
   phone: string;
   bootcampTitle: string;
@@ -7,6 +10,7 @@ export type getPanelBootcampsOutput = {
   price: string;
   transactionId: string;
   link: string;
+  tid: string;
 };
 export const getPanelBootcamps: (
   session_id: string | undefined,
