@@ -57,33 +57,24 @@ const PanelBootcampPay = ({ data }: PanelBootcampPayProps) => {
             </div>
 
             <div className="grow flex items-center justify-center">
-              <a
-                href={data.eligible ? data.link : undefined}
+            {//todo fix
+              data.eligible && <a
+                href={ data.link}
                 target="_blank"
-                className={` ${
-                  data.eligible ? "cursor-pointer hover:shadow2" : "text-gray-4"
-                } flex gap-2 border border-[#EBECF2] p-5 rounded-[20px] `}
+                className={` "cursor-pointer hover:shadow2" flex gap-2 border border-[#EBECF2] p-5 rounded-[20px] `}
               >
                 <Image
                   src="/snapp-pay/Snapp!-Pay-Logotype-Mobile.svg"
-                  className={data.eligible ? undefined : "saturate-0"}
                   alt="لوگوی اسنپ پی"
                   height={64}
                   width={64}
                 />
                 <div className="flex flex-col items-start text-base md:text-lg gap-1 justify-center">
-                  <div>پرداخت اقساطی اسنپ‌پی</div>
-                  <div className="text-start self-start">
-                    ۴ قسط ماهیانه{" "}
-                    {(
-                      +data.price.split(";")[0].replaceAll(",", "") / 4
-                    ).toLocaleString()}{" "}
-                    تومان
-                    <br className="md:hidden" />
-                    (بدون کارمزد)
-                  </div>
+                  <div>{data.title_message}</div>
+                  <div className="text-start self-start">{data.description}</div>
                 </div>
               </a>
+            }
             </div>
           </div>
         </div>

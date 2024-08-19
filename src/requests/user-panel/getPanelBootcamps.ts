@@ -1,7 +1,6 @@
 export type getPanelBootcampsOutput = {
   id: number;
   isPaid: 0 | 1 | 2;
-  eligible: boolean;
   name: string;
   phone: string;
   bootcampTitle: string;
@@ -11,7 +10,17 @@ export type getPanelBootcampsOutput = {
   transactionId: string;
   link: string;
   tid: string;
-};
+} & (
+  {
+    eligible: true;
+    title_message:string ;
+    description:string ;
+  } | {
+    eligible: false;
+    title_message: null;
+    description: null;
+  }
+);
 export const getPanelBootcamps: (
   session_id: string | undefined,
 ) => Promise<getPanelBootcampsOutput[]> = async (session_id) => {
