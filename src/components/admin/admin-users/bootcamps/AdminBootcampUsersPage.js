@@ -22,6 +22,7 @@ const AdminBootcampUsersPage = ({
     "بوت‌کمپ",
     "از",
     "نتیجه تماس",
+    "tid",
   ];
 
   // const [users, setUsers] = useState(initialUsers);

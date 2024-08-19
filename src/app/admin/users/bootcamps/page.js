@@ -21,9 +21,10 @@ const AdminBootcampUsers = async ({ searchParams }) => {
     cache: "no-store",
   });
   const data = await res.json();
-  // console.log("res bootcamp_users: ", data);
+  console.log("res bootcamp_users: ", data);
   return (
     <AdminBootcampUsersPage
+
       users={data.users}
       totalUsers={data.total}
       bootcamps={data.Bootcamps}

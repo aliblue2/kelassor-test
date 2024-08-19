@@ -3,6 +3,7 @@ import { useState } from "react";
 import Calls from "./calls/Calls";
 import { toast } from "react-toastify";
 import styles from "./BootcampUser.module.css";
+import BootCancel from "./BootCancel";
 
 const BootcampUser = ({ user, hashed_id }) => {
   // console.log(user);
@@ -16,6 +17,7 @@ const BootcampUser = ({ user, hashed_id }) => {
     result,
     callResult,
     calls,
+    transactionId
   } = user;
   const [userState, setUserState] = useState(user);
   const [userInfo, setUserInfo] = useState({
@@ -42,7 +44,7 @@ const BootcampUser = ({ user, hashed_id }) => {
           userId: id,
           ...userInfo,
         }),
-      }
+      },
     );
     const data = await res.json();
     if (data.toString() === "200") {
@@ -54,7 +56,10 @@ const BootcampUser = ({ user, hashed_id }) => {
   };
   return (
     <>
-      <div className={styles.container} onClick={() => setIsModalShow(true)}>
+      <div
+        className={styles.container + ""}
+        onClick={() => setIsModalShow(true)}
+      >
         <div>
           <h6>{id}</h6>
         </div>
@@ -78,6 +83,12 @@ const BootcampUser = ({ user, hashed_id }) => {
         </div>
         <div>
           <h6>{userState.callResult}</h6>
+        </div>
+        <div>
+          <h6>{userState.transactionId}</h6>
+        </div>
+        <div>
+          <BootCancel tid={transactionId} />
         </div>
       </div>
       <div

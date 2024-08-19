@@ -40,7 +40,6 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     const session_id = getCookie("session_id");
     if (!session_id) return;
     const res = await checkSession(session_id);
-    console.log(3423424,res)
     if (res.statusCode === 200) {
       setuser({ name: res.name, lastname: res.lastname, roll: res.roll });
     }
