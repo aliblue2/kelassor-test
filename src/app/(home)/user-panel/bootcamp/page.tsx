@@ -28,7 +28,7 @@ const page = async () => {
 
             <div>{item.length}</div>
             {item.isPaid === 1 ? (
-              <PanelBootcampCancel data={item} />
+              <div>پرداخت شده</div>
             ) : (
               <PanelBootcampPay data={item} />
             )}
