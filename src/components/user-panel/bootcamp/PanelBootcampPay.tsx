@@ -24,7 +24,7 @@ const PanelBootcampPay = ({ data }: PanelBootcampPayProps) => {
         <div className="h-dvh w-screen backdrop-blur-xl p-5 z-[150] fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center">
           <div
             ref={outref}
-            className=" flex gap-5 flex-col h-1/2 w-full sm:w-2/3 lg:w-1/2 p-5 rounded-[30px] bg-background border-light-4 border shadow2"
+            className=" flex gap-5 flex-col min-h-1/2 w-full sm:w-2/3 lg:w-1/2 p-5 rounded-[30px] bg-background border-light-4 border shadow2"
           >
             <div className="grid mb-5 grid-cols-3 ">
               <button onClick={toggleVisible}>
@@ -57,7 +57,7 @@ const PanelBootcampPay = ({ data }: PanelBootcampPayProps) => {
             </div>
 
             <div className="grow flex items-center justify-center">
-            {//todo fix
+            {
               data.eligible && <a
                 href={ data.link}
                 target="_blank"

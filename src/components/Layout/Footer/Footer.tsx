@@ -25,7 +25,7 @@ const Footer = () => {
       </div>
       <div className="bg-gray-3">
         <div className="container flex flex-col text-white mb-5">
-          <span className="py-4 font-semibold text-center border-b-2 opacity-50 border-b-white text-[36px]">
+          <span className="py-4 font-semibold text-center border-b-2 opacity-50 border-b-white text-2xl md:text-[36px]">
             K . E . L . A . A . S . O . R
           </span>
           <div className="grid grid-cols-2 gap-y-5 md:grid-cols-3 py-10">
