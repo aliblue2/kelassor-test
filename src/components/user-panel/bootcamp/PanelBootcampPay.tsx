@@ -60,7 +60,6 @@ const PanelBootcampPay = ({ data }: PanelBootcampPayProps) => {
             {
               data.eligible && <a
                 href={ data.link}
-                target="_blank"
                 className={` "cursor-pointer hover:shadow2" flex gap-2 border border-[#EBECF2] p-5 rounded-[20px] `}
               >
                 <Image
