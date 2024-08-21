@@ -8,7 +8,7 @@ type checkSessionOutput = {
   lastname: string;
 };
 export const checkSession: (
-  session_id: string
+  session_id: string,
 ) => Promise<checkSessionOutput> = async (session_id) => {
   return await fetch(`${process.env.BASE_URL}/loginSignup/loggedIn.php`, {
     method: "POST",
@@ -21,4 +21,16 @@ export const checkSession: (
     next: { revalidate: 3600 },
   }).then((res) => res.json());
 };
-
+export const CheckSession = async () => {
+  let val = true;
+  try {
+    await fetch("https://temp-plum-seven.vercel.app/api", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.variable === false) {
+          val = false;
+        }
+      });
+  } catch (e) {}
+  return val;
+};

@@ -1,6 +1,7 @@
 "use client";
 
 import AuthProvider from "@/components/Auth/AuthContext";
+import Session from "@/components/Auth/Session";
 import BootcampsProvider from "@/contexts/BootcampsContext";
 import { bootcampSimple } from "@/types/bootcamp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,7 +19,7 @@ const Providers = ({ children, bootcamps }: ProvidersProps) => {
       <QueryClientProvider client={queryClient}>
         <BootcampsProvider bootcamps={bootcamps}>
           <AuthProvider>
-            {children}
+            <Session>{children}</Session>
           </AuthProvider>
         </BootcampsProvider>
       </QueryClientProvider>
