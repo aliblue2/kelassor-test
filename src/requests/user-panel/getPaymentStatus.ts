@@ -1,6 +1,6 @@
 type getPaymentStatusOutput = {
   errorData: { errorCode: number; message: string };
-  successful: boolean;
+  successful: "false" | "true";
 };
 export const getPaymentStatus: (
   session_id: string | undefined,
@@ -12,6 +12,7 @@ export const getPaymentStatus: (
       API_KEY: process.env.API_KEY,
       Content_Type: process.env.Content_Type,
       id: session_id,
+      //id: "f4388bfc74be348e4dfdda021ce7576e",
       transactionId: tid,
     }),
     cache: "no-store",
