@@ -1,5 +1,5 @@
 "use client";
-import { checkSession } from "@/requests/Auth/checkSession";
+import { CheckSession, checkSession } from "@/requests/Auth/checkSession";
 import { userType } from "@/types/user";
 import { deleteCookie, getCookie, setCookie } from "@/utils/cookie";
 import { useRouter } from "next/navigation";
@@ -17,6 +17,7 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setuser] = useState<userType | null>(null);
+  const [valid, setvalid] = useState(true);
   const [number, setnumber] = useState<string | null>(null);
   const [modal, setmodal] = useState(false);
   const router = useRouter();
@@ -51,13 +52,14 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
   useEffect(() => {
     _checkSession();
+
   }, []);
 
   return (
     <AuthContext.Provider
       value={{ number, user, login, logOut, modal, setModal }}
     >
-      {children}
+      {valid && children}
     </AuthContext.Provider>
   );
 };
