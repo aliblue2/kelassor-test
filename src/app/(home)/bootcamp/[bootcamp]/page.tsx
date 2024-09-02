@@ -15,6 +15,7 @@ const page = async ({ params }: { params: { bootcamp: string } }) => {
   const { bootcamp } = params;
   try {
     const data = await getBootcamp({ bootcamp: bootcamp });
+    console.log(data)
     return <Bootcamp data={data} />;
   } catch (e) {
     notFound();

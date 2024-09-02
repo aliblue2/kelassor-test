@@ -33,6 +33,7 @@ export type bootcamp = {
   teachers: teacher[];
   teachers_id: string;
   tech_logo: string[];
+  sponsers: string[];
   unix_date: number;
   url: string;
 };
