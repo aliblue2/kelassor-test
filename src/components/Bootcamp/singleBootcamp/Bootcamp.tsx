@@ -48,7 +48,7 @@ const Bootcamp = ({ data }: BootcampProps) => {
       />
       <BootcampTeachers ref={addToRefs} teachers={data.teachers} />
       <BootcampFeatures ref={addToRefs} />
-      <BootcampKelaasorSupporter logos={data.tech_logo} />
+      <BootcampKelaasorSupporter logos={data.sponsers} />
       <BootcampSyllabus data={data.contents} ref={addToRefs} />
       <BootcampTechnologies logos={data.tech_logo} />
       <BootcampSignupSteps active={data.status === "active"} duration={data.length} date={data.start} ref={addToRefs} />

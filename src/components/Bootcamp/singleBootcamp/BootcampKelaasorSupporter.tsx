@@ -3,7 +3,7 @@
 import Supporter from "@/components/Landing/Supporter/Supporter";
 
 type BootcampKelaasorSupporterProps = {
-  logos: string[];
+  logos: {sponser_link: string}[];
 };
 
 const BootcampKelaasorSupporter = ({ logos }: BootcampKelaasorSupporterProps) => {
