@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import CustomHeading from "@/components/Ui/CustomHeading";
+
 type SupporterProps = {
   images: {sponser_link: string}[];
   itemSize?: number;
@@ -18,9 +18,7 @@ const Supporter = ({
     if (window && window.innerWidth < 768) setisDesktop(1);
   }, []);
   return (
-    <CustomHeading circle side="left">
-          <h2>اساتید و منتورها</h2>
-    </CustomHeading>
+    
     <div className="flex border-y border-y-light-2 size-full">
         <div
             className="flex justify-center gap-14 overflow-hidden size-full py-1 md:py-2"
