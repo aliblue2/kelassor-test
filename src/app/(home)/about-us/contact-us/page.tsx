@@ -86,7 +86,7 @@ const page = () => {
                 />
               </svg>
             </div>
-            <div>تهران ، جنب مترو بیمه ، کارخانه نوآوری آزادی ، زاویه</div>
+            <div>تهران ، جنب مترو بیمه ، کارخانه نوآوری آزادی ، زاویه , شرکت نوآور فن‌آموز فن‌آوری هوشمند</div>
           </div>
           <div className="flex flex-col md:flex-row gap-2 md:items-center">
           <div className="flex items-center gap-2">
