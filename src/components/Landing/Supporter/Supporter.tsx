@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
+import CustomHeading from "@/components/Ui/CustomHeading";
 type SupporterProps = {
   images: {sponser_link: string}[];
   itemSize?: number;
@@ -20,6 +20,9 @@ const Supporter = ({
   return (
     
     <div className="flex border-y border-y-light-2 size-full">
+      <CustomHeading circle side="left">
+          <h2>همراهان ما</h2>
+      </CustomHeading>
         <div
             className="flex justify-center gap-14 overflow-hidden size-full py-1 md:py-2"
         >
