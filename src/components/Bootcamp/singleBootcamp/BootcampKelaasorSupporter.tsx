@@ -7,9 +7,7 @@ type BootcampKelaasorSupporterProps = {
 };
 
 const BootcampKelaasorSupporter = ({ logos }: BootcampKelaasorSupporterProps) => {
-  return <CustomHeading circle side="left">
-  <h2>اساتید و منتورها</h2>
-</CustomHeading><Supporter images={logos.slice(0, 4  )} />;
+  return <Supporter images={logos.slice(0, 4  )} />;
 };
 
 export default BootcampKelaasorSupporter;
