@@ -18,11 +18,12 @@ const Supporter = ({
     if (window && window.innerWidth < 768) setisDesktop(1);
   }, []);
   return (
-    
+  <div className="flex overflow-hidden flex-col scroll-mt-40">
+    <CustomHeading circle side="left">
+      <h2>همراهان ما</h2>
+    </CustomHeading>
     <div className="flex border-y border-y-light-2 size-full">
-      <CustomHeading circle side="left">
-          <h2>همراهان ما</h2>
-      </CustomHeading>
+      
         <div
             className="flex justify-center gap-14 overflow-hidden size-full py-1 md:py-2"
         >
@@ -40,6 +41,7 @@ const Supporter = ({
             </div>
             ))}
         </div>
+    </div>
     </div>
   );
 };
