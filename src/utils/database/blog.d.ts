@@ -1,9 +1,15 @@
-export type blogCategory = "design"|"programming"|"hr"|"marketing"
+export type blogCategory = "design" | "programming" | "hr" | "marketing";
 export interface blog {
   id: number;
-  slug:string;
+  active:number;
+  slug: string;
   title: string;
-  category:"design"|"programming"|"hr"|"marketing";
+  category: string;
   content: string;
-  createdAt: Date;
+  author: string;
+  created_at: Date;
+  updated_at: Date;
+  banner: string;
+  description: string;
+  meta_description: string;
 }

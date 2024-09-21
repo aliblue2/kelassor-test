@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+//backend problem this is a workaround
 
 export async function GET(req: NextRequest) {
   const ck = req.cookies.get("session_id");

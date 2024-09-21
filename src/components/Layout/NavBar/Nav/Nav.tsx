@@ -15,7 +15,6 @@ const Nav = ({ bootcamps }: NavProps) => {
   //ref to indicator that moves under nav
   const indicatorRef = useRef<HTMLSpanElement | null>(null);
 
-  
   //move indicator
   useEffect(() => {
     //get first
@@ -25,9 +24,10 @@ const Nav = ({ bootcamps }: NavProps) => {
     if (path[1] === "") indicatorRef.current.style.right = `${0 * (112 + 8)}px`;
     else if (path[1] === "bootcamp")
       indicatorRef.current.style.right = `${1 * (112 + 8)}px`;
-    // else if (path[1] === "blog") indicatorRef.current.style.right = `${2 * (112 + 8)}px`;
-    else if (path[1] === "about-us")
+    else if (path[1] === "blog")
       indicatorRef.current.style.right = `${2 * (112 + 8)}px`;
+    else if (path[1] === "about-us")
+      indicatorRef.current.style.right = `${3 * (112 + 8)}px`;
     else indicatorRef.current.style.opacity = "0";
   }, [location]);
 
@@ -44,7 +44,7 @@ const Nav = ({ bootcamps }: NavProps) => {
               <NavDropdownItem key={index} to={`/bootcamp/${bc.url}`}>
                 {bc.header_title}
               </NavDropdownItem>
-            ) : null
+            ) : null,
           )}
         </NavDropdown>
 
