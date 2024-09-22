@@ -64,11 +64,9 @@ const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {
             ) : null,
           )}
         </PhoneNavGroup>
-        {/*todo:
         <Link className="p-5 border-b border-b-secondary-50" href="/blog">
           بلاگ
         </Link>
-        */}
         <PhoneNavGroup title="ارتباط با ما">
           <Link className="flex items-center justify-between" href="/about-us">
             درباره ما <RulesIcon />

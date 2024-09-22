@@ -38,7 +38,10 @@
     box-shadow: 0px 0px 15px 5px rgba(140, 144, 149, 0.55);
   }
 
+  ul{@apply list-disc ms-4}
+  ol{@apply list-decimal ms-4}
   /*default font size */
+
   p {
     font-size: 18px;
   }
@@ -119,6 +122,7 @@
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 4px;
 }
 
 /* Handle */

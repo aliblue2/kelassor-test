@@ -8,6 +8,8 @@ import {
   WhatsappIcon,
 } from "@/components/Ui/Icons";
 import { useBootcamps } from "@/contexts/useBootcamps";
+import { getCategories } from "@/utils/database/blog/getCategories";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +17,11 @@ const sectionCalss = "flex flex-col gap-2 items-start";
 const sectionTitleClass = "font-bold border-b-2 border-b-white text-lg";
 //Footer component
 const Footer = () => {
-  const {bootcamps} = useBootcamps()
+  const { bootcamps } = useBootcamps();
+  const { data: blogs } = useQuery({
+    queryFn: () => getCategories(),
+    queryKey: ["category"],
+  });
   return (
     <>
       <div className="mt-auto mb-10 text-2xl font-bold text-center">
@@ -39,25 +45,35 @@ const Footer = () => {
               <p className="font-bold border-b-2 border-b-white text-lg">
                 بوتکمپ‌ها
               </p>
-              {bootcamps.map(item=>
-                  <Link key={item.header_title} href={`/bootcamp/${item.url}`}>{item.header_title}</Link>
-              )}
+              {bootcamps.map((item) => (
+                <Link key={item.header_title} href={`/bootcamp/${item.url}`}>
+                  {item.header_title}
+                </Link>
+              ))}
             </div>
-            {/*todo:
             <div className={sectionCalss}>
               <p className="font-bold border-b-2 border-b-white text-lg">
                 مقالات
               </p>
+              <Link href={`/blog`}>همه</Link>
+              {blogs &&
+                blogs.map((item) => (
+                  <Link key={item.tag} href={`/blog?category=${item.tag}`}>
+                    {item.name}
+                  </Link>
+                ))}
             </div>
-            */}
             <div className={sectionCalss}>
-            {/*todo:
+              {/*todo:
               <p className="font-bold border-b-2 border-b-white text-lg">
                 منابع آموزشی
               </p>
               <Link href="todo">اشتراک گذاری جزوات</Link>
             */}
-              <a target="_blank" href="https://trustseal.enamad.ir/?id=131639&Code=rHq7aZYPNXVNbViUuNQf">
+              <a
+                target="_blank"
+                href="https://trustseal.enamad.ir/?id=131639&Code=rHq7aZYPNXVNbViUuNQf"
+              >
                 <Image
                   src="/Footer/enamad.png"
                   alt="enamad"
@@ -68,11 +84,21 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <a target="_blank" href="https://www.linkedin.com/company/kelaasor"><LinkedinIcon /></a>
-            <a target="_blank" href="https://t.me/kelaasoradmin"><TelegramIcon /></a>
-            <a target="_blank" href="https://x.com/kelaasor"><TwitterIcon /></a>
-            <a target="_blank" href=""><WhatsappIcon /></a>
-            <a target="_blank" href="https://instagram.com/kelaasor"><InstagramIcon /></a>
+            <a target="_blank" href="https://www.linkedin.com/company/kelaasor">
+              <LinkedinIcon />
+            </a>
+            <a target="_blank" href="https://t.me/kelaasoradmin">
+              <TelegramIcon />
+            </a>
+            <a target="_blank" href="https://x.com/kelaasor">
+              <TwitterIcon />
+            </a>
+            <a target="_blank" href="">
+              <WhatsappIcon />
+            </a>
+            <a target="_blank" href="https://instagram.com/kelaasor">
+              <InstagramIcon />
+            </a>
           </div>
         </div>
       </div>
