@@ -32,7 +32,9 @@ const Page = () => {
     }).then((res) => res.json());
     if (res.success) {
       setbannerUrl(res.data.baseurl + res.data.files[0]);
-    }else{toast.error("مشکلی در سرور پیش آمپ")}
+    } else {
+      toast.error("مشکلی در سرور پیش آمپ");
+    }
   };
   const handlePost = async () => {
     if (!title) {
@@ -176,7 +178,8 @@ const Page = () => {
           </>
         )}
       </div>
-      {/*todo: <Editor value={content} onChange={setContent} /> */}
+      <Editor value={content} onChange={setContent} />
+      <textarea onChange={(e)=>setContent(e.target.value)}></textarea>
       <div className="flex justify-end">
         <CustomButton
           onClick={handlePost}
