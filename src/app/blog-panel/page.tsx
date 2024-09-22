@@ -20,7 +20,7 @@ const page = async () => {
   });
   const loggedIn = await usr.json();
   if (loggedIn.statusCode !== 200) redirect("/");
-  if (loggedIn.roll !== "3") redirect("/user-panel");
+  if (loggedIn.roll !== "4") redirect("/user-panel");
   /////////////////////////////////////////////////////////
   const res = await getBlogs({ justActive: false });
   return (
