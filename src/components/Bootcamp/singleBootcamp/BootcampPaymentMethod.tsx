@@ -11,7 +11,7 @@ const BootcampPaymentMethod = ({ price }: { price: string }) => {
         <h2>نحوه‌ی پرداخت</h2>
       </CustomHeading>
       <div className="flex flex-col md:flex-row gap-5 text-xl">
-        <div className="flex mb-8 flex-1 hover:shadow2 gap-2 border border-[#EBECF2] p-5 rounded-[20px] shadow2">
+        <div className="flex flex-1 hover:shadow2 gap-2 border border-[#EBECF2] p-5 rounded-[20px] shadow2">
           <div className=" font-bold bg-white p-2 flex flex-col items-center justify-center text-xl text-white size-24 rounded-[20px]">
             <Image src="/logo.png" alt="لوگوی کلاسور" height={96} width={96} />
           </div>
@@ -38,10 +38,12 @@ const BootcampPaymentMethod = ({ price }: { price: string }) => {
               </div>
               <div>۴ قسط ماهانه. بدون سود، چک و ضامن.</div>
             </div>
-          </div>
-          <div className="mr-4">می‌تونید فقط تا قبل از شروع دوره پرداخت اسنپ‌پی رو لغو کنید</div>
+          </div> 
         </div>
       </div>
+      <div className="mr-4 text-center text-xl">
+            فقط تا قبل از شروع دوره امکان انصراف دارین!
+          </div>
     </div>
   );
 };

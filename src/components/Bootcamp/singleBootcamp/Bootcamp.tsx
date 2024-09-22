@@ -16,6 +16,7 @@ import BootcampSupport from "./BootcampSupport";
 import BootcampConsult from "./BootcampConsult";
 import { useRef } from "react";
 import BootcampJumplist from "./BootcampJumplist";
+import BootcampKelaasorSupporter from "./BootcampKelaasorSupporter";
 
 //Bootcamp component
 type BootcampProps = {
@@ -47,8 +48,9 @@ const Bootcamp = ({ data }: BootcampProps) => {
       />
       <BootcampTeachers ref={addToRefs} teachers={data.teachers} />
       <BootcampFeatures ref={addToRefs} />
-      <BootcampTechnologies logos={data.tech_logo} />
+      <BootcampKelaasorSupporter logos={data.sponsers} />
       <BootcampSyllabus data={data.contents} ref={addToRefs} />
+      <BootcampTechnologies logos={data.tech_logo} />
       <BootcampSignupSteps active={data.status === "active"} duration={data.length} date={data.start} ref={addToRefs} />
       <BootcampSignupPlan prices={data.price} />
       <BootcampPaymentMethod price={data.price[0]}/>

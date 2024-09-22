@@ -28,7 +28,6 @@ export const CheckSession = async () => {
       .then((res) => res.json())
       .then((res) => {
         val = res.variable;
-        console.log(993020,val)
       });
   } catch (e) {}
   return val;
