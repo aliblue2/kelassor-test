@@ -176,7 +176,7 @@ const Page = () => {
           </>
         )}
       </div>
-      <Editor value={content} onChange={setContent} />
+      {/*todo: <Editor value={content} onChange={setContent} /> */}
       <div className="flex justify-end">
         <CustomButton
           onClick={handlePost}
