@@ -28,6 +28,11 @@ const nextConfig = {
     BASE_URL: "https://kelaasor.ir/API",
     VIDEO_URL: "https://kelaasor.ir/paths",
 
+    // DB_HOST: "127.0.0.1",
+    // DB_USER: "admin_kelaasor",
+    // DB_PASSWORD: "Ashkan123",
+    // DB_NAME: "admin_kelaasor",
+
     DB_HOST: "127.0.0.1",
     DB_USER: "admin_kelaasor",
     DB_PASSWORD: "Ashkan123",
