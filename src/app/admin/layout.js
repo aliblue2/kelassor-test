@@ -24,7 +24,7 @@ const layout = async ({ children }) => {
   const loggedIn = await res.json();
   // console.log(loggedIn);
   if (loggedIn.statusCode !== 200) redirect("/");
-  if (loggedIn.roll === "1") redirect("/user-panel");
+  if (loggedIn.roll !== "2") redirect("/user-panel");
   return <AdminLayout>{children}</AdminLayout>;
 };
 

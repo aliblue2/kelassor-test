@@ -11,14 +11,6 @@ const AHeader = () => {
       </Link>
 
       <div className={styles.nav}>
-        <section className={styles.right}>
-          <div className={styles.date}>
-            <img src="/icons/admin/calendar.png" />
-          </div>
-          <div className={styles.reminder}>
-            <Reminder />
-          </div>
-        </section>
         <section className={styles.left}>
           <div className="toggle">
             <p>کارجو</p>

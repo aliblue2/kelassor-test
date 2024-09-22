@@ -23,6 +23,7 @@ const page = async () => {
   // console.log(loggedIn);
   if (loggedIn.statusCode !== 200) redirect("/");
   if (loggedIn.roll === "2") redirect("/admin");
+  if (loggedIn.roll === "3") redirect("/blog-panel");
 
   const res = await getPanelDashboard(cookies().get("session_id")?.value);
   return <UserPanel data={res}/>;
