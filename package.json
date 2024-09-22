@@ -16,7 +16,7 @@
     "jodit-react": "^4.1.2",
     "lucide-react": "^0.381.0",
     "mysql2": "^3.11.0",
-    "next": "14.2.3",
+    "next": "^14.2.13",
     "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",

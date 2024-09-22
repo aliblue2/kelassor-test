@@ -1,11 +1,14 @@
-const { spliter } = require("./separateByComma");
+export const spliter = (str, seperator) => {
+  const items = str.split(seperator);
+  return items;
+};
 
 export const contentDestructure = (str) => {
   const items = spliter(str, ";");
   const structuredItems = items.map((item) => {
     const splited = spliter(item, "(");
     const removeJunk = splited.map((ind) =>
-      ind.replaceAll("\n", "").replaceAll(")", "")
+      ind.replaceAll("\n", "").replaceAll(")", ""),
     );
     return removeJunk;
   });
