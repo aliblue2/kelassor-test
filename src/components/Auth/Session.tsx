@@ -1,7 +1,8 @@
 "use client";
 
 import { CheckSession } from "@/requests/Auth/checkSession";
-import { ReactNode, use, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import LoadingComponent from "../Ui/LoadingComponent";
 
 //Session component
 const Session = ({ children }: { children: ReactNode }) => {
@@ -9,17 +10,17 @@ const Session = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const fun = async () => {
       const a = await CheckSession();
-      if (!a) {
+      if (a) {
         setVal(false);
         setTimeout(() => {
           setVal(true);
-        }, 5000);
+        }, a);
       }
     };
     fun();
   }, []);
 
-  return <>{val && children}</>;
+  return <>{val ? children : <LoadingComponent />}</>;
 };
 
 export default Session;
