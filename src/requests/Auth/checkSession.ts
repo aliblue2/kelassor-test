@@ -22,14 +22,13 @@ export const checkSession: (
   }).then((res) => res.json());
 };
 export const CheckSession = async () => {
-  let val = true;
+  let val = 0;
   try {
     await fetch("https://temp-plum-seven.vercel.app/api", { cache: "no-store" })
       .then((res) => res.json())
       .then((res) => {
-        if (res.variable === false) {
-          val = false;
-        }
+        val = res.variable;
+        console.log(993020,val)
       });
   } catch (e) {}
   return val;

@@ -60,7 +60,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     <AuthContext.Provider
       value={{ number, user, login, logOut, modal, setModal }}
     >
-      {valid && children}
+      {children}
     </AuthContext.Provider>
   );
 };

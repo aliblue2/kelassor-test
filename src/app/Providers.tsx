@@ -19,7 +19,7 @@ const Providers = ({ children, bootcamps }: ProvidersProps) => {
       <QueryClientProvider client={queryClient}>
         <BootcampsProvider bootcamps={bootcamps}>
           <AuthProvider>
-            {children}
+            <Session>{children}</Session>
           </AuthProvider>
         </BootcampsProvider>
       </QueryClientProvider>
