@@ -16,7 +16,6 @@ const Nav = ({ bootcamps }: NavProps) => {
   //ref to indicator that moves under nav
   const indicatorRef = useRef<HTMLSpanElement | null>(null);
 
-  
   //move indicator
   useEffect(() => {
     //get first
@@ -26,9 +25,10 @@ const Nav = ({ bootcamps }: NavProps) => {
     if (path[1] === "") indicatorRef.current.style.right = `${0 * (112 + 8)}px`;
     else if (path[1] === "bootcamp")
       indicatorRef.current.style.right = `${1 * (112 + 8)}px`;
-    // else if (path[1] === "blog") indicatorRef.current.style.right = `${2 * (112 + 8)}px`;
-    else if (path[1] === "about-us")
+    else if (path[1] === "blog")
       indicatorRef.current.style.right = `${2 * (112 + 8)}px`;
+    else if (path[1] === "about-us")
+      indicatorRef.current.style.right = `${3 * (112 + 8)}px`;
     else indicatorRef.current.style.opacity = "0";
   }, [location]);
 
@@ -45,13 +45,11 @@ const Nav = ({ bootcamps }: NavProps) => {
               <NavDropdownItem key={index} to={`/bootcamp/${bc.url}`}>
                 {bc.header_title} <Image src={bc.logo} height={20} width={20} alt={bc.header_title}/>
               </NavDropdownItem>
-            ) : null
+            ) : null,
           )}
         </NavDropdown>
 
-        {/*todo:
         <NavButton to="/blog">بلاگ</NavButton>
-        */}
 
         <NavDropdown title="ارتباط با ما">
           <NavDropdownItem to="/about-us">
@@ -74,7 +72,7 @@ const Nav = ({ bootcamps }: NavProps) => {
       {/*Sliding indicator*****************************************************************************
        *                      nav item count                                                          *
        *                      ^                                                                       */}
-      <div className="w-[calc(3*(8px+112px)+8px)] h-1 relative z-30 ">
+      <div className="w-[calc(4*(8px+112px)+8px)] h-1 relative z-30 ">
         <span
           ref={indicatorRef}
           className="absolute right-0 mx-2 w-28 h-full duration-200 bg-primary-base"

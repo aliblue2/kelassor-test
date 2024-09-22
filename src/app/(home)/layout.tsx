@@ -13,10 +13,10 @@ type RootLayoutProps = { children: ReactNode };
 const RootLayout = async ({ children }: RootLayoutProps) => {
   return (
     <>
+      <AuthModal />
       <NavBar />
       {children}
       <Footer />
-      <AuthModal />
     </>
   );
 };

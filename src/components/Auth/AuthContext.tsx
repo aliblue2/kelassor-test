@@ -1,5 +1,5 @@
 "use client";
-import { CheckSession, checkSession } from "@/requests/Auth/checkSession";
+import { checkSession } from "@/requests/Auth/checkSession";
 import { userType } from "@/types/user";
 import { deleteCookie, getCookie, setCookie } from "@/utils/cookie";
 import { useRouter } from "next/navigation";
