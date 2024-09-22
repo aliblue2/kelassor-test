@@ -179,7 +179,6 @@ const Page = () => {
         )}
       </div>
       <Editor value={content} onChange={setContent} />
-      <textarea onChange={(e)=>setContent(e.target.value)}></textarea>
       <div className="flex justify-end">
         <CustomButton
           onClick={handlePost}
