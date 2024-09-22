@@ -26,7 +26,7 @@ const BlogPanelSidebar = () => {
         <MenuIcon />
       </button>
       <div
-        className={`absolute md:static z-[50] ${hidden ? "right-[-250px]" : "right-0"} w-[250px] bg-primary-base flex flex-col p-5 gap-5 h-full`}
+        className={`absolute md:static z-[50] ${hidden ? "right-[-250px]" : "right-0"} shrink-0 w-[250px] bg-primary-base flex flex-col p-5 gap-5 h-full`}
       >
         <Image
           src="/aboutUs/logo.png"
