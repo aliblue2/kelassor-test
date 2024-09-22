@@ -34,9 +34,9 @@ const nextConfig = {
     // DB_NAME: "admin_kelaasor",
 
     DB_HOST: "127.0.0.1",
-    DB_USER: "blog_admin",
-    DB_PASSWORD: "password",
-    DB_NAME: "blog_kelaasor",
+    DB_USER: "admin_kelaasor",
+    DB_PASSWORD: "Ashkan123",
+    DB_NAME: "admin_kelaasor",
 
     RAYCHAT_TOKEN: "d3d3b279-20f2-45a0-93ca-7f0a5c48281e",
     NEXT_API_URL: "https://kelaasor.com",
