@@ -45,7 +45,11 @@ const SimpleCarousel = ({ children, count }: SimpleCarouselProps) => {
         </button>
         <div className="flex gap-1">
           {React.Children.map(children, (child, i) => (
-            <button onClick={()=>setIndex(i)} className={`size-2 rounded-full ${i=== index? "bg-primary-base": "bg-light-2"}  `}></button>
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`size-2 rounded-full ${i === index ? "bg-primary-base" : "bg-light-2"}  `}
+            ></button>
           ))}
         </div>
         {/* next button ********************************************************************************/}
