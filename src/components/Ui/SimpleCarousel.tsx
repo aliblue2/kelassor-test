@@ -43,6 +43,11 @@ const SimpleCarousel = ({ children, count }: SimpleCarouselProps) => {
         >
           <ChevronRightIcon className="relative duration-200 right-[1px] text-gray-2 size-4 md:size-8 " />
         </button>
+        <div className="flex gap-1">
+          {React.Children.map(children, (child, i) => (
+            <button onClick={()=>setIndex(i)} className={`size-2 rounded-full ${i=== index? "bg-primary-base": "bg-light-2"}  `}></button>
+          ))}
+        </div>
         {/* next button ********************************************************************************/}
         <button
           className="flex justify-center items-center bg-white rounded-full relative shadow2 size-[40px] md:size-[60px] hover:[&>*]:scale-125"

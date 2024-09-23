@@ -14,13 +14,13 @@ const FieldCard = ({ data }: FieldCardProps) => {
   return (
     <motion.button
       variants={variants}
-      className="bg-white md:relative md:z-30 hover:p-1 rounded-[20px] hover:shadow2"
+      className="bg-white md:relative md:z-30 hover:p-1 rounded-[30px] hover:shadow2"
     >
       <Link
         className="relative z-20 flex flex-col [&>*]:w-full p-2 [&>*]:duration-200 duration-200 aspect-square group"
         href={"/bootcamp/" + data.url}
       >
-        <div className="h-3/5 bg-primary-base overflow-hidden relative rounded-[12px] group-hover:scale-105">
+        <div className="h-3/5 bg-primary-base overflow-hidden relative rounded-[24px] group-hover:scale-105">
           <Image
             className="brightness-75 top-0 left-0 object-cover size-full absolute"
             src={data.logo_banner}

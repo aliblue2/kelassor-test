@@ -1,19 +1,17 @@
 import { NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
 
 export async function POST(req: Request) {
   const formData = await req.formData();
   const file = formData.get("files[0]") as Blob;
+  const tag = formData.get("tag") as Blob;
   const newFormData = new FormData()
   newFormData.append("API_KEY", process.env.API_KEY as string);
   newFormData.append("image", file);
-  newFormData.append("id", "test");
+  newFormData.append("id",tag);
   const res = await fetch(`${process.env.BASE_URL}/admin/blogImages.php`, {
     method: "POST",
     body: newFormData,
   }).then((res) => res.json());
-  // console.log(99392, newFormData);
   return NextResponse.json(res);
 }
 // export async function POST(req: Request) {

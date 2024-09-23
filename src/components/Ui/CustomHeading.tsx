@@ -35,7 +35,7 @@ const CustomHeading = ({
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ delay: 0.5 }}
-          className={`size-8 md:size-16 absolute bg-secondary-75 -top-4 md:-top-8 right-0 -z-10 rounded-full`}
+          className={`size-8 hidden md:block md:size-16 absolute bg-secondary-75 -top-4 md:-top-8 right-0 -z-10 rounded-full`}
         />
       )}
       {/******************************************************************************

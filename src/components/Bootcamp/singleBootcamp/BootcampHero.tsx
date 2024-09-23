@@ -38,7 +38,8 @@ const BootcampHero = ({
             className="hidden md:flex"
               capacity={capacity}
               full_capacity={full_capacity}
-              title={title1}
+              title={title2}
+              englishTitle={title1}
             />
           )}
         </div>
@@ -48,7 +49,8 @@ const BootcampHero = ({
             className="md:hidden"
               capacity={capacity}
               full_capacity={full_capacity}
-              title={title1}
+              title={title2}
+              englishTitle={title1}
             />
           )}
     </div>

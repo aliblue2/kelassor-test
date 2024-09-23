@@ -24,8 +24,12 @@ const Page = () => {
 
   const bannerUploadHandler = async (file: File | null) => {
     if (!file) return;
+    if (!slug){
+      toast.error("اسلاگ را مشخص کنید")
+      return;}
     const formData = new FormData();
     formData.append("files[0]", file);
+    formData.append("tag", slug);
     const res = await fetch("/api/upload", {
       method: "POST",
       body: formData,
@@ -178,7 +182,7 @@ const Page = () => {
           </>
         )}
       </div>
-      <Editor value={content} onChange={setContent} />
+      <Editor tag={slug} value={content} onChange={setContent} />
       <div className="flex justify-end">
         <CustomButton
           onClick={handlePost}
