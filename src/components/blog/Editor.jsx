@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 
-const Editor = ({value, onChange}) => {
+const Editor = ({tag,value, onChange}) => {
   return (
     <JoditEditor
       value={value}
@@ -57,6 +57,7 @@ const Editor = ({value, onChange}) => {
 
         uploader: {
           url: "/api/upload", // API route for image upload
+          data:{tag:tag},
           defaultHandlerSuccess: function (data) {
             var i,
               field = "files";

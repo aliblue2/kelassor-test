@@ -29,7 +29,7 @@ const BootcampSignupSteps = forwardRef<
           className="absolute bottom-0 left-5 md:left-10 w-[150px] md:w-[200px]"
         />
       </div>
-      <div className="flex flex-col py-10">
+      <div className="flex flex-col md:flex-row-reverse py-10">
         <BootcampSigupStepsItem
           title="ثبت‌نام اولیه"
           className="text-primary-50"

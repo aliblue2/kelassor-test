@@ -30,7 +30,7 @@ const Bootcamp = ({ data }: BootcampProps) => {
     }
   };
   return (
-    <div className="container flex flex-col gap-20 md:gap-40 ">
+    <div className="container flex flex-col gap-10 md:gap-20 ">
       <BootcampHero
         image={data.logo_banner}
         title1={data.main_title}
