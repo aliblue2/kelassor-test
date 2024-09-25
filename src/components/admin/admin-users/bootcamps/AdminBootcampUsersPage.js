@@ -29,7 +29,7 @@ const AdminBootcampUsersPage = ({
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
   const [totalPages, setTotalPages] = useState(
-    Math.ceil(totalUsers / itemsPerPage)
+    Math.ceil(totalUsers / itemsPerPage),
   );
   const [pageLoader, setPageLoader] = useState(false);
   const [filters, setFilters] = useState({
@@ -47,7 +47,7 @@ const AdminBootcampUsersPage = ({
         filters.search ? "&search=" + filters.search : ""
       }${filters.bcName ? "&bcName=" + filters.bcName : ""}${
         filters.result ? "&result=" + filters.result : ""
-      } `
+      } `,
     );
     setPageLoader(false);
   };
@@ -76,12 +76,14 @@ const AdminBootcampUsersPage = ({
             <BootcampUser key={u.id} user={u} hashed_id={hashed_id} />
           ))
         )}
+        {/*todo:
         <Paginate
           load={pageLoader}
           total={totalPages}
           handlePageChange={handlePageChange}
           currentPage={currentPage}
         />
+      */}
       </div>
     </div>
   );
