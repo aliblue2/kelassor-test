@@ -4,6 +4,7 @@ import Calls from "./calls/Calls";
 import { toast } from "react-toastify";
 import styles from "./BootcampUser.module.css";
 import BootCancel from "./BootCancel";
+import { CircleX } from "lucide-react";
 
 const BootcampUser = ({ user, hashed_id }) => {
   // console.log(user);
@@ -17,7 +18,7 @@ const BootcampUser = ({ user, hashed_id }) => {
     result,
     callResult,
     calls,
-    transactionId
+    transactionId,
   } = user;
   const [userState, setUserState] = useState(user);
   const [userInfo, setUserInfo] = useState({
@@ -44,7 +45,7 @@ const BootcampUser = ({ user, hashed_id }) => {
           userId: id,
           ...userInfo,
         }),
-      },
+      }
     );
     const data = await res.json();
     if (data.toString() === "200") {
@@ -92,17 +93,22 @@ const BootcampUser = ({ user, hashed_id }) => {
         </div>
       </div>
       <div
-        className={styles.modal}
+        className="fixed top-0 left-0 bg-primary-20 w-full h-full bg-opacity-50 p-12"
         style={{ display: isModalShow ? "flex" : "none" }}
       >
-        <div className={styles.subModal}>
-          <span className={styles.close} onClick={() => setIsModalShow(false)}>
-            X
-          </span>
+        <div className="bg-white relative max-w-[600px] mx-auto w-full p-2 rounded-xl shadow-xl">
+          <CircleX
+            onClick={() => setIsModalShow(false)}
+            size={20}
+            className="absolute top-2 left-2"
+          />
           <Calls userInfo={userInfo} setUserInfo={setUserInfo} />
           <div className={styles.callResult}>
-            <label>نتیجه : </label>
+            <label className="text-primary-20 px-2" htmlFor="callResult" >
+              نتیجه :
+            </label>
             <select
+              className="w-10/12 mx-auto p-2"
               type="text"
               name="callResult"
               value={userInfo.callResult}
@@ -117,7 +123,12 @@ const BootcampUser = ({ user, hashed_id }) => {
             </select>
           </div>
           <div className={styles.controls}>
-            <button onClick={submit}>ثبت تغییرات</button>
+            <button
+              className="w-full bg-primary-30 hover:text-primary-base text-white font-medium"
+              onClick={submit}
+            >
+              ثبت تغییرات
+            </button>
           </div>
         </div>
       </div>

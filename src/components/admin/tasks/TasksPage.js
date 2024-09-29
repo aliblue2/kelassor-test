@@ -95,12 +95,12 @@ const TasksPage = ({ tasks, totalPage, hashed_id, urlFilter, urlStatus }) => {
         )}
       </div>
 
-      <Paginate
+      {/* <Paginate
         total={+totalPage}
         handlePageChange={handlePageChange}
         currentPage={currentPage}
         load={false}
-      />
+      /> */}
     </div>
   );
 };
