@@ -34,15 +34,7 @@
   overflow: hidden;
   z-index: 20;
 }
-.subModal {
-  width: 70%;
-  min-height: 5rem;
-  margin: 0 auto;
-  background-color: theme(colors.primary.base);
-  position: relative;
-  border-radius: 12px;
-  padding: 15px;
-}
+
 .subModal .close {
   display: flex;
   align-items: center;
@@ -61,12 +53,10 @@
   cursor: pointer;
 }
 
-.callResult label {
-  color: #fff;
-}
+
 .callResult select {
   font-family: IRANSansX, Arial, Helvetica, sans-serif;
-  padding: 0 15px;
+  padding: 10px 15px;
   border-radius: 5px;
 }
 .controls {
