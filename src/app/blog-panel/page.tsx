@@ -1,9 +1,7 @@
 import CategoryList from "@/components/blog-panel/CategoryList";
 import PanelBlogCard from "@/components/blog/PanelBlogCard";
 import { getBlogs } from "@/utils/database/blog/getBlogs";
-import {
-  getCategories,
-} from "@/utils/database/blog/getCategories";
+import { getCategories } from "@/utils/database/blog/getCategories";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -32,7 +30,7 @@ const page = async () => {
   return (
     <div className="flex flex-col gap-5">
       <h1>بلاگ‌ها</h1>
-      <CategoryList data={categories}/>
+      <CategoryList data={categories} />
       {res.map((item) => (
         <PanelBlogCard
           active={item.active}
