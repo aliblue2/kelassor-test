@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import BootcampHeroForm from "./BootcampHeroForm";
+import { usePathname } from "next/navigation";
 
 //BootcampHero component
 type BootcampHeroProps = {
@@ -20,6 +21,7 @@ const BootcampHero = ({
   full_capacity,
   active,
 }: BootcampHeroProps) => {
+
   return (
     <div className="flex flex-col gap-5">
       <div className=" z-[51] overflow-hidden relative h-[200px] md:h-[550px]">

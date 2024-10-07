@@ -4,7 +4,7 @@ import { useAuth } from "@/components/Auth/useAuth";
 import CustomButton from "@/components/Ui/CustomButton";
 import { bootcampFormSubmit } from "@/requests/bootcampFormSubmit";
 import { Loader2Icon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -31,6 +31,10 @@ const BootcampHeroForm = ({
   const [coupon, setcoupon] = useState("");
   const { user, setModal } = useAuth();
   const router = useRouter();
+  const pathName = usePathname();
+  const slug = pathName.split("/")[2];
+  console.log(slug);
+
   const submit = async () => {
     if (!name) {
       toast.error("نام و نام‌خانوادگی نمی‌تواند خالی باشد");
@@ -50,7 +54,7 @@ const BootcampHeroForm = ({
       name,
       phone,
       discount: coupon,
-      title: title,
+      title: slug,
     });
 
     if (res.statusCode === 200) {
