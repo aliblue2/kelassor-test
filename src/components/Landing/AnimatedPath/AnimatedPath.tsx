@@ -18,8 +18,8 @@ const AnimatedPath = forwardRef<AnimatedPathHandles, AnimatedPathProps>(
     {
       id,
       path,
-      width = "100%",
-      height = "100%",
+      width = "500px",
+      height = "500px",
       viewBox,
       duration = 20,
       className,

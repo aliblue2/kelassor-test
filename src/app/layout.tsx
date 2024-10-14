@@ -4,6 +4,7 @@ import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import { getBootcamps } from "@/requests/getBootcamps";
 import Script from "next/script";
+import { getWorkShopsHeader } from "@/requests/work-shop/getWorkShops";
 
 export default async function RootLayout({
   children,
@@ -11,6 +12,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { bootcamps } = await getBootcamps();
+  const workShops  = await getWorkShopsHeader();
 
   return (
     <html dir="rtl" lang="en">
@@ -36,7 +38,7 @@ export default async function RootLayout({
         />
       </head>
       <body className="flex overflow-y-auto overflow-x-hidden flex-col w-screen text-black min-h-dvh bg-background font-vazir">
-        <Providers bootcamps={bootcamps}>{children}</Providers>
+        <Providers workShops={workShops} bootcamps={bootcamps}>{children}</Providers>
         <ToastContainer />
       </body>
     </html>

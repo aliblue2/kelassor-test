@@ -23,13 +23,16 @@ const AdminBootcampUsersPage = ({
     "از",
     "نتیجه تماس",
     "tid",
+    "مجوز پرداخت",
+    "لغو اسنپ پی",
   ];
+
 
   // const [users, setUsers] = useState(initialUsers);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
   const [totalPages, setTotalPages] = useState(
-    Math.ceil(totalUsers / itemsPerPage),
+    Math.ceil(totalUsers / itemsPerPage)
   );
   const [pageLoader, setPageLoader] = useState(false);
   const [filters, setFilters] = useState({
@@ -47,7 +50,7 @@ const AdminBootcampUsersPage = ({
         filters.search ? "&search=" + filters.search : ""
       }${filters.bcName ? "&bcName=" + filters.bcName : ""}${
         filters.result ? "&result=" + filters.result : ""
-      } `,
+      } `
     );
     setPageLoader(false);
   };
@@ -60,11 +63,11 @@ const AdminBootcampUsersPage = ({
         setFilters={setFilters}
         setCurrentPage={setCurrentPage}
       />
-      <div className={styles.titles}>
+      <div className="w-full flex items-center justify-between py-2 px-4 border-b-2 border-primary-20 rounded-md ">
         {titles.map((t, i) => (
-          <div key={i}>
-            <h6>{t}</h6>
-          </div>
+          <h6 key={t + i} className={`${t === "tid" ? "w-2/12 text-center" : "w-1/12"} font-bold`}>
+            {t}
+          </h6>
         ))}
       </div>
       <div className={styles.items}>

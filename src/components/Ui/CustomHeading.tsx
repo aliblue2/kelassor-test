@@ -18,7 +18,7 @@ const CustomHeading = ({
   const isInView = useInView(triggerRef, { once: true });
   return (
     <div
-      className={`flex relative flex-col w-fit mb-[20px] ${
+      className={`flex relative flex-col w-fit mb-[20px] z-20 ${
         circle ? "mt-8 md:mt-16" : null
       } ${
         side === "left"
@@ -54,7 +54,7 @@ const CustomHeading = ({
         initial={{ width: 0 }}
         whileInView={{ width: "50%" }}
         transition={{ delay: 0.5 }}
-        className="h-2 mt-2 bg-primary-20 rounded-full"
+        className="h-2 mt-2 rounded-full bg-primary-20"
       />
     </div>
   );

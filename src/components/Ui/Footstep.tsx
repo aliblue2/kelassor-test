@@ -10,7 +10,7 @@ const Footstep = ({ className }: FootstepProps) => {
       width="95"
       height="75"
       viewBox="0 0 95 75"
-      fill="none"
+      fill="#F44336"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
