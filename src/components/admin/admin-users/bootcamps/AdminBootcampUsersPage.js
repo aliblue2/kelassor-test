@@ -27,7 +27,6 @@ const AdminBootcampUsersPage = ({
     "لغو اسنپ پی",
   ];
 
-
   // const [users, setUsers] = useState(initialUsers);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
@@ -65,7 +64,10 @@ const AdminBootcampUsersPage = ({
       />
       <div className="w-full flex items-center justify-between py-2 px-4 border-b-2 border-primary-20 rounded-md ">
         {titles.map((t, i) => (
-          <h6 key={t + i} className={`${t === "tid" ? "w-2/12 text-center" : "w-1/12"} font-bold`}>
+          <h6
+            key={t + i}
+            className={`${t === "tid" ? "w-2/12 text-center" : t === "شناسه" ? "w-fit" : "w-1/12"} font-bold`}
+          >
             {t}
           </h6>
         ))}

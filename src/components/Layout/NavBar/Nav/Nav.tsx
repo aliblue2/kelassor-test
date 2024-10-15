@@ -8,6 +8,10 @@ import { WorkShopMain } from "@/types/Workshop";
 
 type NavProps = { bootcamps: bootcampSimple[]; workshops: WorkShopMain[] };
 const Nav = ({ bootcamps, workshops }: NavProps) => {
+  const activeWorkShops = workshops.findIndex(
+    (item) => item.status === "active"
+  );
+
   return (
     <div className="flex flex-col items-center h-full font-bold">
       <div className="flex relative h-full top-1 gap-2 px-2 [&>*]:w-28">
@@ -30,7 +34,7 @@ const Nav = ({ bootcamps, workshops }: NavProps) => {
           )}
         </NavDropdown>
 
-        {workshops.length > 0 && (
+        {activeWorkShops > -1 ? (
           <NavDropdown to="/advance" title="advance">
             <NavDropdownItem to="/advance">همه کارگاه‌ها</NavDropdownItem>
             {workshops.map((item) =>
@@ -47,7 +51,8 @@ const Nav = ({ bootcamps, workshops }: NavProps) => {
               ) : null
             )}
           </NavDropdown>
-        )}
+        ) : null}
+
         <NavButton to="/blog">بلاگ</NavButton>
 
         <NavDropdown title="ارتباط با ما" to="/about-us">

@@ -23,7 +23,7 @@ const Landing = ({ bootcamps }: LandingProps) => {
   const path3 = useRef<AnimatedPathHandles>(null);
 
     return (
-      <div className="flex relative flex-col gap-32 md:gap-32">
+      <div className="flex relative flex-col gap-32 md:gap-32 overflow-hidden">
         {/******************************************************************************
         thread animation */}
       <DesktopThread lastpath={path} />

@@ -5,13 +5,8 @@ import { ReactNode } from "react";
 type MazeContainerProps = {
   children: ReactNode;
   side: "left" | "right";
-  isPrimary?: boolean;
 };
-const MazeContainer = ({
-  children,
-  side,
-  isPrimary = false,
-}: MazeContainerProps) => {
+const MazeContainer = ({ children, side }: MazeContainerProps) => {
   const variants = {
     initial: {
       opacity: 0,
@@ -27,25 +22,23 @@ const MazeContainer = ({
     },
   };
   return (
-    <div className="relative w-screen p-5 overflow-hidden">
+    <div className="relative overflow-hidden p-5 w-screen">
       <motion.div
         variants={variants}
         initial="initial"
         whileInView="whileInView"
         viewport={{ once: true, margin: "-100px 0px 0px 0px" }}
         className={`${
-          side === "left"
-            ? "rounded-r-[30px] md:rounded-r-[50px]"
-            : "rounded-l-[30px] md:rounded-l-[50px]"
-        } relative maze ${isPrimary ? "bg-primary-50" : "bg-secondary-75"} container !p-0`}
+          side === "left" ? "rounded-r-[30px] md:rounded-r-[50px]" : "rounded-l-[30px] md:rounded-l-[50px]"
+        } relative maze container bg-opacity-30 !p-0`}
       >
         {/* fill outside container ********************************************************************************/}
         <div
           className={`absolute w-screen h-full maze ${
             side === "right" ? "right-[-100vw]" : "left-[-100vw]"
-          } ${isPrimary ? "bg-primary-50" : "bg-secondary-75"} `}
+          } `}
         />
-        <div className="p-[10px] md:p-10 z-20">{children}</div>
+        <div className="p-[10px] md:p-10">{children}</div>
       </motion.div>
     </div>
   );

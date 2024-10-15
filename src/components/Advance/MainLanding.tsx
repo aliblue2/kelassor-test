@@ -16,11 +16,11 @@ const MainLanding: React.FC<WorkShopsProps> = ({ workshops }) => {
   return (
     <div className="flex flex-col items-start justify-start w-full gap-20 py-5 ">
       <MainHero />
-      <div className="max-w-[1100px] mx-auto w-full">
+      <div className="max-w-[1100px] mx-auto w-full p-2">
         <CustomHeading>
           <h2>در کلاسور advance چه میگذرد؟</h2>
         </CustomHeading>
-        <span className="text-xl font-medium">
+        <span className="md:text-xl text-lg text-center font-medium">
           مدیریت محصول یا همان Product Managment یکی از مشاغل جذاب این روزها
           است. بوت‌کمپ مدیریت محصول کلاسور با بهره‌گیری از تجربیات افراد با
           تجربه در این حوزه فضایی برای یادگیری، کسب تجربه و ورود به بازار کار را

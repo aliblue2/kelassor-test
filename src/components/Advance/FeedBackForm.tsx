@@ -3,7 +3,7 @@ import CustomHeading from "../Ui/CustomHeading";
 
 const FeedBackForm: React.FC = () => {
   return (
-    <div className="my-5 w-full max-w-[1100px] mx-auto">
+    <div className="my-5 w-full max-w-[1100px] mx-auto p-3">
       <CustomHeading>
         <h3>با نظر دادن، کمک کن بقیه آگاهانه خرید کنن</h3>
       </CustomHeading>

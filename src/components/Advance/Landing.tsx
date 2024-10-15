@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Hero from "./Hero";
 import { contentDestructure, getBootcamp } from "@/requests/getBootcamp";
@@ -7,10 +8,11 @@ import FeedbackCarousel from "../Landing/Feedback/FeedbackCarousel";
 import FeedBackForm from "./FeedBackForm";
 import { WorkShop } from "@/types/Workshop";
 import { syllabus } from "@/types/bootcamp";
-const Landing: React.FC<{ workshopInfo: WorkShop }> = async ({
-  workshopInfo,
-}) => {
-  const data = await getBootcamp({ bootcamp: "React-js" });
+import WorkShopSlider from "./slider/WorkShopSlider";
+const Landing: React.FC<{
+  workshopInfo: WorkShop;
+  recomWorkshops: WorkShop[];
+}> = ({ workshopInfo, recomWorkshops }) => {
   const syllabusContent: syllabus[] = contentDestructure(workshopInfo.contents);
 
   return (
@@ -22,14 +24,20 @@ const Landing: React.FC<{ workshopInfo: WorkShop }> = async ({
         price={workshopInfo.price}
         level={workshopInfo.level}
         period={workshopInfo.length}
-        targetTime="december 12 , 24"
+        targetTime={workshopInfo.start}
       />
-      <BootcampSyllabus data={syllabusContent} />
+      <BootcampSyllabus isPrimary={true} data={syllabusContent} />
       <div className="flex flex-col items-start justify-start gap-2">
         <CustomHeading>
           <h3>توضیحات کارگاه کلاسور advance</h3>
         </CustomHeading>
         <p className="md:text-xl text-lg font-medium">{workshopInfo.intro}</p>
+      </div>
+      <div className="flex flex-col items-start justify-start gap-2 overflow-hidden w-full">
+        <CustomHeading>
+          <h3>کارگاه های پیشنهادی کلاسور advance </h3>
+        </CustomHeading>
+        <WorkShopSlider workshops={recomWorkshops} />
       </div>
       <FeedBackForm />
       <FeedbackCarousel />

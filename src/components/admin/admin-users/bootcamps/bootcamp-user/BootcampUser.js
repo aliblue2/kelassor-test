@@ -76,7 +76,7 @@ const BootcampUser = ({ user, hashed_id }) => {
   return (
     <>
       <div className="w-full flex items-center justify-between text-sm p-2 hover:bg-opacity-30 hover:bg-secondary-base ml-5 relative transition-colors duration-300">
-        <div className="w-1/12 flex items-center justify-start ">{id}</div>
+        <div className="w-fit flex items-center justify-start">{id}</div>
         <div className="w-1/12 flex items-center justify-start ">{name}</div>
         <div className="w-1/12 flex items-center justify-start ">{phone}</div>
         <div className="w-1/12 flex items-center justify-start ">

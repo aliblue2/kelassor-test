@@ -15,6 +15,9 @@ type PhoneNavProps = {
   close: () => void;
 };
 const PhoneNav = ({ bootcamps, workshops, close }: PhoneNavProps) => {
+  const activeWorkShops = workshops.findIndex(
+    (item) => item.status === "active"
+  );
   return (
     <>
       {/******************************************************************************
@@ -66,7 +69,7 @@ const PhoneNav = ({ bootcamps, workshops, close }: PhoneNavProps) => {
             ) : null
           )}
         </PhoneNavGroup>
-        {workshops.length > 0 && (
+        {activeWorkShops > -1 ? (
           <PhoneNavGroup title="کارگاه‌ها">
             <Link href="/advance">همه کارگاه‌ها</Link>
             {workshops.map((item) =>
@@ -87,7 +90,7 @@ const PhoneNav = ({ bootcamps, workshops, close }: PhoneNavProps) => {
               ) : null
             )}
           </PhoneNavGroup>
-        )}
+        ) : null}
         <Link className="p-5 border-b border-b-secondary-50" href="/blog">
           بلاگ
         </Link>
