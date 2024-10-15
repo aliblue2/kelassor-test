@@ -7,6 +7,7 @@ import PrimaryMazeContainer from "./PrimaryMazeContainer";
 import { WorkShop } from "@/types/Workshop";
 import Feedback from "../Landing/Feedback/Feedback";
 import WorkShopSlider from "./slider/WorkShopSlider";
+import FeedBacksSlider from "./slider/FeedBacksSlider";
 
 interface WorkShopsProps {
   workshops: WorkShop[];
@@ -37,7 +38,7 @@ const MainLanding: React.FC<WorkShopsProps> = ({ workshops }) => {
       <FeedBackForm />
       <PrimaryMazeContainer side="right" title="دیدگاه‌ها">
         <div className="pt-16">
-          <Feedback heading={false} />
+          <FeedBacksSlider temp />
         </div>
       </PrimaryMazeContainer>
     </div>

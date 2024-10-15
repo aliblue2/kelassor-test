@@ -9,6 +9,7 @@ import FeedBackForm from "./FeedBackForm";
 import { WorkShop } from "@/types/Workshop";
 import { syllabus } from "@/types/bootcamp";
 import WorkShopSlider from "./slider/WorkShopSlider";
+import FeedBacksSlider from "./slider/FeedBacksSlider";
 const Landing: React.FC<{
   workshopInfo: WorkShop;
   recomWorkshops: WorkShop[];
@@ -16,7 +17,7 @@ const Landing: React.FC<{
   const syllabusContent: syllabus[] = contentDestructure(workshopInfo.contents);
 
   return (
-    <div className="p-5 flex flex-col items-start justify-start gap-10">
+    <div className="p-5 flex flex-col items-start justify-start gap-10 overflow-hidden">
       <Hero
         teachers={workshopInfo.teachers}
         mainTitle={workshopInfo.main_title}
@@ -39,7 +40,7 @@ const Landing: React.FC<{
         </CustomHeading>
         <WorkShopSlider workshops={recomWorkshops} />
       </div>
-      <FeedBackForm />
+      <FeedBacksSlider feeds={workshopInfo.feedbacks} />
       <FeedbackCarousel />
     </div>
   );
