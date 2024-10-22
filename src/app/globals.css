@@ -55,8 +55,6 @@
     --swiper-pagination-bullet-vertical-gap: 6px;
   }
 
-
-
   /*shadows */
   .shadow1 {
     box-shadow: -2px 2px 10px 0px rgba(140, 144, 149, 0.12);
@@ -109,7 +107,21 @@
     }
   }
 
+  .IranSans {
+    font-family: "IranSans";
+    line-height: 20px;
+  }
+
   /*import font */
+  @font-face {
+    font-family: "IranSans";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../assets/fonts/IRANSansWeb\(FaNum\).woff2")
+      format("woff2");
+  }
+
+
   @font-face {
     font-family: "Vazir";
     font-style: normal;
