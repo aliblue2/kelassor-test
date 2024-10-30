@@ -5,6 +5,8 @@ import { getDiscounts } from "./getDiscount";
 import { authRequestRegisterOtp } from "../Auth/authRequestRegisterOtp";
 import { authVerifyOtp } from "../Auth/authVerifyOtp";
 import { redirect } from "next/navigation";
+import { authCheckNumber } from "../Auth/authCheckNumber";
+import { authRequestLoginOtp } from "../Auth/authRequestLoginOtp";
 
 export const getUserDiscount = async (
   prevState: string[] | undefined,
@@ -31,6 +33,8 @@ export const getUserDiscount = async (
   }
 
   if (phone && name) {
+    const response = await authCheckNumber({ number: phone });
+
     const res = await getDiscounts(name, phone);
     if (res.statusCode === 100) {
       errors.push("شماره موبایل تکراری است.");
@@ -38,7 +42,11 @@ export const getUserDiscount = async (
       const discountCode = res.discountCode;
       cookies().set("discountCode", discountCode);
       cookies().set("phone", phone);
-      authRequestRegisterOtp({ number: phone });
+      if (response.statusCode === 100) {
+        authRequestRegisterOtp({ number: phone });
+      } else {
+        authRequestLoginOtp({ number: phone });
+      }
     }
   }
 
@@ -61,6 +69,7 @@ export const checkOtpCode = async (
   if (res.statusCode !== 200) {
     return "کد تایید اشتباه.";
   } else {
+    cookies().set("complete-otp" , phoneNum)
     redirect("/landing/wheel-spin");
   }
   return "";

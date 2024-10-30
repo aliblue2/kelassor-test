@@ -35,12 +35,15 @@ const WiningModal: React.FC<{ discount: string; onClose: () => void }> = ({
           onClick={onClose}
         />
         <div className="flex flex-col items-center justify-start gap-5 my-5">
-          <h5 className="md:text-xl font-medium">🎉 تبریک! شما برنده شدید! 🎉</h5>
+          <h5 className="md:text-xl font-medium">
+            🎉 تبریک! شما برنده شدید! 🎉
+          </h5>
           <h6 className="text-center text-lg md:text-2xl font-bold bg-primary-base p-2 rounded-md bg-opacity-15 px-4 text-primary-20">
-            تخفیف شما : {parseInt(discount).toLocaleString("fa-IR")}
+            تخفیف شما : {parseInt(discount).toLocaleString("fa-IR") + " تومان"}
           </h6>
           <span className="text-sm md:text-base font-medium text-center">
-            از این کد می‌توانید برای خرید بعدی خود استفاده کنید. موفق باشید! ✨
+            این تخفیف در حساب شما ذخیره شده است، بعد از ثبت نام در اولین بوتکمپ
+            اعمال خواهد شد. موفق باشید! ✨
           </span>
         </div>
 

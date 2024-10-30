@@ -8,7 +8,7 @@ import WheelOtp from "@/components/Landing/WheelSpin/WheelOtp";
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  const discount = cookies().get("discountCode")?.value;
+  const discount = cookies().get("discountCode");
 
   return (
     <div className="w-full max-w-[600px] mx-auto h-full flex flex-col items-center justify-start gap-12">

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  const discount = cookies().get("discountCode")?.value;
+  const discount = cookies().get("complete-otp")?.value;
 
   if (!discount) {
     return redirect("/landing");
