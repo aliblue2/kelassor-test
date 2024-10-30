@@ -5,22 +5,25 @@ import HeroMainTitle from "@/components/Landing/Hero/HeroMainTitle";
 import WheelForm from "@/components/Landing/WheelSpin/WheelForm";
 import { cookies } from "next/headers";
 import WheelOtp from "@/components/Landing/WheelSpin/WheelOtp";
+import WheelSpin from "@/components/Landing/WheelSpin/WheelSpin";
+import WheelContainer from "@/components/Landing/WheelSpin/WheelContainer";
 interface Props {}
 
 const Page: NextPage<Props> = ({}) => {
-  const discount = cookies().get("discountCode");
+  const discount = cookies().get("discountCode")?.value;
+  const otp = cookies().get("complete-otp")?.value;
 
   return (
-    <div className="w-full max-w-[600px] mx-auto h-full flex flex-col items-center justify-start gap-12">
+    <>
       <Image
-        className="max-w-28 mx-auto"
+        className="max-w-28 mx-auto overflow-hidden"
         src={logoImage}
         priority
         alt="kelaasor"
       />
-      {!discount ? <WheelForm /> : <WheelOtp />}
+      <WheelContainer ocompleteOtp={otp} discount={discount} />
       <HeroMainTitle />
-    </div>
+    </>
   );
 };
 

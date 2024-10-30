@@ -60,7 +60,9 @@ export const checkOtpCode = async (
   formData: FormData
 ) => {
   const phoneNum = cookies().get("phone")!.value;
-  const otpCode = formData.getAll("otpCode").join("");
+  const otpCode = Array.from({ length: 6 })
+    .map((_, index) => formData.get(`otpCode-${index}`))
+    .join("");
   console.log(otpCode);
 
   const res = await authVerifyOtp({ number: phoneNum, otp: otpCode });
@@ -69,8 +71,7 @@ export const checkOtpCode = async (
   if (res.statusCode !== 200) {
     return "کد تایید اشتباه.";
   } else {
-    cookies().set("complete-otp" , phoneNum)
-    redirect("/landing/wheel-spin");
+    cookies().set("complete-otp", phoneNum);
   }
   return "";
 };

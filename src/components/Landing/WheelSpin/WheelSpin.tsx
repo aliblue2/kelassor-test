@@ -15,82 +15,76 @@ const Wheel = dynamic(
 
 const data = [
   {
-    option: "کلاسور 🎁",
+    option: "۱,۰۰۰,۰۰۰",
     style: {
-      backgroundColor: "#197265",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
-      justifyContent: "center",
-      alignItems: "center",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۱۰۰,۰۰۰",
     style: {
-      backgroundColor: "#7ECABF",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۲۰۰,۰۰۰",
     style: {
-      backgroundColor: "#197265",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۳۰۰,۰۰۰",
     style: {
-      backgroundColor: "#8CB8B2",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۴۰۰,۰۰۰",
     style: {
-      backgroundColor: "#197265",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۵۰۰,۰۰۰",
     style: {
-      backgroundColor: "#7ECABF",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۶۰۰,۰۰۰",
     style: {
-      backgroundColor: "#197265",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
     },
   },
   {
-    option: "کلاسور 🎁",
+    option: "۱,۷۰۰,۰۰۰",
     style: {
-      backgroundColor: "#8CB8B2",
       fontSize: 24,
-      display: "flex",
-      width: "100%",
+    },
+  },
+  {
+    option: "۱,۸۰۰,۰۰۰",
+    style: {
+      fontSize: 24,
+    },
+  },
+  {
+    option: "۱,۹۰۰,۰۰۰",
+    style: {
+      fontSize: 24,
+    },
+  },
+  {
+    option: "۲,۰۰۰,۰۰۰",
+    style: {
+      fontSize: 24,
     },
   },
 ];
 
-export const WheelSpin: React.FC<{ discount: string }> = ({ discount }) => {
+export const WheelSpin: React.FC<{ discount: string | undefined }> = ({
+  discount,
+}) => {
   const [mustSpin, setMustSpin] = useState(false);
   const [winingModal, setWiningModal] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(2);
@@ -112,34 +106,50 @@ export const WheelSpin: React.FC<{ discount: string }> = ({ discount }) => {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-start gap-5 my-12 p-5">
       <AnimatePresence>
         {winingModal && (
           <WiningModal discount={discount} onClose={closeModalHandler} />
         )}
       </AnimatePresence>
-      <div className="w-full flex-col h-full min-h-screen flex items-center justify-center gap-5">
-        <div className="rounded-full bg-white shadow-xl p-2 border-2 border-primary-20">
-          <Wheel
-            data={data}
-            mustStartSpinning={mustSpin}
-            prizeNumber={prizeNumber}
-            onStopSpinning={handleStopSpinning}
-            radiusLineColor="#0C3933"
-            outerBorderColor="#0C3933"
-            radiusLineWidth={4}
-            textColors={["#FFFFFF"]}
-            textDistance={170}
-          />
-        </div>
-        <button
-          className="p-2 bg-primary-base hover:bg-primary-40 transition-colors duration-300 w-full rounded-md text-white text-lg"
-          onClick={handleSpinClick}
-        >
-          چرخاندن و گرفتن جایزه 🎁
-        </button>
-      </div>
-    </>
+
+        <Wheel
+          data={data}
+          fontFamily="vazir"
+          mustStartSpinning={mustSpin}
+          prizeNumber={prizeNumber}
+          onStopSpinning={handleStopSpinning}
+          outerBorderColor={"#ccc"}
+          outerBorderWidth={5}
+          innerBorderColor={"#f2f2f2"}
+          radiusLineColor={"tranparent"}
+          radiusLineWidth={1}
+          textColors={["#f5f5f5"]}
+          textDistance={170}
+          fontSize={10}
+          backgroundColors={[
+            "#3f297e",
+            "#175fa9",
+            "#169ed8",
+            "#239b63",
+            "#64b031",
+            "#efe61f",
+            "#f7a416",
+            "#e6471d",
+            "#dc0936",
+            "#e5177b",
+            "#be1180",
+            "#871f7f",
+          ]} 
+        />
+
+      <button
+        className="p-2 bg-primary-base hover:bg-primary-40 transition-colors duration-300 w-full rounded-md text-white text-lg"
+        onClick={handleSpinClick}
+      >
+        چرخاندن و گرفتن جایزه 🎁
+      </button>
+    </div>
   );
 };
 

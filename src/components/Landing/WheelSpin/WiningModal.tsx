@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import Link from "next/link";
 
-const WiningModal: React.FC<{ discount: string; onClose: () => void }> = ({
-  onClose,
-  discount,
-}) => {
+const WiningModal: React.FC<{
+  discount: string | undefined;
+  onClose: () => void;
+}> = ({ onClose, discount }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -38,9 +38,12 @@ const WiningModal: React.FC<{ discount: string; onClose: () => void }> = ({
           <h5 className="md:text-xl font-medium">
             🎉 تبریک! شما برنده شدید! 🎉
           </h5>
-          <h6 className="text-center text-lg md:text-2xl font-bold bg-primary-base p-2 rounded-md bg-opacity-15 px-4 text-primary-20">
-            تخفیف شما : {parseInt(discount).toLocaleString("fa-IR") + " تومان"}
-          </h6>
+          {discount && (
+            <h6 className="text-center text-lg md:text-2xl font-bold bg-primary-base p-2 rounded-md bg-opacity-15 px-4 text-primary-20">
+              تخفیف شما :{" "}
+              {parseInt(discount).toLocaleString("fa-IR") + " تومان"}
+            </h6>
+          )}
           <span className="text-sm md:text-base font-medium text-center">
             این تخفیف در حساب شما ذخیره شده است، بعد از ثبت نام در اولین بوتکمپ
             اعمال خواهد شد. موفق باشید! ✨
