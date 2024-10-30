@@ -1,7 +1,7 @@
 export type loginInput = { username: string; password: string };
-export const loginRequest = (input: loginInput) =>
+export const loginRequest = (input: loginInput) => {
   fetch(`${process.env.BASE_URL}/loginSignup/login.php`, {
-    cache:"no-store",
+    cache: "no-store",
     method: "POST",
     body: JSON.stringify({
       userName: input.username,
@@ -10,3 +10,4 @@ export const loginRequest = (input: loginInput) =>
       Content_Type: process.env.Content_Type,
     }),
   });
+};

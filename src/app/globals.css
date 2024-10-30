@@ -117,10 +117,8 @@
     font-family: "IranSans";
     font-style: normal;
     font-weight: 500;
-    src: url("../assets/fonts/IRANSansWeb\(FaNum\).woff2")
-      format("woff2");
+    src: url("../assets/fonts/IRANSansWeb\(FaNum\).woff2") format("woff2");
   }
-
 
   @font-face {
     font-family: "Vazir";
