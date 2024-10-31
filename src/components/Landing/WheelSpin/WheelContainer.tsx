@@ -15,6 +15,10 @@ const WheelContainer: React.FC<{
     if (discount && !ocompleteOtp) {
       setaAuthModalVis(true);
     }
+
+    if (discount && ocompleteOtp) {
+      setaAuthModalVis(false);
+    }
   }, [discount, ocompleteOtp]);
   const authModalToggler = useCallback(() => {
     setaAuthModalVis((prevState) => !prevState);

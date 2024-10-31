@@ -15,67 +15,67 @@ const Wheel = dynamic(
 
 const data = [
   {
-    option: "۱,۰۰۰,۰۰۰",
+    option: "1000000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۱۰۰,۰۰۰",
+    option: "1100000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۲۰۰,۰۰۰",
+    option: "1200000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۳۰۰,۰۰۰",
+    option: "1300000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۴۰۰,۰۰۰",
+    option: "1400000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۵۰۰,۰۰۰",
+    option: "1500000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۶۰۰,۰۰۰",
+    option: "1600000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۷۰۰,۰۰۰",
+    option: "1700000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۸۰۰,۰۰۰",
+    option: "1800000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۱,۹۰۰,۰۰۰",
+    option: "1900000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "۲,۰۰۰,۰۰۰",
+    option: "2000000",
     style: {
       fontSize: 24,
     },
@@ -90,14 +90,20 @@ export const WheelSpin: React.FC<{ discount: string | undefined }> = ({
   const [prizeNumber, setPrizeNumber] = useState(2);
 
   const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * data.length);
-    setPrizeNumber(newPrizeNumber);
     setMustSpin(true);
+    const targetPrize = data.findIndex((item) => {
+      return item.option === discount;
+    });
+    if (targetPrize !== -1) {
+      setPrizeNumber(targetPrize);
+    } else {
+      const randomPrize = Math.floor(Math.random() * data.length);
+      setPrizeNumber(randomPrize);
+    }
   };
 
   const handleStopSpinning = () => {
     setMustSpin(false);
-    const winningOption = data[prizeNumber].option;
     setWiningModal(true);
   };
 
@@ -113,35 +119,35 @@ export const WheelSpin: React.FC<{ discount: string | undefined }> = ({
         )}
       </AnimatePresence>
 
-        <Wheel
-          data={data}
-          fontFamily="vazir"
-          mustStartSpinning={mustSpin}
-          prizeNumber={prizeNumber}
-          onStopSpinning={handleStopSpinning}
-          outerBorderColor={"#ccc"}
-          outerBorderWidth={5}
-          innerBorderColor={"#f2f2f2"}
-          radiusLineColor={"tranparent"}
-          radiusLineWidth={1}
-          textColors={["#f5f5f5"]}
-          textDistance={170}
-          fontSize={10}
-          backgroundColors={[
-            "#3f297e",
-            "#175fa9",
-            "#169ed8",
-            "#239b63",
-            "#64b031",
-            "#efe61f",
-            "#f7a416",
-            "#e6471d",
-            "#dc0936",
-            "#e5177b",
-            "#be1180",
-            "#871f7f",
-          ]} 
-        />
+      <Wheel
+        data={data}
+        fontFamily="vazir"
+        mustStartSpinning={mustSpin}
+        prizeNumber={prizeNumber}
+        onStopSpinning={handleStopSpinning}
+        outerBorderColor={"#ccc"}
+        outerBorderWidth={5}
+        innerBorderColor={"#f2f2f2"}
+        radiusLineColor={"tranparent"}
+        radiusLineWidth={1}
+        textColors={["#f5f5f5"]}
+        textDistance={170}
+        fontSize={10}
+        backgroundColors={[
+          "#3f297e",
+          "#175fa9",
+          "#169ed8",
+          "#239b63",
+          "#64b031",
+          "#efe61f",
+          "#f7a416",
+          "#e6471d",
+          "#dc0936",
+          "#e5177b",
+          "#be1180",
+          "#871f7f",
+        ]}
+      />
 
       <button
         className="p-2 bg-primary-base hover:bg-primary-40 transition-colors duration-300 w-full rounded-md text-white text-lg"
