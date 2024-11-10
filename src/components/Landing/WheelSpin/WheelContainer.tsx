@@ -9,7 +9,8 @@ import WheelOtp from "./WheelOtp";
 const WheelContainer: React.FC<{
   discount: string | undefined;
   ocompleteOtp: string | undefined;
-}> = ({ discount, ocompleteOtp }) => {
+  phoneNum: string | undefined;
+}> = ({ discount, ocompleteOtp , phoneNum }) => {
   const [authModalVis, setaAuthModalVis] = useState(false);
   useEffect(() => {
     if (discount && !ocompleteOtp) {
@@ -29,7 +30,7 @@ const WheelContainer: React.FC<{
       <AnimatePresence>
         {authModalVis && (
           <WheelAuthModal onCloseModal={authModalToggler}>
-            {!discount ? <WheelForm /> : <WheelOtp />}
+            {!discount ? <WheelForm /> : <WheelOtp phoneNum={phoneNum} />}
           </WheelAuthModal>
         )}
       </AnimatePresence>
