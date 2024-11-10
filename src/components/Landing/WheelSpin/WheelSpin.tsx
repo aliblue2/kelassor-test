@@ -15,67 +15,67 @@ const Wheel = dynamic(
 
 const data = [
   {
-    option: "1000000",
+    option: "1,000,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1100000",
+    option: "1,100,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1200000",
+    option: "1,200,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1300000",
+    option: "1,300,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1400000",
+    option: "1,400,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1500000",
+    option: "1,500,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1600000",
+    option: "1,600,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1700000",
+    option: "1,700,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1800000",
+    option: "1,800,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "1900000",
+    option: "1,900,000",
     style: {
       fontSize: 24,
     },
   },
   {
-    option: "2000000",
+    option: "2,000,000",
     style: {
       fontSize: 24,
     },
