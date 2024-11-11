@@ -9,14 +9,12 @@ type BootcampKelaasorSupporterProps = {
 const BootcampKelaasorSupporter = ({
   logos,
 }: BootcampKelaasorSupporterProps) => {
+  console.log(logos);
+
+  const emptyItemActive = logos.find((item) => item.sponser_link === "");
+
   return (
-    <>
-      {logos.map((item) => {
-        item.sponser_link === "" ? null : (
-          <Supporter images={logos.slice(0, 4)} />
-        );
-      })}
-    </>
+    <>{emptyItemActive ? null : <Supporter images={logos.slice(0, 4)} />}</>
   );
 };
 
