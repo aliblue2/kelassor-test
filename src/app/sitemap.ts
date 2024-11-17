@@ -1,8 +1,7 @@
 import { getBootcamps } from "@/requests/getBootcamps";
-import { bootcampSimple } from "@/types/bootcamp";
 
 export default async function sitemap() {
-  const  bootcamps : bootcampSimple[] = await getBootcamps();
+  const { bootcamps } = await getBootcamps();
   const baseUrl = "https://kelaasor.ir/";
 
   const bootcampMap = bootcamps.map((item) => {

@@ -11,7 +11,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const  bootcamps = await getBootcamps();
+  const { bootcamps } = await getBootcamps();
   const workShops  = await getWorkShopsHeader();
 
   return (
