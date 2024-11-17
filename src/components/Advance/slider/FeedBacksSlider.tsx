@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { ArrowLeftIcon, ArrowRightIcon, User2 } from "lucide-react";
 import Image from "next/image";
+import CustomHeading from "@/components/Ui/CustomHeading";
 
 const fakeFeeds: WorkShopFeedBack[] = [
   {
@@ -38,8 +39,11 @@ const FeedBacksSlider: React.FC<{
 }> = ({ temp, feeds }) => {
   return (
     <div
-      className={`${feeds && "max-w-[1200px] mx-auto"} relative overflow-hidden`}
+      className={`${feeds && "max-w-[1200px] mx-auto"} w-full relative overflow-hidden`}
     >
+      <CustomHeading >
+        <h3>دیدگاه‌ها</h3>
+      </CustomHeading>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}

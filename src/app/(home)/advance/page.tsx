@@ -4,10 +4,9 @@ import { NextPage } from "next";
 
 const Page: NextPage = async () => {
   const workshops = await getWorkShops();
-  const workshopsArray = [{ ...workshops }];
   return (
     <>
-      <MainLanding workshops={workshopsArray} />
+      <MainLanding workshops={workshops} />
     </>
   );
 };

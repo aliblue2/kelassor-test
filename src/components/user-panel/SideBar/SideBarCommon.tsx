@@ -28,12 +28,10 @@ const SideBarCommon = () => {
         <PbootcampsIcon />
         بوتکمپ‌ها
       </SideBarButton>
-      {/*todo:
-      <SideBarButton href="/user-panel/ai">
-        <PaiIcon />
-        مسیر با هوش مصنوعی
+      <SideBarButton href="/user-panel/advance" >
+      <PbootcampsIcon />
+        kelaasor advance
       </SideBarButton>
-      */}
       <SideBarButton href="/user-panel/payment">
         <PpaymentIcon />
         پرداخت‌ها

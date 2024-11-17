@@ -5,22 +5,26 @@ import { Loader2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../useAuth";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { authVerifyOtp } from "@/requests/Auth/authVerifyOtp";
 import { authRequestLoginOtp } from "@/requests/Auth/authRequestLoginOtp";
 import Timer from "../Timer";
 import MultiInput from "@/components/Ui/MultiInput";
+import { BuyWorkshopAdvance } from "@/requests/work-shop/BuyWorkshop";
 
 //AuthModalSigninOtp component
 type AuthModalSigninOtpProps = {
   setState: (input: "password") => void;
   number: string;
+  type : string
 };
-const AuthModalSigninOtp = ({ setState, number }: AuthModalSigninOtpProps) => {
+const AuthModalSigninOtp = ({ setState, number , type }: AuthModalSigninOtpProps) => {
   const [formState, setformState] = useState<"initial" | "loading">("initial");
   const [input, setinput] = useState("");
   const { login, setModal } = useAuth();
   const router = useRouter();
+  const paramTitle = usePathname().split("/")[2]
+
 
   const submit = async () => {
     if (!input) toast.error("رمز‌عبور نمی‌تواند خالی باشد");
@@ -29,7 +33,11 @@ const AuthModalSigninOtp = ({ setState, number }: AuthModalSigninOtpProps) => {
     if (res.statusCode === 200) {
       login(res.id);
       setModal(false);
-      router.push("/user-panel");
+      if (type === "advance") {
+        router.push("/user-panel/advance");
+      } else {
+        router.push("/user-panel");
+      }
     } else if (res.statusCode === 100) {
       toast.error("کد وارد شده اشتباه است");
       setformState("initial");
@@ -43,7 +51,14 @@ const AuthModalSigninOtp = ({ setState, number }: AuthModalSigninOtpProps) => {
   };
   useEffect(() => {
     authRequestLoginOtp({ number: number });
-  }, [number]);
+    if(type === "advance") {
+      const buyAdvanceFc = async() => {
+        await BuyWorkshopAdvance(paramTitle , number )
+      }
+      buyAdvanceFc()
+    }
+  
+  }, [number , type ,paramTitle ]);
 
   return (
     <div className="flex flex-col gap-2">

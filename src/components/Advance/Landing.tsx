@@ -4,7 +4,6 @@ import Hero from "./Hero";
 import { contentDestructure, getBootcamp } from "@/requests/getBootcamp";
 import BootcampSyllabus from "../Bootcamp/singleBootcamp/BootcampSyllabus/BootcampSyllabus";
 import CustomHeading from "../Ui/CustomHeading";
-import FeedbackCarousel from "../Landing/Feedback/FeedbackCarousel";
 import FeedBackForm from "./FeedBackForm";
 import { WorkShop } from "@/types/Workshop";
 import { syllabus } from "@/types/bootcamp";
@@ -13,12 +12,15 @@ import FeedBacksSlider from "./slider/FeedBacksSlider";
 const Landing: React.FC<{
   workshopInfo: WorkShop;
   recomWorkshops: WorkShop[];
-}> = ({ workshopInfo, recomWorkshops }) => {
+  hashedId : string | undefined
+}> = ({ workshopInfo, recomWorkshops , hashedId }) => {
   const syllabusContent: syllabus[] = contentDestructure(workshopInfo.contents);
 
   return (
     <div className="p-5 flex flex-col items-start justify-start gap-10 overflow-hidden">
       <Hero
+        advanceUrl={workshopInfo.url}
+        hashedId={hashedId}
         teachers={workshopInfo.teachers}
         mainTitle={workshopInfo.main_title}
         secondTitle={workshopInfo.second_title}
@@ -40,8 +42,8 @@ const Landing: React.FC<{
         </CustomHeading>
         <WorkShopSlider workshops={recomWorkshops} />
       </div>
+      <FeedBackForm />
       <FeedBacksSlider feeds={workshopInfo.feedbacks} />
-      <FeedbackCarousel />
     </div>
   );
 };

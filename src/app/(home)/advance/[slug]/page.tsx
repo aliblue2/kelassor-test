@@ -3,16 +3,16 @@ import { getWorkShopInfo } from "@/requests/work-shop/getWorkShop";
 import { getWorkShops } from "@/requests/work-shop/getWorkShops";
 import { NextPage } from "next";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import { cookies } from "next/headers";
 
-interface Props {}
 
 const Page: NextPage<{ params: Params }> = async ({ params }) => {
   const WorkShopInfo = await getWorkShopInfo(params.slug);
+  const hashedId = cookies().get("session_id")?.value;
   const workshops = await getWorkShops();
-  const workshopsArray = [{ ...workshops }];
   return (
     <div className="max-w-[1100px] mx-auto w-full">
-      <Landing workshopInfo={WorkShopInfo} recomWorkshops={workshopsArray}  />
+      <Landing hashedId={hashedId} workshopInfo={WorkShopInfo} recomWorkshops={workshops}  />
     </div>
   );
 };

@@ -1,9 +1,15 @@
 import Clock from "@/../public/clockYellow.svg";
-import React from "react";
+import React, { useCallback } from "react";
 import snappPayLogo from "../../../public/snapppay.png";
 import Image from "next/image";
 import { workShopTeacher } from "@/types/Workshop";
 import CountDown from "./CountDown";
+import { useAuth } from "../Auth/useAuth";
+import { BuyWorkshopAdvance } from "@/requests/work-shop/BuyWorkshop";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { LinkedinIcon } from "lucide-react";
+import Link from "next/link";
 const Hero: React.FC<{
   teachers: workShopTeacher[];
   mainTitle: string;
@@ -12,6 +18,8 @@ const Hero: React.FC<{
   period: string;
   targetTime: string;
   level: string;
+  hashedId: string | undefined;
+  advanceUrl : string 
 }> = ({
   teachers,
   mainTitle,
@@ -20,7 +28,26 @@ const Hero: React.FC<{
   level,
   period,
   targetTime,
+  hashedId,
+  advanceUrl
 }) => {
+  const router = useRouter();
+
+  const buyAdvanceFc = useCallback(() => {
+    const buyAdvanceAsyncFc = async () => {
+      const response = await BuyWorkshopAdvance(advanceUrl, undefined, hashedId);
+      if (response.statusCode === 400) {
+        toast.info("این کارگاه قبلا خریداری شده است.!");
+        router.push("/user-panel/advance");
+      } else if (response.statusCode === 200) {
+        toast.success("کارگاه به پنل کاربری اضافه شد.!");
+      }
+    };
+    buyAdvanceAsyncFc();
+  }, [advanceUrl, hashedId, router]);
+
+  const { setModal, user } = useAuth();
+
   return (
     <div className="flex flex-col items-center justify-start gap-5 w-full">
       <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -31,13 +58,21 @@ const Hero: React.FC<{
                 key={teacher.id + teacher.linkedin}
                 className="w-full flex items-center justify-between"
               >
-                <Image
-                  width={90}
-                  height={90}
-                  src={teacher.picture}
-                  alt={teacher.name}
-                  className="max-w-16 max-h-16 md:max-w-20 md:max-h-20 rounded-full border-2 md:border-4 border-primary-base object-cover aspect-square"
-                />
+                <div className="relative">
+                  <Link href={teacher.linkedin}>
+                    <LinkedinIcon
+                      size={24}
+                      className="bg-blue-600 p-1 text-white rounded-md absolute top-0 left-0"
+                    />
+                  </Link>
+                  <Image
+                    width={90}
+                    height={90}
+                    src={teacher.picture}
+                    alt={teacher.name}
+                    className="max-w-16 max-h-16 md:max-w-20 md:max-h-20 rounded-full border-2 md:border-4 border-primary-base object-cover aspect-square"
+                  />
+                </div>
                 <div className="flex flex-col items-end justify-start gap-2">
                   <h6 className="text-base md:text-lg font-bold text-primary-base">
                     {teacher.name}
@@ -73,7 +108,11 @@ const Hero: React.FC<{
           </div>
           <div className="text-yellow-600 font-medium md:text-2xl text-xs flex items-center justify-center gap-2">
             <CountDown targetTime={targetTime} />
-            <Image src={Clock} alt="clock" className="md:w-10 w-6 animate-spin" />
+            <Image
+              src={Clock}
+              alt="clock"
+              className="md:w-10 w-6 animate-spin"
+            />
           </div>
           <div className="flex overflow-hidden absolute bottom-0 justify-center w-full h-[40px] md:h-[50px] shadow-none">
             {/* control's background ********************************************************************************/}
@@ -122,7 +161,16 @@ const Hero: React.FC<{
                 تومانی بخرید
               </span>
             </div>
-            <button className="p-2 px-4 rounded-md text-white font-medium bg-primary-base">
+            <button
+              onClick={() => {
+                if (!user) {
+                  setModal(true);
+                } else {
+                  buyAdvanceFc();
+                }
+              }}
+              className="p-2 px-4 rounded-md text-white font-medium bg-primary-base"
+            >
               خرید
             </button>
           </div>

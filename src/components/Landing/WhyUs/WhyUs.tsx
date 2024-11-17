@@ -38,6 +38,7 @@ const WhyUs = () => {
         <div className="absolute text-primary-base z-0 size-[250px] md:size-[625px] top-[-100px] md:top-auto md:bottom-0 md:left-28 left-[50%] translate-x-[-50%] md:translate-x-0 rounded-full text-sm bg-background md:text-lg">
             <AnimatedPath
               testing
+              className="w-full h-full"
               id="path5test"
               duration={20}
               viewBox="0 0 630 616"

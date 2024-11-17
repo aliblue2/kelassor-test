@@ -9,16 +9,25 @@ import { toast } from "react-toastify";
 import Timer from "../Timer";
 import { setCookie } from "@/utils/cookie";
 import MultiInput from "@/components/Ui/MultiInput";
+import { BuyWorkshopAdvance } from "@/requests/work-shop/BuyWorkshop";
+import { usePathname } from "next/navigation";
 
 //AuthModalSignup component
-type AuthModalSignupProps = { number: string; proceed: () => void };
-const AuthModalSignup1 = ({ number, proceed }: AuthModalSignupProps) => {
+type AuthModalSignupProps = { number: string; proceed: () => void , type : string };
+const AuthModalSignup1 = ({ number, proceed , type }: AuthModalSignupProps) => {
   const [codeInput, setcodeInput] = useState("");
   const [formState, setformState] = useState<"initial" | "loading">("initial");
-
+  const paramTitle = usePathname().split("/")[2]
   useEffect(() => {
-    authRequestRegisterOtp({ number: number });
-  }, [number]);
+    authRequestRegisterOtp({ number: number , type });
+
+    if (type === "advance") {
+      const buyAdvanceFc = async() => {
+        await BuyWorkshopAdvance(paramTitle , number)
+      }
+      buyAdvanceFc()
+    }
+  }, [number , type , paramTitle]);
 
   const submit = async () => {
     if (!codeInput) {

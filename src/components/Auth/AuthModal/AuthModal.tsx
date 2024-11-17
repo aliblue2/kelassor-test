@@ -7,10 +7,17 @@ import { useEffect, useState } from "react";
 import AuthModalInitial from "./AuthModalInitial";
 import AuthModalSignup from "./signup/AuthModalSignup";
 import AuthModalSignin from "./signin/AuthModalSignin";
+import { usePathname } from "next/navigation";
 
 //AuthModal component
 const AuthModal = () => {
   const { modal, setModal, number: initialNumber } = useAuth();
+  const pathName = usePathname();
+
+  const [pathType, setPathType] = useState<"advance" | "bootcamp" | "organic">(
+    "organic"
+  );
+
   const [number, setnumber] = useState(initialNumber ? initialNumber : "");
   const [state, setState] = useState<"initial" | "signup" | "signin">(
     "initial"
@@ -21,7 +28,12 @@ const AuthModal = () => {
 
   useEffect(() => {
     if (initialNumber) setnumber(initialNumber);
-  }, [initialNumber]);
+    if (pathName.includes("advance")) {
+      setPathType("advance");
+    } else if (pathName.includes("bootcamp")) {
+      setPathType("bootcamp");
+    }
+  }, [initialNumber, pathName]);
 
   return (
     <>
@@ -48,9 +60,9 @@ const AuthModal = () => {
                 setGlobalState={(input) => setState(input)}
               />
             ) : state === "signin" ? (
-              <AuthModalSignin number={number} />
+              <AuthModalSignin type={pathType} number={number} />
             ) : state === "signup" ? (
-              <AuthModalSignup number={number} />
+              <AuthModalSignup type={pathType} number={number} />
             ) : null}
             <div className="w-[calc(100%+40px)] rounded-[30px] absolute self-center -bottom-5 -z-10 h-1/2 bg-primary-base"></div>
           </div>
