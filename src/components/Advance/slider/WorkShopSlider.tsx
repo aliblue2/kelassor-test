@@ -27,7 +27,7 @@ const WorkShopSlider: React.FC<WorkShopSliderProps> = ({ workshops }) => {
   return (
     <div className="w-full h-full overflow-hidden md:max-w-[1100px] max-w-[350px] mx-auto p-3">
       <Swiper
-        slidesPerView={1}
+        slidesPerView={1.1}
         spaceBetween={10}
         pagination={{
           clickable: true,
