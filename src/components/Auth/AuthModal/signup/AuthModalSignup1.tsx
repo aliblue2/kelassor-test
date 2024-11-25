@@ -17,7 +17,7 @@ const AuthModalSignup1 = ({ number, proceed }: AuthModalSignupProps) => {
   const [formState, setformState] = useState<"initial" | "loading">("initial");
 
   useEffect(() => {
-    authRequestRegisterOtp({ number: number });
+    authRequestRegisterOtp({ number: number  });
   }, [number]);
 
   const submit = async () => {

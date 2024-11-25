@@ -9,9 +9,10 @@ import CustomButton from "@/components/Ui/CustomButton";
 //BootcampSyllabus component
 type BootcampSyllabusProps = {
   data: syllabus[];
+  isPrimary? : boolean
 };
 const BootcampSyllabus = forwardRef<HTMLDivElement, BootcampSyllabusProps>(
-  ({ data }, ref) => {
+  ({ data , isPrimary }, ref) => {
     const [expanded, setexpanded] = useState(false);
     return (
       <div className="flex flex-col scroll-mt-40" ref={ref}>
@@ -24,7 +25,7 @@ const BootcampSyllabus = forwardRef<HTMLDivElement, BootcampSyllabusProps>(
           }`}
         >
           {data.map((item, i) => (
-            <BootcampSyllabusCard key={i} data={item} />
+            <BootcampSyllabusCard isPrimary={isPrimary} key={i} data={item} />
           ))}
           {!expanded &&<div className="bg-gradient-to-t from-primary-base opacity-50 h-[200px] rounded-[30px] w-full bottom-0 absolute"/>}
         </div>

@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { ArrowLeftIcon, ArrowRightIcon, User2 } from "lucide-react";
 import Image from "next/image";
 import CustomHeading from "@/components/Ui/CustomHeading";
 

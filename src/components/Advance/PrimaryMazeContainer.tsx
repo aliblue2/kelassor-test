@@ -10,7 +10,7 @@ const PrimaryMazeContainer: React.FC<{
 }> = ({ children, isPrimary = true, side, title }) => {
   return (
     <div
-      className={`${side === "right" ? "justify-start" : "justify-end"} w-full relative flex items-center`}
+      className={`${side === "right" ? "justify-start" : "justify-end"} w-full relative flex items-center primary-maze`}
     >
       <motion.div
         initial={{
