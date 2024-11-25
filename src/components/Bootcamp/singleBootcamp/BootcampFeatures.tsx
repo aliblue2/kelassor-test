@@ -30,17 +30,14 @@ const features = [
   {
     id: 4,
     title: "معرفی برای استخدام",
-    desc: "کلاسور شما رو تنها نمیذاره و به بهترین و معتبرترین شرکت ها معرفیتون میکنه.",
+    desc: "در انتها کلاسور شمار رو تنها نمیذاره و به بهترین و معتبرترین شرکت ها برای شروع مسیر کاری معرفیتون میکنه.",
     logo: teacherGreen,
   },
 ];
 //BootcampFeatures component
-const BootcampFeatures = forwardRef<HTMLDivElement>((_, ref) => {
+const BootcampFeatures = forwardRef<HTMLDivElement>((_,ref) => {
   return (
-    <div
-      ref={ref}
-      className="flex flex-col p-5 md:p-10 scroll-mt-40 maze rounded-[30px]"
-    >
+    <div ref={ref} className="flex flex-col p-5 md:p-10 scroll-mt-40 maze rounded-[30px]">
       <CustomHeading>
         <h2>ویژگی‌های بوتکمپ کلاسور</h2>
       </CustomHeading>
@@ -48,7 +45,7 @@ const BootcampFeatures = forwardRef<HTMLDivElement>((_, ref) => {
         {features.map((item) => (
           <div
             key={item.id}
-            className={`flex flex-col gap-3 md:gap-5 items-center p-2 md:p-5 text-center bg-background rounded-[30px] relative ${item.id % 2 !== 0 ? "md:top-20" : null}`}
+            className={`flex flex-col gap-3 md:gap-5 items-center p-2 md:p-5 text-center bg-background rounded-[30px] relative ${item.id%2!==0? "md:top-20":null}`}
           >
             <div className="font-bold text-primary-base">{item.title}</div>
             <div className="text-xs font-bold text-light-1">{item.desc}</div>
@@ -57,13 +54,13 @@ const BootcampFeatures = forwardRef<HTMLDivElement>((_, ref) => {
               alt="logo"
               width={100}
               height={100}
-              className="mt-auto size-[60px] md:size-[100px]"
+              className="mt-auto scale-75 md:scale-100"
             />
           </div>
         ))}
       </div>
     </div>
   );
-});
-BootcampFeatures.displayName = "BootcampFeatures";
+})
+BootcampFeatures.displayName = "BootcampFeatures"
 export default BootcampFeatures;

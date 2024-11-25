@@ -7,15 +7,15 @@ import AuthModalSigninForgot1 from "./AuthModalSigninForgot1";
 import AuthModalSigninForgot2 from "./AuthModalSigninForgot2";
 
 //AuthModalSignin component
-type AuthModalSigninProps = { number: string , type : string };
-const AuthModalSignin = ({ number , type }: AuthModalSigninProps) => {
+type AuthModalSigninProps = { number: string };
+const AuthModalSignin = ({ number }: AuthModalSigninProps) => {
   const [state, setState] = useState<"password" | "otp" | "forgotPassword1"| "forgotPassword2">(
     "password"
   );
   return state === "password" ? (
-    <AuthModalSigninPassword type={type} number={number} setState={setState} />
+    <AuthModalSigninPassword number={number} setState={setState} />
   ) : state === "otp" ? (
-    <AuthModalSigninOtp type={type} number={number} setState={setState} />
+    <AuthModalSigninOtp number={number} setState={setState} />
   ) : state === "forgotPassword1" ? (
     <AuthModalSigninForgot1 number={number} setState={setState} />
   ) : state === "forgotPassword2" ? (

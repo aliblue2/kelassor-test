@@ -4,24 +4,22 @@ import { useAuth } from "@/components/Auth/useAuth";
 import CustomButton from "@/components/Ui/CustomButton";
 import { bootcampFormSubmit } from "@/requests/bootcampFormSubmit";
 import { Loader2Icon } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-const inputClass = "p-1 rounded-[10px] grow w-full";
+const inputClass = "p-1 rounded-[10px] grow sm:w-auto w-full";
 
 //BootcampHeroForm component
 type BootcampHeroFormProps = {
   capacity: number;
   full_capacity: number;
   title: string;
-  englishTitle: string;
   className?: string;
 };
 const BootcampHeroForm = ({
   className = "",
   title,
-  englishTitle,
   capacity,
   full_capacity,
 }: BootcampHeroFormProps) => {
@@ -31,10 +29,6 @@ const BootcampHeroForm = ({
   const [coupon, setcoupon] = useState("");
   const { user, setModal } = useAuth();
   const router = useRouter();
-  const pathName = usePathname();
-  const slug = pathName.split("/")[2];
-  console.log(slug);
-
   const submit = async () => {
     if (!name) {
       toast.error("نام و نام‌خانوادگی نمی‌تواند خالی باشد");
@@ -54,8 +48,8 @@ const BootcampHeroForm = ({
       name,
       phone,
       discount: coupon,
-      title: slug,
-    });
+      title: title,
+    })
 
     if (res.statusCode === 200) {
       if (user) {
@@ -73,30 +67,27 @@ const BootcampHeroForm = ({
   };
 
   return (
-    <div
-      className={`flex bg-light-3 min-w-[350px] rounded-[30px] items-start mt-auto p-5 text-black flex-col gap-1 ${className}`}
-    >
-      <div className="text-lg font-medium">{title}</div>
-      <div className="text-base font-medium">{englishTitle}</div>
-      <div className="text-light-1 text-xs">
+    <div className={`flex bg-light-3 rounded-[30px] mt-auto p-5 text-black flex-col gap-2 ${className}`}>
+      <div className="text-xl">{title}</div>
+      <div className="text-light-1">
         ظرفیت باقی مانده: {capacity} از {full_capacity}
       </div>
 
-      <div className="flex flex-col text-sm font-medium w-full items-start justify-center gap-2 mt-1">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 mt-2">
         نام و نام‌خانوادگی
         <input
           className={inputClass}
           onChange={(e) => setname(e.target.value)}
         />
       </div>
-      <div className="flex flex-col text-sm font-medium w-full items-start justify-center gap-2 mt-1">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 mt-2">
         شماره موبایل
         <input
           className={inputClass}
           onChange={(e) => setphone(e.target.value)}
         />
       </div>
-      <div className="flex flex-col text-sm font-medium w-full items-start justify-center gap-2 mt-1">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 mt-2">
         کد تخفیف
         <input
           placeholder="اگر کد تخفیف دارید وارد کنید"
@@ -105,7 +96,7 @@ const BootcampHeroForm = ({
         />
       </div>
       <CustomButton
-        className="flex items-center w-full mt-5 justify-center"
+        className="flex items-center justify-center"
         disabled={formState !== "ready"}
         onClick={submit}
       >

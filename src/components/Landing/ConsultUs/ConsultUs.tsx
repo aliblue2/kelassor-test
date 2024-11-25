@@ -79,32 +79,32 @@ const ConsultUs = ({ pathAnimate }: ConsultUsProps) => {
         <div className="flex relative flex-col">
           <div className="absolute bottom-[100%] w-screen lg:hidden -left-5 pl-5 z-[-10] overflow-hidden text-secondary-30">
             <AnimatedPath
-              ref={path}
-              duration={20}
+            ref={path}
+            duration={20}
               id="phone-path-24"
               viewBox="0 0 389 309"
               path="M387.912 53.9999C381.079 37.9999 346.435 13.9503 312.412 5.99993C248.2 -9.00546 165.344 11.6737 159.912 78.4999C154.914 140 180.209 159.573 199.913 163C222.914 167 241.414 156.5 247.414 133.5C254.355 106.89 238.769 91.3557 199.913 87.9999C89.9137 78.4999 -6.18252 141.532 0.99517 181.5C11.5008 240 70.4601 139.916 97 201C128.5 273.5 172.414 229.5 173.914 308.5"
             />
-            <Footstep className="absolute top-[50px] lg:hidden right-5 rotate-[180deg]" />
+        <Footstep className="absolute top-[50px] lg:hidden right-5 rotate-[180deg]" />
           </div>
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1, transition: { delay: 1 } }}
-            viewport={{ once: true }}
-            onViewportEnter={() => {
-              if (pathAnimate) pathAnimate();
-              if (path.current) path.current.animate();
-            }}
-            className="flex w-full md:w-auto justify-center items-center self-center p-16 bg-white lg:self-start max-w-[400px] aspect-square h-[240px] rounded-[30px] shadow2 md:rounded-[50px] md:h-[400px]"
-          >
-            <Image
-              src="/logo2.png"
-              alt="logo"
-              height={400}
-              width={400}
-              className="object-contain size-full"
-            />
-          </motion.div>
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1, transition: { delay: 1 } }}
+          viewport={{ once: true }}
+          onViewportEnter={() => {
+            if (pathAnimate) pathAnimate();
+            if (path.current) path.current.animate();
+          }}
+          className="flex justify-center items-center self-center p-16 bg-white lg:self-start max-w-[400px] aspect-square h-[240px] rounded-[30px] shadow2 md:rounded-[50px] md:h-[400px]"
+        >
+          <Image
+            src="/logo2.png"
+            alt="logo"
+            height={400}
+            width={400}
+            className="object-contain size-full"
+          />
+        </motion.div>
         </div>
       </div>
     </div>

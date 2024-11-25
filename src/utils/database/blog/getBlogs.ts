@@ -26,9 +26,6 @@ export async function getBlogs({
   res = rows;
   return res as blog[];
 }
-  
-
-
 export async function getBlogsByView({
   justActive = false,
   category,

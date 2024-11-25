@@ -6,18 +6,13 @@ import Link from "next/link";
 import PhoneNavGroup from "./PhoneNavGroup";
 import Image from "next/image";
 import { AboutusIcon, CallusIcon, RulesIcon } from "@/components/Ui/Icons";
-import { WorkShopMain } from "@/types/Workshop";
 
 //PhoneNav component
 type PhoneNavProps = {
   bootcamps: bootcampSimple[];
-  workshops: WorkShopMain[];
   close: () => void;
 };
-const PhoneNav = ({ bootcamps, workshops, close }: PhoneNavProps) => {
-  const activeWorkShops = workshops.findIndex(
-    (item) => item.status === "active"
-  );
+const PhoneNav = ({ bootcamps, close }: PhoneNavProps) => {
   return (
     <>
       {/******************************************************************************
@@ -66,31 +61,9 @@ const PhoneNav = ({ bootcamps, workshops, close }: PhoneNavProps) => {
                   alt={bc.header_title}
                 />
               </Link>
-            ) : null
+            ) : null,
           )}
         </PhoneNavGroup>
-        {activeWorkShops > -1 ? (
-          <PhoneNavGroup title="کارگاه‌ها">
-            <Link href="/advance">همه کارگاه‌ها</Link>
-            {workshops.map((item) =>
-              item.status !== "notactive" ? (
-                <Link
-                  key={item.url}
-                  className="flex justify-between items-center"
-                  href={`/advance/${item.url}`}
-                >
-                  {item.header_title}{" "}
-                  <Image
-                    src={item.logo}
-                    height={20}
-                    width={20}
-                    alt={item.header_title}
-                  />
-                </Link>
-              ) : null
-            )}
-          </PhoneNavGroup>
-        ) : null}
         <Link className="p-5 border-b border-b-secondary-50" href="/blog">
           بلاگ
         </Link>

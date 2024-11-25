@@ -9,7 +9,6 @@ import CategorySelect from "@/components/blog/CategorySelect";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
-import slugify from "slugify";
 
 const Page = () => {
   const router = useRouter();
@@ -25,22 +24,15 @@ const Page = () => {
 
   const bannerUploadHandler = async (file: File | null) => {
     if (!file) return;
-    if (!slug) {
-      toast.error("اسلاگ را مشخص کنید");
-      return;
-    }
     const formData = new FormData();
     formData.append("files[0]", file);
-    formData.append("tag", slug);
     const res = await fetch("/api/upload", {
       method: "POST",
       body: formData,
     }).then((res) => res.json());
     if (res.success) {
       setbannerUrl(res.data.baseurl + res.data.files[0]);
-    } else {
-      toast.error("مشکلی در سرور پیش آمپ");
-    }
+    }else{toast.error("مشکلی در سرور پیش آمپ")}
   };
   const handlePost = async () => {
     if (!title) {
@@ -113,10 +105,7 @@ const Page = () => {
         <div className="w-24 self-start md:text-end">اسلاگ</div>
         <div className="grow w-full md:w-0">
           <CustomInput
-            onChange={(e) => {
-              const slugiy = slugify(e.target.value, "_");
-              setslug(slugiy);
-            }}
+            onChange={(e) => setslug(e.target.value)}
             name="blog slug"
             placeholder="اسلاگ (نامی برای نمایش در لینک، بدون فاصله و انگلیسی)"
           />
@@ -187,7 +176,7 @@ const Page = () => {
           </>
         )}
       </div>
-      <Editor tag={slug} value={content} onChange={setContent} />
+      <Editor value={content} onChange={setContent} />
       <div className="flex justify-end">
         <CustomButton
           onClick={handlePost}

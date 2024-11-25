@@ -11,48 +11,44 @@ import { usePathname, useRouter } from "next/navigation";
 import PhoneSideBar from "@/components/user-panel/SideBar/PhoneSideBar";
 import { useBootcamps } from "@/contexts/useBootcamps";
 import Link from "next/link";
-import { getWorkShops } from "@/requests/work-shop/getWorkShops";
-import { useWorkShops } from "@/contexts/useWorkshops";
 
 //NavBar component
 const NavBar = () => {
   const [phoneNav, setphoneNav] = useState(false);
-
   const { setModal } = useAuth();
   const pathname = usePathname();
   const { user } = useAuth();
   const router = useRouter();
   const { bootcamps } = useBootcamps();
-  const { workshops } = useWorkShops();
 
   return (
     <>
-      <div className="z-[101] sticky top-0 h-16 bg-background border-b ">
+      <div className="z-[101] sticky top-0 h-[60px] bg-background border-b ">
         <motion.div
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="container flex h-full grid-cols-6 gap-3 md:grid "
+          className="container flex  md:grid grid-cols-[1fr_4fr_1fr] h-full "
         >
           {/* menu button for phone ********************************************************************************/}
           <div
             onClick={() => setphoneNav((e) => !e)}
-            className="flex items-center justify-center md:hidden text-primary-base"
+            className="flex justify-center items-center md:hidden text-primary-base"
           >
             {phoneNav ? <XIcon size={35} /> : <MenuIcon size={36} />}
           </div>
           {/* logo ********************************************************************************/}
           <Link //todo get svg logo
             href={"/"}
-            className="flex items-center h-full col-span-1 p-2 ms-auto grow md:ms-0"
+            className="flex items-center p-2 h-full ms-auto grow md:ms-0"
           >
             <Image src="/logo.png" alt="logo" width={100} height={60} />
           </Link>
           {/* navigation for desktop ********************************************************************************/}
-          <div className="hidden col-span-4 md:block">
-            <Nav workshops={workshops} bootcamps={bootcamps} />
+          <div className="hidden md:block">
+            <Nav bootcamps={bootcamps} />
           </div>
           {/* account ********************************************************************************/}
-          <div className="flex items-center justify-end col-span-1">
+          <div className="flex justify-end items-center">
             <CustomButton
               onClick={
                 user ? () => router.push("/user-panel") : () => setModal(true)
@@ -75,11 +71,7 @@ const NavBar = () => {
           (pathname.includes("user-panel") ? (
             <PhoneSideBar close={() => setphoneNav(false)} />
           ) : (
-            <PhoneNav
-              close={() => setphoneNav(false)}
-              bootcamps={bootcamps}
-              workshops={workshops}
-            />
+            <PhoneNav close={() => setphoneNav(false)} bootcamps={bootcamps} />
           ))}
       </AnimatePresence>
     </>

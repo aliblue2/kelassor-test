@@ -29,7 +29,7 @@ const ConsultSubjectSelect = ({ set, value }: ConsultSubjectSelectProps) => {
             <div
               key={item.header_title}
               className="py-2 px-4 "
-              onClick={() => set(item.url)} //todo main
+              onClick={() => set(item.header_title)}
             >
               {item.header_title}
             </div>

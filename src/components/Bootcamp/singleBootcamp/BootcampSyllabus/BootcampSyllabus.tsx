@@ -9,14 +9,13 @@ import CustomButton from "@/components/Ui/CustomButton";
 //BootcampSyllabus component
 type BootcampSyllabusProps = {
   data: syllabus[];
-  isPrimary?: boolean;
 };
 const BootcampSyllabus = forwardRef<HTMLDivElement, BootcampSyllabusProps>(
-  ({ data, isPrimary = false }, ref) => {
+  ({ data }, ref) => {
     const [expanded, setexpanded] = useState(false);
     return (
       <div className="flex flex-col scroll-mt-40" ref={ref}>
-        <CustomHeading circle side="right">
+        <CustomHeading circle side="left">
           <h2>سرفصل‌های تخصصی دوره</h2>
         </CustomHeading>
         <div
@@ -25,20 +24,18 @@ const BootcampSyllabus = forwardRef<HTMLDivElement, BootcampSyllabusProps>(
           }`}
         >
           {data.map((item, i) => (
-            <BootcampSyllabusCard isPrimary={isPrimary} key={i} data={item} />
+            <BootcampSyllabusCard key={i} data={item} />
           ))}
-          {!expanded && (
-            <div className="bg-gradient-to-t from-primary-base opacity-50 h-[200px] rounded-[30px] w-full bottom-0 absolute" />
-          )}
+          {!expanded &&<div className="bg-gradient-to-t from-primary-base opacity-50 h-[200px] rounded-[30px] w-full bottom-0 absolute"/>}
         </div>
-        {!expanded && (
-          <CustomButton
-            onClick={() => setexpanded((e) => !e)}
-            className="self-center mt-5"
-          >
-            مشاهده بیشتر
-          </CustomButton>
-        )}
+        {!expanded &&
+        <CustomButton
+          onClick={() => setexpanded((e) => !e)}
+          className="self-center mt-5"
+        >
+          مشاهده بیشتر
+        </CustomButton>
+        }
       </div>
     );
   }

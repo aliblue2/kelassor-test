@@ -51,7 +51,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
         <div className="bg-white p-10 rounded-[40px] shadow2">
-          <div className="IranSans" dangerouslySetInnerHTML={{ __html: res[0].content }}></div>
+          <div dangerouslySetInnerHTML={{ __html: res[0].content }}></div>
         </div>
       </div>
       <div className="flex flex-col gap-20">

@@ -3,7 +3,6 @@ import { bootcampSimple } from "@/types/bootcamp";
 import { InfoIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 //BootCampCard component
 type BootcampCardProps = { data: bootcampSimple };
 const BootCampCard = ({ data }: BootcampCardProps) => {

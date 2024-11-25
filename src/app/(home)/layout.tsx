@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 type RootLayoutProps = { children: ReactNode };
-const RootLayout = ({ children }: RootLayoutProps) => {
+const RootLayout = async ({ children }: RootLayoutProps) => {
   return (
     <>
       <AuthModal />

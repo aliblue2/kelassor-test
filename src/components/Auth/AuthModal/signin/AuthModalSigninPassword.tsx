@@ -2,27 +2,22 @@
 import CustomButton from "@/components/Ui/CustomButton";
 import { authSigninPassword } from "@/requests/Auth/authSigninPassword";
 import { Loader2Icon } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../useAuth";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import PasswordShowButton from "@/components/Ui/PasswordShowButton";
-import { BuyWorkshopAdvance } from "@/requests/work-shop/BuyWorkshop";
 
 //AuthModalSigninPassword component
 type AuthModalSigninPasswordProps = {
   number: string;
-  type : string
   setState: (input: "otp" | "forgotPassword1") => void;
 };
 const AuthModalSigninPassword = ({
   number,
-  type, 
   setState,
 }: AuthModalSigninPasswordProps) => {
   const [formState, setformState] = useState<"initial" | "loading">("initial");
-  const paramTitle = usePathname().split("/")[2]
-  
   const [input, setInput] = useState("");
   const inputRef = useRef<null | HTMLInputElement>(null);
   const { login, setModal } = useAuth();
@@ -35,11 +30,7 @@ const AuthModalSigninPassword = ({
     if (res.statusCode === 200) {
       login(res.hashed_id);
       setModal(false);
-      if(type === "advance"){
-      router.push("/user-panel/advance");
-      }else {
       router.push("/user-panel");
-      }
     } else if (res.statusCode === 100) {
       toast.error("رمز عبور اشتباه است");
     } else {
@@ -47,16 +38,6 @@ const AuthModalSigninPassword = ({
     }
     setformState("initial");
   };
-
-  useEffect(() => {
-    if(type === "advance") {
-      const buyAdvanceFc = async () => {
-        await BuyWorkshopAdvance(paramTitle , number)
-      }
-      buyAdvanceFc()
-    } 
-  } , [type , paramTitle , number])
-
   return (
     <div className="flex flex-col gap-2">
       <h3>رمز‌عبور خود را وارد کنید.</h3>

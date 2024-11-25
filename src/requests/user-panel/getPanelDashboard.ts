@@ -5,7 +5,6 @@ export type getPanelDashboardOutput = {
   key: string;
   length: string;
   logo_banner: string;
-  status:string;
 };
 export const getPanelDashboard: (
   session_id: string | undefined

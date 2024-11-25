@@ -66,7 +66,7 @@ const Modal: React.FC<{
           className="absolute top-2 left-2 text-primary-base"
         />
         {loading && <div className="absolute top-0 left-0 backdrop-blur-sm bg-white w-full h-full flex items-center justify-center">
-            <LoaderCircle size={32} className="animate-spin text-primary-base" />
+            <LoaderCircle size={72} className="animate-spin text-primary-base" />
           </div>}
 
         {checkoutState.success && (
