@@ -17,7 +17,7 @@ const Page: NextPage<Props> =async({}) => {
 
   return (
     <div className="w-full">
-      <ActiveAdvances sessions={sessions} />
+      <ActiveAdvances sessions={sessions} hashedId={hashedId}/>
       <PassedAdvances sessions={sessions} />
       <RecomAdvances workshops={workshops} />
     </div>

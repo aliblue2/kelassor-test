@@ -4,28 +4,42 @@ import { AnimatePresence } from "framer-motion";
 import React, { useCallback, useState } from "react";
 import Modal from "./Pay/Modal/Modal";
 
-const ActiveAdvances: React.FC<{ sessions: GroupedAdvanceSessions[] }> = ({
+export type activeAdvanceItem = {
+  advanceId: number;
+  title: string;
+};
+
+const ActiveAdvances: React.FC<{ sessions: GroupedAdvanceSessions[] , hashedId : string | undefined }> = ({
   sessions,
+  hashedId
 }) => {
   const [payModalVis, setPayModalVis] = useState(false);
-  const [activeAdvaceId, setActiveAdvanceId] = useState(-1);
-  const openModalToggler = useCallback((advanceId: number) => {
-    setPayModalVis((prevState) => {
-      if (prevState) {
-        document.body.style.overflow = "unset";
-      } else {
-        document.body.style.overflow = "hidden";
-      }
-      return !prevState;
-    });
-    setActiveAdvanceId(advanceId);
-  }, []);
+  const [activeAdvanceItem, setActiveAdvanceItem] = useState<activeAdvanceItem>(
+    {
+      advanceId: -1,
+      title: "",
+    }
+  );
+  const openModalToggler = useCallback(
+    (advanceId: number, advanceTitle: string) => {
+      setPayModalVis((prevState) => {
+        if (prevState) {
+          document.body.style.overflow = "unset";
+        } else {
+          document.body.style.overflow = "hidden";
+        }
+        return !prevState;
+      });
+      setActiveAdvanceItem({ advanceId: advanceId, title: advanceTitle });
+    },
+    []
+  );
 
   return (
     <>
       <AnimatePresence>
         {payModalVis && (
-          <Modal advanceId={activeAdvaceId} modalTogglerFc={openModalToggler} />
+          <Modal hashedId={hashedId} modalToggler={openModalToggler} activeAdvanceItem={activeAdvanceItem} />
         )}
       </AnimatePresence>
 
@@ -83,8 +97,8 @@ const ActiveAdvances: React.FC<{ sessions: GroupedAdvanceSessions[] }> = ({
                       "تسویه"
                     ) : (
                       <button
-                        className="text-white font-medium bg-primary-base hover:bg-primary-30 transition-colors ease-in-out duration-300 p-2 rounded-lg text-sm md:text-lg w-full md:w-fit"
-                        onClick={() => openModalToggler(sessionsItem.advanceId)}
+                        className="text-white font-medium bg-primary-base hover:bg-primary-30 transition-colors ease-in-out duration-300 p-2 px-4 rounded-lg text-sm md:text-lg w-fit"
+                        onClick={() => openModalToggler(sessionsItem.advanceId , sessionsItem.advanceTitle)}
                       >
                         پرداخت{" "}
                       </button>

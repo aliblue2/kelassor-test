@@ -3,9 +3,8 @@ import { CloudUpload, FileImage } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
-const FileUpload: React.FC = () => {
+const FileUpload: React.FC <{file : File | null,  setFileFc : (file : File | null) => void , checkoutAdvanceFc : () => void} > = ({setFileFc , file , checkoutAdvanceFc}) => {
   const fileRef = useRef<HTMLInputElement>(null);
-  const [file, setFile] = useState<File | null>();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const openFileUpload = () => {
@@ -15,12 +14,12 @@ const FileUpload: React.FC = () => {
   const fileChangeHandler = () => {
     const selectedFile = fileRef?.current?.files?.[0];
     if (selectedFile) {
-      setFile(selectedFile);
+      setFileFc(selectedFile);
     }
   };
 
   const deleteImageHandler = () => {
-    setFile(null);
+    setFileFc(null);
     setPreviewUrl(null);
   };
 
@@ -45,10 +44,13 @@ const FileUpload: React.FC = () => {
             className="rounded-md w-full max-h-72 overflow-hidden border border-primary-base"
           />
           <div className="flex items-center justify-center gap-3">
-            <button className="bg-success text-sm cursor-pointer text-white font-medium p-2 rounded-md">
+            <button
+              onClickCapture={checkoutAdvanceFc}
+            className="bg-success text-sm cursor-pointer text-white font-medium p-2 rounded-md">
               تایید و ارسال رسید پرداخت
             </button>
             <button
+              type="button"
               onClick={deleteImageHandler}
               className="bg-error cursor-pointer text-sm text-white font-medium p-2 rounded-md"
             >

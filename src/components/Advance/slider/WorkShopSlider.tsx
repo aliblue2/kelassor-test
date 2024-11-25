@@ -47,8 +47,10 @@ const WorkShopSlider: React.FC<WorkShopSliderProps> = ({ workshops }) => {
         modules={[Pagination]}
         className="w-full h-full"
       >
-        {workshops.map((workShopItem, i) => {
-          return workShopItem.status === "active" ? (
+        {workshops.length === 0 ? <span className="text-white font-bold text-xl text-center">
+          هنوز کارگاهی وجود ندارد
+        </span> :workshops.map((workShopItem, i) => {
+          return workShopItem.status === "active" && (
             <SwiperSlide
               onClick={() => openWorkShopHandler(workShopItem.url)}
               key={workShopItem.id + i}
@@ -90,9 +92,7 @@ const WorkShopSlider: React.FC<WorkShopSliderProps> = ({ workshops }) => {
                 </div>
               </div>
             </SwiperSlide>
-          ) : (
-            "هنوز کارگاهی وجود ندارد"
-          );
+          ) 
         })}
       </Swiper>
     </div>
